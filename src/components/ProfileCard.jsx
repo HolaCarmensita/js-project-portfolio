@@ -1,11 +1,16 @@
 import Button from './Button';
+import profile from '../data/profile.json';
 
 function ProfileCard() {
   return (
     <div>
-      <img src='/path-to-img.jpg' alt='Your Name' />
-      <h3>Your Name</h3>
-      <p>Short intro about yourself</p>
+      <img
+        src={profile.image}
+        alt='Picture of Casandra'
+        style={{ width: '450px', height: '300px', objectFit: 'cover' }}
+      />
+      <h3>Casandra Gustafsson</h3>
+      <p>{profile.descriptionShort}</p>
       <Button
         text='Resume'
         href='/resume.pdf'
