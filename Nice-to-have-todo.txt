@@ -1,0 +1,32 @@
+✨ Portfolio - Nice to have features (To Do)
+
+1. 🔁 Text Truncation
+   - Kortare projektbeskrivningar med "..." vid behov
+   - CSS eller Tailwind: `truncate` eller `line-clamp`
+
+2. 🎨 Animationer
+   - Fade in-effekter när komponenter scrollas in
+   - Hover-effekter på knappar och projektkort
+
+3. 🧭 Smooth Scroll
+   - Mjuk scrollning vid klick på navigationslänkar
+   - CSS: `scroll-behavior: smooth` i `html` eller `body`
+
+4. 💡 Dark Mode Toggle
+   - Lägga till en knapp för att växla mellan mörkt och ljust tema
+   - Styla med Tailwind's `dark:`-klasser
+
+5. 📱 Responsiv layout
+   - Säkerställa att portfolion fungerar snyggt på mobil, surfplatta och desktop
+
+6. 🧠 Tillgänglighet
+   - Fokusringar på interaktiva element
+   - Alt-texter, aria-labels och korrekt semantik
+
+7. 🧼 Data-driven content
+   - Byta hårdkodade delar mot innehåll från profile.json och projects.json
+   - Strukturera props rent och skalbart
+
+8. 🌍 Footer
+   - Lägg till en footer med copyright, länk till CV eller kontakt
+
