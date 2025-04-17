@@ -17,12 +17,14 @@ function ProjectCard({ project }) {
         href={project.netlify}
         target='_blank'
         rel='noopener noreferrer'
+        ariaLabel={`View live demo of ${project.name}`}
       />
       <Button
         text='GitHub'
         href={project.github}
         target='_blank'
         rel='noopener noreferrer'
+        ariaLabel={`View the github-repo of ${project.name}`}
       />
       <Techniques list={project.tags} />
     </article>

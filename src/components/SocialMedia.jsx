@@ -9,7 +9,7 @@ function SocialMedia() {
             href={media.url}
             target='_blank'
             rel='noopener noreferrer'
-            aria-label={key}
+            aria-label={`Link to my ${key} profile`}
             title={key}
           >
             <img src={media.icon} alt='' />

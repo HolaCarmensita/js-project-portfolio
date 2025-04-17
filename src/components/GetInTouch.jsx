@@ -9,7 +9,7 @@ function GetInTouch() {
         <dt>Email:</dt>
         <dd>
           <a
-            href={`mailto:${profile.email}`}
+            href={`mailto:${profile.email}?subject=Contact from portfolio!`}
             aria-label={`Send an email to ${profile.email}`}
           >
             {profile.email}
