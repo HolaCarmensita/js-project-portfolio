@@ -4,6 +4,7 @@ import AboutMe from './components/AboutMe';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import GetInTouch from './components/GetInTouch';
+import Footer from './components/Footer';
 
 export const App = () => {
   return (
@@ -31,6 +32,7 @@ export const App = () => {
           <GetInTouch />
         </section>
       </main>
+      <Footer />
     </>
   );
 };
