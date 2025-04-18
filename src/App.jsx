@@ -5,6 +5,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
+import ToggleFontButton from './components/ToggleFontButton';
 
 export const App = () => {
   return (
@@ -16,6 +17,10 @@ export const App = () => {
         <h1 className="text-4xl font-['TAN-Rosebud'] text-center">
           Nu använder vi TAN Rosebud direkt ✨
         </h1>
+        <ToggleFontButton />
+        <p className='font-(family-name:--font-main)'>
+          Den här texten växlar font med knappen ovan 👆
+        </p>
       </div>
 
       <Navigation />

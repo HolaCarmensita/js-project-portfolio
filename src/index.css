@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
 
 @import 'tailwindcss';
 
@@ -10,9 +10,36 @@
   font-display: swap;
 }
 
+:root {
+  /* To use for accessibility modes, not finished set up get*/
+
+  --font-main: 'TAN-Rosebud', serif;
+  --font-alt: 'Lexend', sans-serif;
+
+  --color-text: #1e1e1e;
+  --color-bg: #ffffff;
+  --color-accent: #e91e63;
+}
+
+html.dyslexic {
+  /* To use for dyslexia-users, not finished set up get*/
+  --font-main: var(--font-alt);
+}
+
 body {
   background: white;
   color: black;
 
   /* font-family: 'Playfair Display', serif; */
+}
+
+@layer base {
+  button,
+  a {
+    @apply cursor-pointer transition duration-200;
+  }
+
+  a:hover {
+    @apply underline text-pink-600;
+  }
 }
