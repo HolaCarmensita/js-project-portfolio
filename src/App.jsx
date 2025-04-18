@@ -9,6 +9,12 @@ import Footer from './components/Footer';
 export const App = () => {
   return (
     <>
+      <div className='p-10 bg-yellow-200 text-center'>
+        <h1 className='text-4xl font-bold underline text-pink-700 font-rosebud'>
+          Tailwind works! WOHOOO!!!
+        </h1>
+      </div>
+
       <Navigation />
 
       <main>
