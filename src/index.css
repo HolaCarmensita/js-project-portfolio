@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
 @import 'tailwindcss';
 
 @font-face {
-  font-family: 'Rosebud';
+  font-family: 'TAN-Rosebud';
   src: url('/fonts/TAN-Rosebud.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
   background: white;
   color: black;
+
+  /* font-family: 'Playfair Display', serif; */
 }

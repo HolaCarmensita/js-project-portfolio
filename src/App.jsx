@@ -13,6 +13,9 @@ export const App = () => {
         <h1 className='text-4xl font-bold underline text-pink-700 font-rosebud'>
           Tailwind works! WOHOOO!!!
         </h1>
+        <h1 className="text-4xl font-['TAN-Rosebud'] text-center">
+          Nu använder vi TAN Rosebud direkt ✨
+        </h1>
       </div>
 
       <Navigation />
