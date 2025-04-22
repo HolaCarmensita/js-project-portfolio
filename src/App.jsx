@@ -10,17 +10,10 @@ import ToggleFontButton from './components/ToggleFontButton';
 export const App = () => {
   return (
     <>
-      <div className='p-10 bg-yellow-200 text-center'>
-        <h1 className='text-4xl font-bold underline text-pink-700 font-rosebud'>
-          Tailwind works! WOHOOO!!!
-        </h1>
-        <h1 className="text-4xl font-['TAN-Rosebud'] text-center">
-          Nu använder vi TAN Rosebud direkt ✨
-        </h1>
+      <div>
+        <h1>HOLA WELCOME</h1>
         <ToggleFontButton />
-        <p className='font-(family-name:--font-main)'>
-          Den här texten växlar font med knappen ovan 👆
-        </p>
+        <p>Den här texten växlar font med knappen ovan 👆</p>
       </div>
 
       <Navigation />
