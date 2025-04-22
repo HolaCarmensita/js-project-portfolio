@@ -1,3 +1,16 @@
+Reminders: 
+Det är en global CSS-regel, och GlobalStyle är platsen för:
+
+1. Globala variabler (:root)
+
+2. Resets och grunder
+
+3. Responsiva helpers
+
+4. Tillståndsklasser som .dyslexic, .dark, .reduced-motion, etc.
+
+
+
 ✨ Portfolio - Nice to have features (To Do)
 
 1. 🔁 Text Truncation

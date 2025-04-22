@@ -10,27 +10,6 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
   }
 
-  @font-face {
-    font-family: 'Aileron Regular';
-    font-style: normal;
-    font-weight: normal;
-    src: url('/fonts/Aileron-Regular.woff') format('woff');
-    }
-
-  @font-face {
-    font-family: 'Aileron SemiBold';
-    font-style: normal;
-    font-weight: normal;
-    src: url('/fonts/Aileron-SemiBold.woff') format('woff');
-    }
-
-  @font-face {
-    font-family: 'Aileron Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: url('/fonts/Aileron-Bold.woff') format('woff');
-    }
-
   /* CSS Variables */
   :root {
     --font-main: 'Belgrano', serif;
@@ -90,6 +69,14 @@ const GlobalStyle = createGlobalStyle`
   a, button {
     cursor: pointer;
   }
+
+
+  /* Accessibilty*/
+
+html.dyslexic {
+  --font-main: var(--font-alt);
+}
+  
 `;
 
 export default GlobalStyle;
