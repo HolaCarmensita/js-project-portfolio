@@ -1,5 +1,5 @@
 import Navigation from './components/navigation';
-import Hero from './components/Hero';
+import IntroSection from './components/IntroSection';
 import AboutMe from './components/AboutMe';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -10,18 +10,16 @@ import ToggleFontButton from './components/ToggleFontButton';
 export const App = () => {
   return (
     <>
-      <div>
-        <h1>HOLA WELCOME</h1>
+      {/* <div>
         <ToggleFontButton />
-        <p>Den här texten växlar font med knappen ovan 👆</p>
-      </div>
+      </div> */}
 
       <Navigation />
 
       <main>
-        <section id='intro'>
-          <Hero />
-        </section>
+        <>
+          <IntroSection />
+        </>
 
         <section id='about'>
           <AboutMe />

@@ -16,7 +16,9 @@ function Button({
         rel={rel}
         aria-label={ariaLabel}
         className='button'
-      ></a>
+      >
+        {text}
+      </a>
     );
   }
 

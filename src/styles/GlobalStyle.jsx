@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     --color-bg: #ffffff;
     --color-text: #1e1e1e;
     --color-accent: #e91e63;
+    
   }
 
   /* Global Reset & Base Styles */
