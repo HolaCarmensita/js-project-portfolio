@@ -1,6 +1,14 @@
+import styled from 'styled-components';
+
+const Nav = styled.nav`
+  @media (max-width: 767px) {
+    display: none;
+  }
+`;
+
 function Navigation() {
   return (
-    <nav>
+    <Nav>
       <ul>
         <li>
           <a href='#intro' aria-label='Go to the intro section'>
@@ -23,7 +31,7 @@ function Navigation() {
           </a>
         </li>
       </ul>
-    </nav>
+    </Nav>
   );
 }
 

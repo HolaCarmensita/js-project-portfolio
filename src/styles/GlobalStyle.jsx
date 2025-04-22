@@ -72,6 +72,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
+/* Style */
+section {
+  min-height: 100vh;
+}
+
+
   /* Accessibilty*/
 
 html.dyslexic {
