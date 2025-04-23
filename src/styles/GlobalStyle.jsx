@@ -83,6 +83,7 @@ const GlobalStyle = createGlobalStyle`
 /* Style */
 section {
   min-height: 100vh;
+
 }
 
 

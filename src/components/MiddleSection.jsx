@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   line-height: 0;
   position: relative;
-  z-index: 1;
+  z-index: 100;
   display: flex;
   justify-content: center;
 `;
