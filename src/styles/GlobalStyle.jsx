@@ -17,11 +17,13 @@ const GlobalStyle = createGlobalStyle`
     ${'' /* --font-main: 'Aileron Regular', sans-serif; */}
     --font-display: 'TAN-Rosebud', serif;
     --font-alt: 'Lexend', sans-serif;
-
     --color-bg: #FAFBF4;
     --color-text: #1e1e1e;
     --color-accent: #FF7300;
     --color-purple: #391D75;
+    --color-magenta: #34EDB3;
+    --color-mustard: #FFBF00;
+
   
     
   }

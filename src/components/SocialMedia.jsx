@@ -1,8 +1,18 @@
 import profile from '../data/profile.json';
+import styled from 'styled-components';
+
+const SocialMediaList = styled.ul`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
 
 function SocialMedia() {
   return (
-    <ul className='social-media-list'>
+    <SocialMediaList>
       {Object.entries(profile.socialMedia).map(([key, media]) => (
         <li key={key}>
           <a
@@ -16,7 +26,7 @@ function SocialMedia() {
           </a>
         </li>
       ))}
-    </ul>
+    </SocialMediaList>
   );
 }
 

@@ -8,6 +8,7 @@ const CornerButtonWrapper = styled.div`
 `;
 
 const Section = styled.section`
+  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
