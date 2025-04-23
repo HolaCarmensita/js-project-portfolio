@@ -5,6 +5,16 @@ const SkillCard = styled.article`
   flex-direction: column;
   gap: 1rem;
 
+  align-items: flex-start; /* default */
+
+  &:nth-child(even) {
+    align-items: flex-end;
+  }
+
+  &:nth-child(even) ul {
+    justify-content: flex-end;
+  }
+
   svg {
     width: 50vw;
     height: auto;
