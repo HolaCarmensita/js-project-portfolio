@@ -33,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+    html {
+    scroll-behavior: smooth;
+  }
+
   html, body {
     height: 100%; /*Vet ej om jag behöver denna men ev vid sticky footer etc*/
     font-family: var(--font-main);
