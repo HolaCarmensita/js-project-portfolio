@@ -12,6 +12,18 @@ const AboutSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /*Klipper cirkeln så bara halva syns */
+`;
+
+const Circle = styled.img`
+  position: absolute;
+  top: 50%; /* centrerar vertikalt */
+  left: -50px; /* skjuter ut cirkeln utanför viewporten */
+  transform: translateY(-50%);
+  width: 100px;
+  height: auto;
+  pointer-events: none; /* så att den inte blockar klick */
+  z-index: 0; /* om du har andra lager */
 `;
 
 const CornerButtonWrapper = styled.div`
@@ -23,6 +35,8 @@ const CornerButtonWrapper = styled.div`
 function AboutMe() {
   return (
     <AboutSection>
+      <Circle src='/icons/circle.svg' alt='' aria-hidden='true' />
+
       <CornerButtonWrapper>
         <Button
           text='Resume here'
