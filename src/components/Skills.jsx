@@ -1,10 +1,13 @@
+import profile from '../data/profile.json';
+import SkillCategory from './SkillsCategory';
+
 function Skills() {
   return (
-    <section>
+    <section id='skills'>
       <h2>Skills</h2>
-      <p>This is the Skills section</p>
-
-      {/* SkillCategory component HÄR*/}
+      {Object.entries(profile.skills).map(([title, skills]) => (
+        <SkillCategory key={title} title={title} skills={skills} />
+      ))}
     </section>
   );
 }
