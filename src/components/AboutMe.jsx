@@ -35,7 +35,7 @@ const CornerButtonWrapper = styled.div`
 function AboutMe() {
   return (
     <AboutSection>
-      <Circle src='/icons/circle.svg' alt='' aria-hidden='true' />
+      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' />
 
       <CornerButtonWrapper>
         <Button

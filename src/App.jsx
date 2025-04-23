@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
 import ToggleFontButton from './components/ToggleFontButton';
+import MiddleSection from './components/MiddleSection';
 
 export const App = () => {
   return (
@@ -17,9 +18,9 @@ export const App = () => {
       <Navigation />
 
       <main>
-        <>
-          <IntroSection />
-        </>
+        <IntroSection />
+
+        <MiddleSection shapeSrc='/shapes/waveOrange.svg' />
 
         <section id='about'>
           <AboutMe />
