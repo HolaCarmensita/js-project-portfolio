@@ -1,16 +1,22 @@
-//Done with ChatGPT and @riklomas codepen: Making an animated wave
-
+// Button.jsx
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-const xs = Array.from({ length: 501 }, (_, i) => i);
+// Skapa X‐värden 0…173 för att täcka hela viewBox‐bredden
+const xs = Array.from({ length: 174 }, (_, i) => i);
 
+// Parametrar från din waveOrange.svg
+const BASELINE = 5.5; // mittlinje
+const AMPLITUDE = 4.6667; // ±4.6667px
+const DIVISOR = 173 / (2 * Math.PI * 4.5);
+
+// Styled Components
 const LinkWrapper = styled.a`
   position: relative;
   display: inline-block;
-  color: var(--color-text);
+  color: inherit;
   text-decoration: none;
-  padding-bottom: 60px; /* ge plats åt högre våg */
+  padding-bottom: 12px; /* ger plats åt vågen */
 `;
 
 const ButtonWrapper = styled.button`
@@ -18,10 +24,11 @@ const ButtonWrapper = styled.button`
   display: inline-block;
   background: transparent;
   border: none;
-  color: var(--color-accent);
+  color: inherit;
   font: inherit;
-  padding: 12px 24px;
   cursor: pointer;
+  padding: 8px 16px;
+  padding-bottom: 12px;
 `;
 
 const WaveSvg = styled.svg`
@@ -29,7 +36,7 @@ const WaveSvg = styled.svg`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px; /* gör SVG:en högre */
+  height: 11px; /* matchar SVG‐höjden */
   pointer-events: none;
 `;
 
@@ -44,69 +51,69 @@ export default function Button({
 }) {
   const pathRef = useRef(null);
   const t = useRef(0);
-  const rafId = useRef(null);
+  const rafId = useRef(0);
   const animating = useRef(false);
 
-  // Konstanter för större våg
-  const SVG_HEIGHT = 100; // px
-  const BASELINE = SVG_HEIGHT / 2; // mitten = 50px
-  const AMPLITUDE = 16; // våghöjd = ±30px
-  const SPEED = 1; // kan justeras
-
+  // Ritar vågen utifrån BASELINE, AMPLITUDE, DIVISOR och aktuell t
   const drawWave = () => {
-    const points = xs
+    const d = xs
       .map((x) => {
-        const y = BASELINE + AMPLITUDE * Math.sin((x + t.current) / 24);
+        const y = BASELINE + AMPLITUDE * Math.sin((x + t.current) / DIVISOR);
         return `${x},${y}`;
       })
       .join(' L');
-    pathRef.current.setAttribute('d', `M${points}`);
+    if (pathRef.current) {
+      pathRef.current.setAttribute('d', `M${d}`);
+    }
   };
 
+  // Loop‐funktion
   const animate = () => {
     if (!animating.current) return;
     drawWave();
-    t.current += SPEED;
+    t.current += 0.6; // justera hastighet om du vill
     rafId.current = requestAnimationFrame(animate);
   };
 
+  // Startar animation på hover
   const handleMouseEnter = () => {
     if (!animating.current) {
       animating.current = true;
       animate();
     }
   };
+  // Stoppar animation när musen lämnar
   const handleMouseLeave = () => {
     animating.current = false;
+    // t.current = 0; drawWave(); // om du vill nollställa vågen
   };
 
+  // Initialritning + städning
   useEffect(() => {
     drawWave();
     return () => cancelAnimationFrame(rafId.current);
   }, []);
 
+  // Välj wrapper beroende på om det är en länk eller knapp
   const Wrapper = href ? LinkWrapper : ButtonWrapper;
+  const wrapperProps = href ? { href, target, rel } : { type, onClick };
 
   return (
     <Wrapper
-      href={href}
-      onClick={onClick}
-      type={type}
-      target={target}
-      rel={rel}
+      {...wrapperProps}
       aria-label={ariaLabel}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ paddingBottom: `${SVG_HEIGHT * 0.6}px` }} // dynamisk padding
     >
       {text}
-      <WaveSvg viewBox={`0 0 500 ${SVG_HEIGHT}`}>
+      <WaveSvg viewBox='0 0 173 11' xmlns='http://www.w3.org/2000/svg'>
         <path
           ref={pathRef}
-          stroke='var(--color-accent)'
-          strokeWidth='16'
+          stroke='#FF7300'
+          strokeWidth='6'
           fill='none'
           strokeLinecap='round'
+          strokeLinejoin='round'
         />
       </WaveSvg>
     </Wrapper>
