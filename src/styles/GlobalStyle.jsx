@@ -18,9 +18,11 @@ const GlobalStyle = createGlobalStyle`
     --font-display: 'TAN-Rosebud', serif;
     --font-alt: 'Lexend', sans-serif;
 
-    --color-bg: #ffffff;
+    --color-bg: #FAFBF4;
     --color-text: #1e1e1e;
-    --color-accent: #e91e63;
+    --color-accent: #FF7300;
+    --color-purple: #391D75;
+  
     
   }
 
