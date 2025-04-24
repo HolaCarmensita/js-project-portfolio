@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
 
   /* CSS Variables */
   :root {
+    font-size: 16px;
     --font-main: 'Belgrano', serif;
-
     ${'' /* --font-main: 'Aileron Regular', sans-serif; */}
     --font-display: 'TAN-Rosebud', serif;
     --font-alt: 'Lexend', sans-serif;
@@ -23,9 +23,8 @@ const GlobalStyle = createGlobalStyle`
     --color-purple: #391D75;
     --color-magenta: #34EDB3;
     --color-mustard: #FFBF00;
-
-  
-    
+    --link-color: #1e1e1e;
+    --link-hover-color: #FFBF00;
   }
 
   /* Global Reset & Base Styles */
@@ -63,6 +62,26 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
+h1 {
+  font-size: 3rem; //48px om vi har basic font på 16px
+      text-transform: uppercase;
+
+}
+
+h2{
+  font-size: 2.5rem;
+      text-transform: uppercase;
+
+}
+
+
+h3{
+  font-size: 1.5rem;
+      text-transform: uppercase;
+
+}
+
+
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
   }
@@ -79,6 +98,18 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  a {
+  color: var(--link-color);
+}
+
+  a:hover {
+  font-weight: 600;
+}
+
+  a:visited {
+  color: var(--link-color);
+}
+
 
 /* Style */
 section {
@@ -92,7 +123,7 @@ section {
 html.dyslexic {
   --font-main: var(--font-alt);
 }
-  
+
 `;
 
 export default GlobalStyle;

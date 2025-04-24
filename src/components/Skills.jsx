@@ -21,6 +21,8 @@ const SkillCard = styled.div`
 const SkillsSection = styled.section`
   position: relative;
   overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 
   h2 {
     text-transform: uppercase;

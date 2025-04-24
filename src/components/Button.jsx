@@ -1,22 +1,21 @@
 // Button.jsx
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-// Skapa X‐värden 0…173 för att täcka hela viewBox‐bredden
-const xs = Array.from({ length: 174 }, (_, i) => i);
+// ========= KONSTANTER FÖR VÅGEN =========
+const STROKE_WIDTH = 3; // tjocklek på linjen
+const AMPLITUDE = 3; // halva våghöjden i px (justera för högre/lägre toppar)
+const BASELINE = AMPLITUDE + STROKE_WIDTH / 2;
+// mittlinjen, så vågen är centrerad i viewBox
+const WAVELENGTH = 30; // avstånd i px mellan två vågtoppar (justera för fler/färre vågor)
+const ANGULAR_FREQ = (2 * Math.PI) / WAVELENGTH;
 
-// Parametrar från din waveOrange.svg
-const BASELINE = 5.5; // mittlinje
-const AMPLITUDE = 4.6667; // ±4.6667px
-const DIVISOR = 173 / (2 * Math.PI * 4.5);
-
-// Styled Components
+// ========= STYLADE COMPONENTS =========
 const LinkWrapper = styled.a`
   position: relative;
   display: inline-block;
-  color: inherit;
   text-decoration: none;
-  padding-bottom: 12px; /* ger plats åt vågen */
+  padding-bottom: ${STROKE_WIDTH * 2}px; /* utrymme för vågen */
 `;
 
 const ButtonWrapper = styled.button`
@@ -24,22 +23,21 @@ const ButtonWrapper = styled.button`
   display: inline-block;
   background: transparent;
   border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
   padding: 8px 16px;
-  padding-bottom: 12px;
+  padding-bottom: ${STROKE_WIDTH * 2}px;
+  cursor: pointer;
+  font: inherit;
 `;
 
 const WaveSvg = styled.svg`
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   width: 100%;
-  height: 11px; /* matchar SVG‐höjden */
   pointer-events: none;
 `;
 
+// ========= KOMPLETT COMPONENT =========
 export default function Button({
   text,
   onClick,
@@ -49,68 +47,82 @@ export default function Button({
   rel,
   ariaLabel,
 }) {
+  const wrapperRef = useRef(null);
   const pathRef = useRef(null);
+  const [widthPx, setWidthPx] = useState(0);
   const t = useRef(0);
-  const rafId = useRef(0);
+  const rafId = useRef(null);
   const animating = useRef(false);
 
-  // Ritar vågen utifrån BASELINE, AMPLITUDE, DIVISOR och aktuell t
+  // Ritar vågen inuti SVG:en
   const drawWave = () => {
-    const d = xs
-      .map((x) => {
-        const y = BASELINE + AMPLITUDE * Math.sin((x + t.current) / DIVISOR);
-        return `${x},${y}`;
-      })
-      .join(' L');
-    if (pathRef.current) {
-      pathRef.current.setAttribute('d', `M${d}`);
-    }
+    if (!widthPx || !pathRef.current) return;
+
+    // Sampla varje px längs bredden
+    const coords = Array.from({ length: Math.ceil(widthPx) }, (_, i) => {
+      const y = BASELINE + AMPLITUDE * Math.sin(ANGULAR_FREQ * i + t.current);
+      return `${i},${y}`;
+    }).join(' L');
+
+    pathRef.current.setAttribute('d', `M${coords}`);
   };
 
-  // Loop‐funktion
+  // Animeringsloop
   const animate = () => {
     if (!animating.current) return;
     drawWave();
-    t.current += 0.6; // justera hastighet om du vill
+    t.current += 0.3; // hastighet
     rafId.current = requestAnimationFrame(animate);
   };
 
-  // Startar animation på hover
   const handleMouseEnter = () => {
     if (!animating.current) {
       animating.current = true;
       animate();
     }
   };
-  // Stoppar animation när musen lämnar
   const handleMouseLeave = () => {
     animating.current = false;
-    // t.current = 0; drawWave(); // om du vill nollställa vågen
   };
 
-  // Initialritning + städning
+  // Mät knappens bredd vid mount och rita första vågen
   useEffect(() => {
+    const { width } = wrapperRef.current.getBoundingClientRect();
+    setWidthPx(width);
     drawWave();
     return () => cancelAnimationFrame(rafId.current);
   }, []);
 
-  // Välj wrapper beroende på om det är en länk eller knapp
+  // Rita om om bredden ändras (sällan efter första mount)
+  useEffect(() => {
+    drawWave();
+  }, [widthPx]);
+
+  // Räkna ut viewBox-höjden så att hela vågen + stroke får plats
+  const viewBoxHeight = AMPLITUDE * 2 + STROKE_WIDTH;
+
+  // Välj rätt wrapper (länk vs knapp)
   const Wrapper = href ? LinkWrapper : ButtonWrapper;
   const wrapperProps = href ? { href, target, rel } : { type, onClick };
 
   return (
     <Wrapper
       {...wrapperProps}
+      ref={wrapperRef}
       aria-label={ariaLabel}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {text}
-      <WaveSvg viewBox='0 0 173 11' xmlns='http://www.w3.org/2000/svg'>
+      <WaveSvg
+        viewBox={`0 0 ${widthPx} ${viewBoxHeight}`}
+        style={{ height: `${viewBoxHeight}px` }}
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           ref={pathRef}
           stroke='#FF7300'
-          strokeWidth='6'
+          strokeWidth={STROKE_WIDTH}
           fill='none'
           strokeLinecap='round'
           strokeLinejoin='round'
