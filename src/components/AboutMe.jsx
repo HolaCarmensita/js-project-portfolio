@@ -2,10 +2,9 @@ import ProfileCard from './ProfileCard';
 import SocialMedia from './SocialMedia';
 import Button from './Button';
 import styled from 'styled-components';
-import { appearAnimation } from '../styles/styled-utils';
 
 const AboutSection = styled.section`
-  padding-top: 5rem;
+  padding: 3rem 3rem 3rem 3rem;
   position: relative;
   min-height: 100vh;
   gap: 2rem;
@@ -13,29 +12,29 @@ const AboutSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* overflow: hidden; //Klipper cirkeln så bara halva syns */
 `;
 
-const Circle = styled.img`
-  position: absolute;
-  top: 50%; /* centrerar vertikalt */
-  left: -50px; /* skjuter ut cirkeln utanför viewporten */
-  transform: translateY(-50%);
-  width: 100px;
-  height: auto;
-  pointer-events: none; /* så att den inte blockar klick */
-  z-index: 0; /* om du har andra lager */
-`;
+// const Circle = styled.img`
+//   position: absolute;
+//   top: 50%; /* centrerar vertikalt */
+//   left: -50px; /* skjuter ut cirkeln utanför viewporten */
+//   transform: translateY(-50%);
+//   width: 100px;
+//   height: auto;
+//   pointer-events: none; /* så att den inte blockar klick */
+//   z-index: 0; /* om du har andra lager */
+// `;
 
 const CornerButtonWrapper = styled.div`
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  align-self: flex-end;
+  z-index: 1000;
 `;
 
 function AboutMe() {
   return (
-    <AboutSection>
+    <AboutSection id='about'>
       {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
       <CornerButtonWrapper>
         <Button

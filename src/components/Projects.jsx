@@ -22,7 +22,7 @@ const ProjectSectionChild = styled.div`
 
 function Projects() {
   return (
-    <ProjectSection>
+    <ProjectSection id='projects'>
       <h2>Featured Projects</h2>
       <ProjectSectionChild>
         {projectsData.projects.map((project, index) => (

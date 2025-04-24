@@ -26,7 +26,7 @@ const LinkContainer = styled.div`
 
 function GetInTouch() {
   return (
-    <GetInTouchSection>
+    <GetInTouchSection id='contact'>
       <h2>Get in touch</h2>
       <LinkContainer>
         <a

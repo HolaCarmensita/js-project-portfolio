@@ -33,7 +33,7 @@ const SkillsSection = styled.section`
 
 function Skills() {
   return (
-    <SkillsSection>
+    <SkillsSection id='about'>
       <CircleWrapper>
         <svg
           viewBox='0 0 245 245'

@@ -20,29 +20,19 @@ export const App = () => {
       {/* <div>
         <ToggleFontButton />
       </div> */}
-
       <Navigation />
-
       <main>
         <IntroSection />
 
         <MiddleSection shapeSrc='/shapes/waveOrange.svg' />
 
-        <section id='about'>
-          <AboutMe />
-        </section>
+        <AboutMe />
 
-        <section id='skills'>
-          <Skills />
-        </section>
+        <Skills />
 
-        <section id='projects'>
-          <Projects />
-        </section>
+        <Projects />
 
-        <section id='contact'>
-          <GetInTouch />
-        </section>
+        <GetInTouch />
       </main>
       <Footer />
     </>
