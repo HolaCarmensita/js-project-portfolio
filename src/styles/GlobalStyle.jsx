@@ -18,12 +18,12 @@ const GlobalStyle = createGlobalStyle`
     --font-display: 'TAN-Rosebud', serif;
     --font-alt: 'Lexend', sans-serif;
     --color-bg: #FAFBF4;
-    --color-text: #1e1e1e;
+    --color-text: #584793;
     --color-accent: #FF7300;
-    --color-purple: #391D75;
+    --color-purple: #584793;
     --color-magenta: #34EDB3;
     --color-mustard: #FFBF00;
-    --link-color: #1e1e1e;
+    --link-color: #584793;
     --link-hover-color: #FFBF00;
   }
 

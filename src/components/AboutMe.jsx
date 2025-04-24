@@ -2,6 +2,7 @@ import ProfileCard from './ProfileCard';
 import SocialMedia from './SocialMedia';
 import Button from './Button';
 import styled from 'styled-components';
+import { appearAnimation } from '../styles/styled-utils';
 
 const AboutSection = styled.section`
   padding-top: 5rem;
@@ -12,7 +13,7 @@ const AboutSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /*Klipper cirkeln så bara halva syns */
+  /* overflow: hidden; //Klipper cirkeln så bara halva syns */
 `;
 
 const Circle = styled.img`
@@ -35,8 +36,7 @@ const CornerButtonWrapper = styled.div`
 function AboutMe() {
   return (
     <AboutSection>
-      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' />
-
+      {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
       <CornerButtonWrapper>
         <Button
           text='Resume here'
@@ -45,7 +45,6 @@ function AboutMe() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
-
       <ProfileCard />
       <SocialMedia />
     </AboutSection>

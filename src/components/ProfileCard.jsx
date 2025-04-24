@@ -1,5 +1,7 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
+import { appearAnimation } from '../styles/styled-utils';
+import { circleGrowIn } from '../styles/styled-utils';
 
 const ProfileCardContainer = styled.div`
   gap: 2rem;
@@ -11,18 +13,28 @@ const ProfileCardContainer = styled.div`
 `;
 
 const ProfileImage = styled.img`
+  ${circleGrowIn}
+
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
 `;
 
+const H2 = styled.h2`
+  ${appearAnimation}
+`;
+
+const P = styled.p`
+  ${appearAnimation}
+`;
+
 function ProfileCard() {
   return (
     <ProfileCardContainer>
-      <h2>Hi, I'm Casandra </h2>
+      <H2>Hi, I'm Casandra </H2>
       <ProfileImage src={profile.image} alt='Picture of Casandra' />
-      <p>{profile.descriptionShort}</p>
+      <P>{profile.descriptionShort}</P>
     </ProfileCardContainer>
   );
 }
