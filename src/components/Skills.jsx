@@ -2,14 +2,14 @@ import profile from '../data/profile.json';
 import SkillCategory from './SkillsCategory';
 import styled from 'styled-components';
 
-const CircleWrapper = styled.div`
-  position: absolute;
-  top: 1rem; /* anpassa till h2-padding */
-  right: -50px; /* halva SVG:ns bredd */
-  z-index: -1; /* bakom innehåll om det behövs */
-  width: 100px;
-  height: auto;
-`;
+// const CircleWrapper = styled.div`
+//   position: absolute;
+//   top: 1rem; /* anpassa till h2-padding */
+//   right: -50px; /* halva SVG:ns bredd */
+//   z-index: -1; /* bakom innehåll om det behövs */
+//   width: 100px;
+//   height: auto;
+// `;
 
 const SkillCard = styled.div`
   /* överväger grid här istället, börjar bli förvirrande med all flex */
@@ -20,7 +20,6 @@ const SkillCard = styled.div`
 
 const SkillsSection = styled.section`
   position: relative;
-  overflow: hidden;
   padding-top: 2rem;
   padding-bottom: 5rem;
 
@@ -34,7 +33,7 @@ const SkillsSection = styled.section`
 function Skills() {
   return (
     <SkillsSection id='about'>
-      <CircleWrapper>
+      {/* <CircleWrapper>
         <svg
           viewBox='0 0 245 245'
           fill='none'
@@ -47,7 +46,7 @@ function Skills() {
             fill='#FFBF00'
           />
         </svg>
-      </CircleWrapper>
+      </CircleWrapper> */}
 
       <h2>Skills</h2>
       <SkillCard>

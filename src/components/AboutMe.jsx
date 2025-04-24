@@ -2,15 +2,16 @@ import ProfileCard from './ProfileCard';
 import SocialMedia from './SocialMedia';
 import Button from './Button';
 import styled from 'styled-components';
+import Skills from './Skills';
+import LayoutWrapper from './LayoutWrapper';
 
 const AboutSection = styled.section`
-  padding: 3rem 3rem 3rem 3rem;
   position: relative;
   min-height: 100vh;
   gap: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   justify-content: center;
 `;
 
@@ -26,27 +27,33 @@ const AboutSection = styled.section`
 // `;
 
 const CornerButtonWrapper = styled.div`
-  position: sticky;
-  top: 2rem;
-  align-self: flex-end;
   z-index: 1000;
+  align-self: flex-end;
+
+  @media (min-width: 768px) {
+    position: sticky;
+    top: 2rem;
+  }
 `;
 
 function AboutMe() {
   return (
-    <AboutSection id='about'>
-      {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
-      <CornerButtonWrapper>
-        <Button
-          text='Resume here'
-          href='/resume.pdf'
-          target='_blank'
-          rel='noopener noreferrer'
-        />
-      </CornerButtonWrapper>
-      <ProfileCard />
-      <SocialMedia />
-    </AboutSection>
+    <LayoutWrapper>
+      <AboutSection id='about'>
+        {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
+        <CornerButtonWrapper>
+          <Button
+            text='Resume here'
+            href='/resume.pdf'
+            target='_blank'
+            rel='noopener noreferrer'
+          />
+        </CornerButtonWrapper>
+        <ProfileCard />
+        <SocialMedia />
+        <Skills />
+      </AboutSection>
+    </LayoutWrapper>
   );
 }
 

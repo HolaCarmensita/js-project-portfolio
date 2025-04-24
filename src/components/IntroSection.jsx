@@ -1,10 +1,11 @@
 import Button from './Button';
 import styled from 'styled-components';
+import LayoutWrapper from './LayoutWrapper';
 
 const CornerButtonWrapper = styled.div`
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 2rem;
+  right: 0rem;
 `;
 
 const Section = styled.section`
@@ -33,17 +34,19 @@ const Subtitle = styled.p`
 
 function IntroSection() {
   return (
-    <Section id='intro'>
-      <CornerButtonWrapper>
-        <Button text='Get In Touch' href='#contact' />
-      </CornerButtonWrapper>
+    <LayoutWrapper>
+      <Section id='intro'>
+        <CornerButtonWrapper>
+          <Button text='Get In Touch' href='#contact' />
+        </CornerButtonWrapper>
 
-      <Title>Hi, I'm Casandra 👋</Title>
-      <Subtitle>
-        A creative frontend developer with a design background, passionate about
-        clean code and delightful user experiences.
-      </Subtitle>
-    </Section>
+        <Title>Hi, I'm Casandra 👋</Title>
+        <Subtitle>
+          A creative frontend developer with a design background, passionate
+          about clean code and delightful user experiences.
+        </Subtitle>
+      </Section>
+    </LayoutWrapper>
   );
 }
 

@@ -28,8 +28,6 @@ export const App = () => {
 
         <AboutMe />
 
-        <Skills />
-
         <Projects />
 
         <GetInTouch />

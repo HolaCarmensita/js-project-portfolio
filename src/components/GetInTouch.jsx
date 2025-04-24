@@ -1,6 +1,7 @@
 import SocialMedia from './SocialMedia';
 import profile from '../data/profile.json';
 import styled from 'styled-components';
+import LayoutWrapper from './LayoutWrapper';
 
 const GetInTouchSection = styled.section`
   display: flex;
@@ -26,22 +27,24 @@ const LinkContainer = styled.div`
 
 function GetInTouch() {
   return (
-    <GetInTouchSection id='contact'>
-      <h2>Get in touch</h2>
-      <LinkContainer>
-        <a
-          href={`mailto:${profile.email}?subject=Contact from portfolio!`}
-          aria-label={`Send an email to ${profile.email}`}
-        >
-          {profile.email}
-        </a>
+    <LayoutWrapper>
+      <GetInTouchSection id='contact'>
+        <h2>Get in touch</h2>
+        <LinkContainer>
+          <a
+            href={`mailto:${profile.email}?subject=Contact from portfolio!`}
+            aria-label={`Send an email to ${profile.email}`}
+          >
+            {profile.email}
+          </a>
 
-        <a href={`tel:${profile.phone}`} aria-label={`Call ${profile.phone}`}>
-          {profile.phone}{' '}
-        </a>
-      </LinkContainer>
-      <SocialMedia />
-    </GetInTouchSection>
+          <a href={`tel:${profile.phone}`} aria-label={`Call ${profile.phone}`}>
+            {profile.phone}{' '}
+          </a>
+        </LinkContainer>
+        <SocialMedia />
+      </GetInTouchSection>
+    </LayoutWrapper>
   );
 }
 
