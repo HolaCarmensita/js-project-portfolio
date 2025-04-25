@@ -10,7 +10,7 @@ const Nav = styled.nav`
 const NavWrapper = styled.nav`
   position: fixed;
   left: 3rem;
-  top: ${({ sticky }) => (sticky ? '3rem' : '80vh')};
+  top: ${({ sticky }) => (sticky ? '3rem' : 'calc(100vh - 10rem)')};
   transition: top 1.5s ease-in-out;
   z-index: 1000;
 `;
@@ -27,6 +27,7 @@ const NavLink = styled.a`
 
   &.active {
     text-decoration: underline;
+    text-decoration-color: var(--color-accent);
   }
 `;
 

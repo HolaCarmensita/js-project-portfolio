@@ -11,7 +11,6 @@ const AboutSection = styled.section`
   gap: 2rem;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 `;
 
@@ -27,33 +26,37 @@ const AboutSection = styled.section`
 // `;
 
 const CornerButtonWrapper = styled.div`
+  position: static; /* default för mobil */
   z-index: 1000;
   align-self: flex-end;
+  padding-right: 2rem;
 
   @media (min-width: 768px) {
     position: sticky;
-    top: 2rem;
+    top: 3rem;
+    right: 3rem;
+    padding-right: 0;
   }
 `;
 
 function AboutMe() {
   return (
-    <LayoutWrapper>
-      <AboutSection id='about'>
-        {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
-        <CornerButtonWrapper>
-          <Button
-            text='Resume here'
-            href='/resume.pdf'
-            target='_blank'
-            rel='noopener noreferrer'
-          />
-        </CornerButtonWrapper>
+    <AboutSection id='about'>
+      {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
+      <CornerButtonWrapper>
+        <Button
+          text='Resume here'
+          href='/resume.pdf'
+          target='_blank'
+          rel='noopener noreferrer'
+        />
+      </CornerButtonWrapper>
+      <LayoutWrapper>
         <ProfileCard />
         <SocialMedia />
         <Skills />
-      </AboutSection>
-    </LayoutWrapper>
+      </LayoutWrapper>
+    </AboutSection>
   );
 }
 

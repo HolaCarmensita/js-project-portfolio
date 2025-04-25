@@ -4,7 +4,7 @@ const LayoutWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   padding-inline: 2rem;
-  padding-block: 3rem; //Vet ej om jag vill kontrollera spacing i layouten...
+  padding-block: 2rem; //Vet ej om jag vill kontrollera spacing i layouten...
   margin: 0 auto;
 `;
 

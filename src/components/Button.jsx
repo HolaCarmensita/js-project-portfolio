@@ -23,8 +23,6 @@ const ButtonWrapper = styled.button`
   display: inline-block;
   background: transparent;
   border: none;
-  padding: 8px 16px;
-  padding-bottom: ${STROKE_WIDTH * 2}px;
   cursor: pointer;
   font: inherit;
 `;
