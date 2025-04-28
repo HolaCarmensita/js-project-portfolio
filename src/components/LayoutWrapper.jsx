@@ -20,7 +20,7 @@ const LayoutWrapper = styled.div`
   }
 
   @media (min-width: 1025px) {
-    max-width: 1200px; /* Större max-bredd för desktop (ändrat från 600px) */
+    max-width: 1100px; /* Större max-bredd för desktop (ändrat från 600px) */
     padding-inline: 4rem;
     padding-block: 4rem;
     margin: 0 auto;

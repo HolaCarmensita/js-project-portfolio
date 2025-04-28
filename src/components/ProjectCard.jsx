@@ -7,36 +7,31 @@ const CardContainer = styled.article`
   flex-direction: column;
   gap: 2rem;
 
+  & > img {
+    width: auto;
+    object-fit: cover;
+  }
+
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 3rem;
-  }
 
-  /* Första kortet (och varannan kort) - text före bild */
-  & > img {
-    order: 2; /* Bild kommer efter texten */
-  }
-
-  & > div {
-    order: 1; /* Text kommer först */
-  }
-
-  /* För udda kort (första, tredje etc.) - bild före text */
-  &:nth-child(odd) {
-    & > img {
-      order: 1; /* Bild kommer först */
+    &:nth-child(even) {
+      flex-direction: row-reverse; /* Omvänd ordning för jämna kort */
     }
 
-    & > div {
-      order: 2; /* Text kommer efter bilden */
+    & > img {
+      width: 450px;
+      height: 450px;
     }
   }
 `;
-
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
+  max-width: 550px;
 `;
 
 const TitleAndBody = styled.div`
@@ -60,13 +55,11 @@ const ButtonWithIcon = styled.div`
 function ProjectCard({ project }) {
   return (
     <CardContainer>
-      <img
-        src={project.image}
-        alt={`${project.name} preview`}
-        style={{ width: '450px', height: '300px', objectFit: 'fill' }}
-      />
+      <img src={project.image} alt={`${project.name} preview`} />
+
       <TextContainer>
         <Techniques list={project.tags} />
+
         <TitleAndBody>
           <h3>{project.name}</h3>
           <p>{project.description}</p>

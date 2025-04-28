@@ -12,6 +12,10 @@ const TechContainer = styled.ul`
   padding: 0;
   margin: 0;
   text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
 
 function Techniques({ list }) {

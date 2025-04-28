@@ -6,10 +6,14 @@ import LayoutWrapper from './LayoutWrapper';
 const ProjectSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 4rem;
 
   h2 {
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    gap: 8rem;
   }
 `;
 
@@ -18,8 +22,8 @@ const ProjectSectionChild = styled.div`
   flex-direction: column;
   gap: 8rem;
 
-  & > *:nth-child(even) {
-    align-self: flex-end; /* Sätter varannan kort till att vara längst ner */
+  @media (min-width: 768px) {
+    gap: 10rem;
   }
 `;
 
