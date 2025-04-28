@@ -6,24 +6,11 @@ import Skills from './Skills';
 import LayoutWrapper from './LayoutWrapper';
 
 const AboutSection = styled.section`
-  position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
-
-// const Circle = styled.img`
-//   position: absolute;
-//   top: 50%; /* centrerar vertikalt */
-//   left: -50px; /* skjuter ut cirkeln utanför viewporten */
-//   transform: translateY(-50%);
-//   width: 100px;
-//   height: auto;
-//   pointer-events: none; /* så att den inte blockar klick */
-//   z-index: 0; /* om du har andra lager */
-// `;
 
 const CornerButtonWrapper = styled.div`
   position: static; /* default för mobil */
@@ -36,12 +23,6 @@ const CornerButtonWrapper = styled.div`
     top: 3rem;
     right: 3rem;
     padding-right: 0;
-  }
-`;
-
-const SocailMediaContainer = styled.div`
-  @media (min-width: 768px) {
-    position: absolute;
   }
 `;
 
@@ -58,10 +39,8 @@ function AboutMe() {
         />
       </CornerButtonWrapper>
 
-      <LayoutWrapper>
-        <ProfileCard />
-      </LayoutWrapper>
-      <SocialMedia variant='about' />
+      <ProfileCard />
+      <Skills />
     </AboutSection>
   );
 }
