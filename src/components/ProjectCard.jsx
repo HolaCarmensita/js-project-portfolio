@@ -6,6 +6,31 @@ const CardContainer = styled.article`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  /* Första kortet (och varannan kort) - text före bild */
+  & > img {
+    order: 2; /* Bild kommer efter texten */
+  }
+
+  & > div {
+    order: 1; /* Text kommer först */
+  }
+
+  /* För udda kort (första, tredje etc.) - bild före text */
+  &:nth-child(odd) {
+    & > img {
+      order: 1; /* Bild kommer först */
+    }
+
+    & > div {
+      order: 2; /* Text kommer efter bilden */
+    }
+  }
 `;
 
 const TextContainer = styled.div`
@@ -38,7 +63,7 @@ function ProjectCard({ project }) {
       <img
         src={project.image}
         alt={`${project.name} preview`}
-        style={{ width: '450px', height: '300px', objectFit: 'cover' }}
+        style={{ width: '450px', height: '300px', objectFit: 'fill' }}
       />
       <TextContainer>
         <Techniques list={project.tags} />

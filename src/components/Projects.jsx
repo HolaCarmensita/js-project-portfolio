@@ -6,7 +6,7 @@ import LayoutWrapper from './LayoutWrapper';
 const ProjectSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 8rem;
 
   h2 {
     text-align: center;
@@ -16,7 +16,11 @@ const ProjectSection = styled.section`
 const ProjectSectionChild = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 8rem;
+
+  & > *:nth-child(even) {
+    align-self: flex-end; /* Sätter varannan kort till att vara längst ner */
+  }
 `;
 
 function Projects() {
