@@ -18,6 +18,10 @@ const SkillCard = styled.article`
   svg {
     width: 50vw;
     height: auto;
+
+    @media (min-width: 768px) {
+      width: 20rem;
+    }
   }
 
   &:nth-of-type(even) {

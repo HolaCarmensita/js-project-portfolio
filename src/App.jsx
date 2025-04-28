@@ -24,7 +24,7 @@ export const App = () => {
       <main>
         <IntroSection />
 
-        <MiddleSection shapeSrc='/shapes/waveOrange.svg' />
+        {/* <MiddleSection shapeSrc='/shapes/waveOrange.svg' /> */}
 
         <AboutMe />
         <Skills />
