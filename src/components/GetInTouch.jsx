@@ -9,6 +9,7 @@ const Background = styled.div`
 `;
 
 const GetInTouchSection = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +47,7 @@ function GetInTouch() {
               href={`tel:${profile.phone}`}
               aria-label={`Call ${profile.phone}`}
             >
-              {profile.phone}{' '}
+              {profile.phone}
             </a>
           </LinkContainer>
           <SocialMedia />

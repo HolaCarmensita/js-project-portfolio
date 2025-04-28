@@ -8,10 +8,10 @@ import LayoutWrapper from './LayoutWrapper';
 const AboutSection = styled.section`
   position: relative;
   min-height: 100vh;
-  gap: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 // const Circle = styled.img`
@@ -39,6 +39,12 @@ const CornerButtonWrapper = styled.div`
   }
 `;
 
+const SocailMediaContainer = styled.div`
+  @media (min-width: 768px) {
+    position: absolute;
+  }
+`;
+
 function AboutMe() {
   return (
     <AboutSection id='about'>
@@ -51,11 +57,11 @@ function AboutMe() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
+
       <LayoutWrapper>
         <ProfileCard />
-        <SocialMedia />
-        <Skills />
       </LayoutWrapper>
+      <SocialMedia variant='about' />
     </AboutSection>
   );
 }

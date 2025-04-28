@@ -1,18 +1,44 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
 
-const SocialMediaList = styled.ul`
+const StyledSocialWrapper = styled.ul`
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
   padding: 0;
-  margin: 0;
+
+  li a {
+    display: inline-block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  li a:hover,
+  li a:focus {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+  }
+
+  ${({ $variant }) =>
+    $variant === 'about' &&
+    `
+    @media (min-width: 768px) {
+    position: absolute;
+    top: 50%;
+    right: 5rem;
+    gap: 3rem;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+     }
+
+  
+  `}
 `;
 
-function SocialMedia() {
+function SocialMedia({ variant }) {
   return (
-    <SocialMediaList>
+    <StyledSocialWrapper $variant={variant}>
       {Object.entries(profile.socialMedia).map(([key, media]) => (
         <li key={key}>
           <a
@@ -26,7 +52,7 @@ function SocialMedia() {
           </a>
         </li>
       ))}
-    </SocialMediaList>
+    </StyledSocialWrapper>
   );
 }
 
