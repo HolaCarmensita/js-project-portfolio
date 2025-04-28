@@ -11,9 +11,7 @@ const SkillCard = styled.div`
 `;
 
 const SkillsSection = styled.section`
-  position: relative;
-  padding-top: 2rem;
-  padding-bottom: 5rem;
+  background-color: aliceblue;
 
   h2 {
     text-transform: uppercase;
@@ -24,16 +22,16 @@ const SkillsSection = styled.section`
 
 function Skills() {
   return (
-    <SkillsSection id='about'>
-      <LayoutWrapper>
+    <LayoutWrapper>
+      <SkillsSection id='about'>
         <h2>Skills</h2>
         <SkillCard>
           {Object.entries(profile.skills).map(([title, skills]) => (
             <SkillCategory key={title} title={title} skills={skills} />
           ))}
         </SkillCard>
-      </LayoutWrapper>
-    </SkillsSection>
+      </SkillsSection>
+    </LayoutWrapper>
   );
 }
 

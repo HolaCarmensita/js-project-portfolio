@@ -37,28 +37,31 @@ const P = styled.p`
   max-width: 650px;
 `;
 
-const SocialMediaFix = styled.div`
+const FullWidthSection = styled.section`
   position: relative;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100vw; /* Full viewport-bredd */
+  height: 100vh; /* Full höjd */
+  background-color: lightblue;
 `;
 
+const AbsoluteElement = styled.div`
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: coral;
+  width: 100px;
+  height: 100px;
+`;
 function ProfileCard() {
   return (
-    <SocialMediaFix id='SocialmediaFix'>
-      <LayoutWrapper>
-        <ProfileCardContainer>
-          <h1>Hi, I'm Casandra </h1>
-          <ProfileImage src={profile.image} alt='Picture of Casandra' />
-          <P>{profile.descriptionShort}</P>
-        </ProfileCardContainer>
-      </LayoutWrapper>
+    <ProfileCardContainer>
+      <h1>Hi, I'm Casandra </h1>
+      <ProfileImage src={profile.image} alt='Picture of Casandra' />
+      <P>{profile.descriptionShort}</P>
 
       <SocialMedia variant='about' />
-    </SocialMediaFix>
+    </ProfileCardContainer>
   );
 }
 

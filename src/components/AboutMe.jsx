@@ -6,10 +6,12 @@ import Skills from './Skills';
 import LayoutWrapper from './LayoutWrapper';
 
 const AboutSection = styled.section`
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const CornerButtonWrapper = styled.div`
@@ -38,9 +40,9 @@ function AboutMe() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
-
-      <ProfileCard />
-      <Skills />
+      <LayoutWrapper>
+        <ProfileCard />
+      </LayoutWrapper>
     </AboutSection>
   );
 }
