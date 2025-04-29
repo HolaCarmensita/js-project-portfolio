@@ -15,7 +15,7 @@ const LayoutWrapper = styled.div`
   @media (min-width: 821px) and (max-width: 1024px) {
     max-width: 750px; /* Sätter max-bredd för större tablet-enheter (iPad) */
     padding-inline: 3rem;
-    padding-block: 3rem;
+    padding-block: 4rem;
     margin: 0 auto;
   }
 

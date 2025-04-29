@@ -6,6 +6,11 @@ import LayoutWrapper from './LayoutWrapper';
 const Background = styled.div`
   background-color: var(--color-purple);
   color: white;
+  min-height: 100vh;
+
+  @media (min-width: 768px) {
+    min-height: 50%;
+  }
 `;
 
 const GetInTouchSection = styled.section`
