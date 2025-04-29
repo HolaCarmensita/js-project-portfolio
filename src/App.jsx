@@ -1,4 +1,4 @@
-import Navigation from './components/navigation';
+import Navigation from './components/Navigation';
 import IntroSection from './components/IntroSection';
 import AboutMe from './components/AboutMe';
 import Skills from './components/Skills';

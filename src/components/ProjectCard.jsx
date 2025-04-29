@@ -12,7 +12,7 @@ const CardContainer = styled.article`
     object-fit: cover;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
     gap: 3rem;
 

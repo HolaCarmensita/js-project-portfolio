@@ -34,7 +34,7 @@ function GetInTouch() {
     <Background>
       <LayoutWrapper>
         <GetInTouchSection id='contact'>
-          <h2>Get in touch</h2>
+          <h2>Get in touch!</h2>
           <LinkContainer>
             <a
               href={`mailto:${profile.email}?subject=Contact from portfolio!`}
