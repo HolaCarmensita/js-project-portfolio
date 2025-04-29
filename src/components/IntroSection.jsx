@@ -1,6 +1,7 @@
 import Button from './Button';
 import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
+import HeroAnimation from './heroAnimation';
 
 const CornerButtonWrapper = styled.div`
   position: absolute;
@@ -32,6 +33,8 @@ function IntroSection() {
       </CornerButtonWrapper>
       <SectioninWrapper>
         <LayoutWrapper>
+          <HeroAnimation />
+
           <h1>Hi, I'm Casandra 👋</h1>
           <p>
             A creative frontend developer with a design background, passionate
