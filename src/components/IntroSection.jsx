@@ -21,27 +21,15 @@ const Section = styled.section`
   color: var(--color-text);
 `;
 
-const SectioninWrapper = styled.div`
-  max-width: 650px;
-`;
-
 function IntroSection() {
   return (
     <Section id='intro'>
       <CornerButtonWrapper>
         <Button text='Get In Touch' href='#contact' />
       </CornerButtonWrapper>
-      <SectioninWrapper>
-        <LayoutWrapper>
-          <HeroAnimation />
-
-          <h1>Hi, I'm Casandra 👋</h1>
-          <p>
-            A creative frontend developer with a design background, passionate
-            about clean code and delightful user experiences.
-          </p>
-        </LayoutWrapper>
-      </SectioninWrapper>
+      <LayoutWrapper>
+        <HeroAnimation />
+      </LayoutWrapper>
     </Section>
   );
 }
