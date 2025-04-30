@@ -2,6 +2,7 @@ import Button from './Button';
 import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 import HeroAnimation from './heroAnimation';
+import HolaAnimation from './HolaAnimation';
 
 const CornerButtonWrapper = styled.div`
   position: absolute;
@@ -27,7 +28,9 @@ function IntroSection() {
       <CornerButtonWrapper>
         <Button text='Get In Touch' href='#contact' />
       </CornerButtonWrapper>
+
       <LayoutWrapper>
+        <HolaAnimation />
         <HeroAnimation />
       </LayoutWrapper>
     </Section>
