@@ -29,8 +29,8 @@ const ProjectSectionChild = styled.div`
 
 function Projects() {
   return (
-    <LayoutWrapper>
-      <ProjectSection id='projects'>
+    <LayoutWrapper id='projects'>
+      <ProjectSection>
         <h2>Featured Projects</h2>
         <ProjectSectionChild>
           {projectsData.projects.map((project, index) => (

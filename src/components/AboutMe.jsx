@@ -7,17 +7,13 @@ import LayoutWrapper from './LayoutWrapper';
 
 const AboutSection = styled.section`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   width: 100%;
 `;
 
 const CornerButtonWrapper = styled.div`
   position: static; /* default för mobil */
+  float: right;
   z-index: 1000;
-  align-self: flex-end;
   padding-right: 2rem;
 
   @media (min-width: 768px) {
@@ -40,9 +36,8 @@ function AboutMe() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
-      <LayoutWrapper>
-        <ProfileCard />
-      </LayoutWrapper>
+      <ProfileCard />
+      <Skills />
     </AboutSection>
   );
 }

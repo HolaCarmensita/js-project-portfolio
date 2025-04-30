@@ -56,7 +56,9 @@ function Navigation() {
         });
       },
       {
-        rootMargin: '-50% 0px -50% 0px', // triggers när mitten av sektionen är synlig
+        // fire when the section's top edge crosses 30% down from the top of the viewport…
+        // or when its bottom edge crosses 30% up from the bottom
+        rootMargin: '-30% 0px -70% 0px',
         threshold: 0,
       }
     );

@@ -24,6 +24,7 @@ const StyledSocialWrapper = styled.ul`
     `
     @media (min-width: 768px) {
     position: absolute;
+    float: right; 
     top: 50%;
     right: 5rem;
     gap: 3rem;

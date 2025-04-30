@@ -6,7 +6,7 @@ import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 
 const ProfileCardContainer = styled.div`
-  min-height: 100vh;
+  position: relative;
   gap: 2rem;
   display: flex;
   flex-direction: column;
@@ -39,29 +39,20 @@ const P = styled.p`
 
 const FullWidthSection = styled.section`
   position: relative;
-  width: 100vw; /* Full viewport-bredd */
-  height: 100vh; /* Full höjd */
-  background-color: lightblue;
 `;
 
-const AbsoluteElement = styled.div`
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: coral;
-  width: 100px;
-  height: 100px;
-`;
 function ProfileCard() {
   return (
-    <ProfileCardContainer>
-      <h1>Hi, I'm Casandra </h1>
-      <ProfileImage src={profile.image} alt='Picture of Casandra' />
-      <P>{profile.descriptionShort}</P>
-
+    <FullWidthSection>
+      <LayoutWrapper>
+        <ProfileCardContainer>
+          <h1>Hi, I'm Casandra </h1>
+          <ProfileImage src={profile.image} alt='Picture of Casandra' />
+          <P>{profile.descriptionShort}</P>
+        </ProfileCardContainer>
+      </LayoutWrapper>
       <SocialMedia variant='about' />
-    </ProfileCardContainer>
+    </FullWidthSection>
   );
 }
 
