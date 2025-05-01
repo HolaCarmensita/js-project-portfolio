@@ -4,6 +4,7 @@ import { appearAnimation } from '../styles/styled-utils';
 import { circleGrowIn } from '../styles/styled-utils';
 import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
+import CircleLeft from './CircleLeft';
 
 const ProfileCardContainer = styled.div`
   position: relative;
@@ -60,8 +61,9 @@ function ProfileCard() {
         </ProfileCardContainer>
       </LayoutWrapper>
       <SocialMedia variant='about' />
+      <CircleLeft color='#34EDB3' />
 
-      <SvgWrapper>
+      {/* <SvgWrapper>
         <svg
           width='245'
           height='245'
@@ -76,7 +78,7 @@ function ProfileCard() {
             fill='#34EDB3'
           />
         </svg>
-      </SvgWrapper>
+      </SvgWrapper> */}
     </FullWidthSection>
   );
 }
