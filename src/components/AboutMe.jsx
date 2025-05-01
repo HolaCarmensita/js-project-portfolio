@@ -3,7 +3,6 @@ import SocialMedia from './SocialMedia';
 import Button from './Button';
 import styled from 'styled-components';
 import Skills from './Skills';
-import LayoutWrapper from './LayoutWrapper';
 
 const AboutSection = styled.section`
   position: relative;
@@ -27,7 +26,6 @@ const CornerButtonWrapper = styled.div`
 function AboutMe() {
   return (
     <AboutSection id='about'>
-      {/* {      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true' /> */}
       <CornerButtonWrapper>
         <Button
           text='Resume here'

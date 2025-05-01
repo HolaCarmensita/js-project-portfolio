@@ -41,6 +41,14 @@ const FullWidthSection = styled.section`
   position: relative;
 `;
 
+const Circle = styled.img`
+  width: 15vw;
+  max-width: 250px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 function ProfileCard() {
   return (
     <FullWidthSection>
@@ -52,6 +60,7 @@ function ProfileCard() {
         </ProfileCardContainer>
       </LayoutWrapper>
       <SocialMedia variant='about' />
+      <Circle src='/shapes/circle.svg' alt='' aria-hidden='true'></Circle>
     </FullWidthSection>
   );
 }
