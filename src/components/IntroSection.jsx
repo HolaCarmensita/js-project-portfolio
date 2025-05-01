@@ -1,7 +1,7 @@
 import Button from './Button';
 import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
-import HeroAnimation from './heroAnimation';
+import HeroAnimation from './HeroAnimation';
 import HolaAnimation from './HolaAnimation';
 
 const CornerButtonWrapper = styled.div`
