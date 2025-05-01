@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 import HeroAnimation from './HeroAnimation';
 import HolaAnimation from './HolaAnimation';
+import { useState } from 'react';
 
 const CornerButtonWrapper = styled.div`
   display: none;
@@ -27,6 +28,8 @@ const Section = styled.section`
 `;
 
 function IntroSection() {
+  const [showHero, setShowHero] = useState(false);
+
   return (
     <Section id='intro'>
       <CornerButtonWrapper>
@@ -34,8 +37,8 @@ function IntroSection() {
       </CornerButtonWrapper>
 
       <LayoutWrapper>
-        <HolaAnimation />
-        <HeroAnimation />
+        <HolaAnimation onFinished={() => setShowHero(true)} />
+        {showHero && <HeroAnimation />}
       </LayoutWrapper>
     </Section>
   );

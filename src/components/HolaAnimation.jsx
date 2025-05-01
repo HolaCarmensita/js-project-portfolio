@@ -20,7 +20,7 @@ const liftVerySmooth = keyframes`
 
 const slideUp = keyframes`
   from {
-    top: 50%;
+    top: 43%;
   }
   to {
     top: 3rem;
@@ -30,10 +30,10 @@ const slideUp = keyframes`
 const Container = styled.div`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 43%;
   transform: translateX(-50%);
-  animation: ${slideUp} 2.5s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
-  animation-delay: ${(props) => props.slideDelay}s;
+  animation: ${slideUp} 2.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+    ${({ $slideDelay }) => $slideDelay}s forwards;
   pointer-events: none;
 `;
 
@@ -51,10 +51,10 @@ const Letter = styled.span`
   transform-origin: bottom center;
   opacity: 0;
   animation: ${liftVerySmooth} 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: ${(props) => props.delay}s;
+  animation-delay: ${({ $delay }) => $delay}s;
 `;
 
-const HolaWholeMaskSmoothSlide = () => {
+const HolaAnimation = ({ onFinished }) => {
   const text = '!Hola!';
   const letters = Array.from(text);
 
@@ -64,10 +64,18 @@ const HolaWholeMaskSmoothSlide = () => {
   const slideDelay = (totalLetters - 1) * letterDelay + letterDuration;
 
   return (
-    <Container slideDelay={slideDelay}>
+    <Container $slideDelay={slideDelay}>
       <WordMask>
         {letters.map((char, i) => (
-          <Letter key={i} delay={i * letterDelay}>
+          <Letter
+            key={i}
+            $delay={i * letterDelay}
+            onAnimationEnd={() => {
+              if (i === totalLetters - 1 && onFinished) {
+                onFinished();
+              }
+            }}
+          >
             {char}
           </Letter>
         ))}
@@ -76,4 +84,4 @@ const HolaWholeMaskSmoothSlide = () => {
   );
 };
 
-export default HolaWholeMaskSmoothSlide;
+export default HolaAnimation;
