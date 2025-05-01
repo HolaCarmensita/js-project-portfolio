@@ -115,8 +115,8 @@ const StyledSVG = styled.svg`
     animation: ${slideRotateInLeft} 2s ease-out forwards;
   }
 
-  /* Rektangeln med fill="#391D75" dyker upp först */
-  rect[fill='#391D75'] {
+  /* Rektangeln med fill="#584793" dyker upp först */
+  rect[fill='#584793'] {
     opacity: 1;
     animation: ${revealTopToBottom} 2s ease-out forwards;
     animation-delay: 0s;
@@ -215,7 +215,7 @@ const HeroAnimation = () => (
       fill='#34EDB3'
     />
 
-    <rect y='149' width='853' height='28' fill='#391D75' />
+    <rect y='149' width='853' height='28' fill='#584793' />
   </StyledSVG>
 );
 
