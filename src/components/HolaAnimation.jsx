@@ -44,6 +44,7 @@ const WordMask = styled.div`
   line-height: 2rem;
 `;
 
+//Didn't find any other way to get the feel of rising up from the ground then putting a item infront???? Tried clip-path in several diffrent ways, nothing gave the same feel. Dont like this solution, very non resposive.
 const Letter = styled.span`
   display: inline-block;
   font-size: 2rem;

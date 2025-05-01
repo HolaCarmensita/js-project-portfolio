@@ -1,4 +1,3 @@
-// HeroAnimation.jsx
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -61,18 +60,12 @@ const revealBottomToTop = keyframes`
   to   { clip-path: inset(0 0 0 0); }
 `;
 
-// 2) StyledSVG med animationer på children
 const StyledSVG = styled.svg`
   width: 853px;
   height: 381px;
   overflow: visible;
 
-  /* 2) Gör så att barnen kan roteras i 3D */
-  transform-style: preserve-3d;
-  perspective: 400px;
-
   /* Klassberoende animationer */
-
   path.fadeIn {
     opacity: 0;
     animation: ${fadeIn} 2s ease-out both;

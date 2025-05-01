@@ -5,9 +5,13 @@ import HeroAnimation from './heroAnimation';
 import HolaAnimation from './HolaAnimation';
 
 const CornerButtonWrapper = styled.div`
-  position: absolute;
-  top: 3rem;
-  right: 3rem;
+  display: none;
+  @media (min-width: 768px) {
+    display: inline;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+  }
 `;
 
 const Section = styled.section`
