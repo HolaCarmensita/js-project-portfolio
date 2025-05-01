@@ -71,7 +71,7 @@ function Navigation() {
   }, []);
 
   return (
-    <NavWrapper sticky={isSticky}>
+    <NavWrapper $sticky={isSticky}>
       <Nav>
         <NavList>
           <li>
