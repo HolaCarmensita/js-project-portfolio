@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
-const Nav = styled.nav`
-  @media (max-width: 767px) {
-    display: none;
-  }
-`;
+const Nav = styled.nav``;
 
 const NavWrapper = styled.nav`
   position: fixed;
   left: 3rem;
-  top: ${({ $sticky }) => ($sticky ? '3rem' : 'calc(100vh - 10rem)')};
-  transition: top 1.5s ease-in-out;
+  top: 3rem;
+  transform: ${({ $sticky }) =>
+    $sticky ? 'translateY(0)' : 'translateY(calc(100vh - 13rem))'};
+  transition: transform 1.5s ease-in-out;
   z-index: 1000;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const NavList = styled.ul`

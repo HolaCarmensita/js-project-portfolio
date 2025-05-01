@@ -2,6 +2,8 @@ import profile from '../data/profile.json';
 import SkillCategory from './SkillsCategory';
 import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
+import CircleLeft from './CircleLeft';
+import CircleRight from './CircleRight';
 
 const SkillCard = styled.div`
   display: flex;
@@ -17,18 +19,26 @@ const SkillsSection = styled.section`
   }
 `;
 
+const FullWidthSection = styled.section`
+  position: relative;
+`;
+
 function Skills() {
   return (
-    <LayoutWrapper>
-      <SkillsSection id='about'>
-        <h2>Skills</h2>
-        <SkillCard>
-          {Object.entries(profile.skills).map(([title, skills]) => (
-            <SkillCategory key={title} title={title} skills={skills} />
-          ))}
-        </SkillCard>
-      </SkillsSection>
-    </LayoutWrapper>
+    <FullWidthSection>
+      <LayoutWrapper>
+        <SkillsSection id='about'>
+          <h2>Skills</h2>
+          <SkillCard>
+            {Object.entries(profile.skills).map(([title, skills]) => (
+              <SkillCategory key={title} title={title} skills={skills} />
+            ))}
+          </SkillCard>
+        </SkillsSection>
+      </LayoutWrapper>
+      <CircleLeft color='var(--color-purple)' YPosition='90%' />
+      <CircleRight color='var(--color-mustard)' YPosition='13%' />
+    </FullWidthSection>
   );
 }
 
