@@ -36,9 +36,9 @@ const LinkContainer = styled.div`
 
 function GetInTouch() {
   return (
-    <Background>
+    <Background id='contact'>
       <LayoutWrapper>
-        <GetInTouchSection id='contact'>
+        <GetInTouchSection>
           <h2>Get in touch!</h2>
           <LinkContainer>
             <a

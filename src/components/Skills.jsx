@@ -25,9 +25,9 @@ const FullWidthSection = styled.section`
 
 function Skills() {
   return (
-    <FullWidthSection>
+    <FullWidthSection id='about'>
       <LayoutWrapper>
-        <SkillsSection id='about'>
+        <SkillsSection>
           <h2>Skills</h2>
           <SkillCard>
             {Object.entries(profile.skills).map(([title, skills]) => (

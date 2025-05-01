@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
-const Nav = styled.nav``;
-
 const NavWrapper = styled.nav`
   position: fixed;
   left: 3rem;
@@ -37,17 +35,21 @@ function Navigation() {
   const [isSticky, setIsSticky] = useState(false);
   const [activeId, setActiveId] = useState('');
 
+  // stick nav in when scrolling past 100px
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 100);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // observe only elements with IDs
   useEffect(() => {
-    const sections = document.querySelectorAll('section');
+    const sectionIds = ['intro', 'about', 'projects', 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,62 +60,55 @@ function Navigation() {
         });
       },
       {
-        // fire when the section's top edge crosses 30% down from the top of the viewport…
-        // or when its bottom edge crosses 30% up from the bottom
-        rootMargin: '-30% 0px -70% 0px',
+        rootMargin: '0px 0px -99% 0px',
         threshold: 0,
       }
     );
 
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
+    sections.forEach((sec) => observer.observe(sec));
+    return () => sections.forEach((sec) => observer.unobserve(sec));
   }, []);
 
   return (
     <NavWrapper $sticky={isSticky}>
-      <Nav>
-        <NavList>
-          <li>
-            <NavLink
-              href='#intro'
-              aria-label='Go to the intro section'
-              className={activeId === 'intro' ? 'active' : ''}
-            >
-              Hola!
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              href='#about'
-              aria-label='Go to about me section'
-              className={activeId === 'about' ? 'active' : ''}
-            >
-              About me
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              href='#projects'
-              aria-label='Go to featured projects section'
-              className={activeId === 'projects' ? 'active' : ''}
-            >
-              Projects
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              href='#contact'
-              aria-label='Go to get in touch section'
-              className={activeId === 'contact' ? 'active' : ''}
-            >
-              Get in touch
-            </NavLink>
-          </li>
-        </NavList>
-      </Nav>
+      <NavList>
+        <li>
+          <NavLink
+            href='#intro'
+            aria-label='Go to the intro section'
+            className={activeId === 'intro' ? 'active' : ''}
+          >
+            Hola!
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            href='#about'
+            aria-label='Go to about me section'
+            className={activeId === 'about' ? 'active' : ''}
+          >
+            About me
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            href='#projects'
+            aria-label='Go to featured projects section'
+            className={activeId === 'projects' ? 'active' : ''}
+          >
+            Projects
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            href='#contact'
+            aria-label='Go to get in touch section'
+            className={activeId === 'contact' ? 'active' : ''}
+          >
+            Get in touch
+          </NavLink>
+        </li>
+      </NavList>
     </NavWrapper>
   );
 }
