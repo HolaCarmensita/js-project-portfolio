@@ -21,6 +21,7 @@ const SkillsSection = styled.section`
 
 const FullWidthSection = styled.section`
   position: relative;
+  overflow: hidden;
 `;
 
 function Skills() {
