@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { appearAnimation } from '../styles/styled-utils';
 
 const TechContainer = styled.ul`
+  ${appearAnimation}
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

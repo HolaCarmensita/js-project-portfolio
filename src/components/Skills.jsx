@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
+import { tittutAnimation } from '../styles/styled-utils';
 
 const SkillCard = styled.div`
   display: flex;
@@ -13,6 +14,8 @@ const SkillCard = styled.div`
 
 const SkillsSection = styled.section`
   h2 {
+    font-size: 80px;
+    ${tittutAnimation}
     text-transform: uppercase;
     text-align: center;
     padding: 3rem;
@@ -21,7 +24,6 @@ const SkillsSection = styled.section`
 
 const FullWidthSection = styled.section`
   position: relative;
-  overflow: hidden;
 `;
 
 function Skills() {

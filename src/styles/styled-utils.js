@@ -10,6 +10,25 @@ export const appearAnimation = css`
     from {
       opacity: 0;
       scale: 0.9;
+      transform-origin: center center;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+`;
+
+export const tittutAnimation = css`
+  opacity: 0;
+  animation: tittutAnimation linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 80%;
+
+  @keyframes tittutAnimation {
+    from {
+      opacity: 0;
+      scale: 0.9;
       clip-path: inset(0 0 100% 0); /* 👈 klipper BORT allt utom toppen */
       transform-origin: top;
     }
@@ -24,9 +43,9 @@ export const appearAnimation = css`
 export const circleGrowIn = css`
   opacity: 0;
   transform: scale(0.2);
-  animation: circleGrowIn 0.8s ease-out forwards;
+  animation: circleGrowIn ease-out forwards;
   animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+  animation-range: entry 0% cover 50%;
 
   @keyframes circleGrowIn {
     0% {

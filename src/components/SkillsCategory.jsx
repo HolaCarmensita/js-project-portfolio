@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { appearAnimation } from '../styles/styled-utils';
 
 const SkillCard = styled.article`
+  ${appearAnimation}
+
   display: flex;
   flex-direction: column;
   gap: 1rem;

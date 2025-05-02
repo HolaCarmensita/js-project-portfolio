@@ -29,7 +29,7 @@ const ProfileImage = styled.img`
   }
 `;
 
-const H1 = styled.h2`
+const H2 = styled.h2`
   ${appearAnimation}
 `;
 
@@ -42,20 +42,12 @@ const FullWidthSection = styled.section`
   position: relative;
 `;
 
-const SvgWrapper = styled.div`
-  width: 15vw;
-  max-width: 250px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-`;
-
 function ProfileCard() {
   return (
     <FullWidthSection>
       <LayoutWrapper>
         <ProfileCardContainer>
-          <h1>Hi, I'm Casandra </h1>
+          <H2>Hi, I'm Casandra </H2>
           <ProfileImage src={profile.image} alt='Picture of Casandra' />
           <P>{profile.descriptionShort}</P>
         </ProfileCardContainer>
