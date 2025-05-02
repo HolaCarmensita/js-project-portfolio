@@ -35,6 +35,15 @@ function Navigation() {
   const [isSticky, setIsSticky] = useState(false);
   const [activeId, setActiveId] = useState('');
 
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setActiveId(hash);
+      // optional: scroll into view if you need to adjust for sticky headers
+      // document.getElementById(hash)?.scrollIntoView({ block: 'start' });
+    }
+  }, []);
+
   // stick nav in when scrolling past 100px
   useEffect(() => {
     const handleScroll = () => {
@@ -46,8 +55,8 @@ function Navigation() {
 
   // observe only elements with IDs
   useEffect(() => {
-    const sectionIds = ['intro', 'about', 'projects', 'contact'];
-    const sections = sectionIds
+    const targetIds = ['intro', 'about', 'projects', 'contact'];
+    const targetElements = targetIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
@@ -55,18 +64,19 @@ function Navigation() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            const id = entry.target.id;
+            setActiveId(id);
+            window.history.replaceState(null, '', `#${id}`);
           }
         });
       },
       {
-        rootMargin: '0px 0px -99% 0px',
-        threshold: 0,
+        rootMargin: '-50% 0px -50% 0px',
       }
     );
 
-    sections.forEach((sec) => observer.observe(sec));
-    return () => sections.forEach((sec) => observer.unobserve(sec));
+    targetElements.forEach((sec) => observer.observe(sec));
+    return () => targetElements.forEach((sec) => observer.unobserve(sec));
   }, []);
 
   return (
