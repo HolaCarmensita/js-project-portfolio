@@ -8,12 +8,17 @@ import {
 } from '../styles/styled-utils';
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
   padding-bottom: 5rem;
+  min-height: 80vh;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
   p {
     ${opacityAppear}
   }
@@ -30,8 +35,6 @@ const Shape = styled.svg`
 
 const Title = styled.h1`
   ${tittutAnimation}
-  font-size: 5rem;
-  align-self: flex-end;
   text-transform: none;
 
   &:nth-of-type(1) {
@@ -46,7 +49,6 @@ const Title = styled.h1`
 const TitleConatiner = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   max-width: fit-content;
 `;
 

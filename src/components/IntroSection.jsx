@@ -16,6 +16,8 @@ const CornerButtonWrapper = styled.div`
 `;
 
 const Section = styled.section`
+  scroll-snap-align: start;
+
   position: relative;
   height: 100vh;
   display: flex;

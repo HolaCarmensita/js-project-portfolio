@@ -38,7 +38,7 @@ function Skills() {
           </SkillCard>
         </SkillsSection>
       </LayoutWrapper>
-      <CircleLeft color='var(--color-purple)' YPosition='90%' />
+      <CircleLeft color='var(--color-mustard)' YPosition='90%' />
       <CircleRight color='var(--color-mustard)' YPosition='13%' />
     </FullWidthSection>
   );

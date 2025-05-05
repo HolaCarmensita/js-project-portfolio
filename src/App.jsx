@@ -1,6 +1,8 @@
 import Navigation from './components/Navigation';
 import IntroSection from './components/IntroSection';
 import AboutMe from './components/AboutMe';
+import AboutMeNew from './components/AboutMeNew';
+
 import Projects from './components/Projects';
 import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
@@ -22,10 +24,7 @@ export const App = () => {
       <Navigation />
       <main>
         <IntroSection />
-
-        <MiddleSection shapeSrc='/shapes/waveOrange.svg' />
-
-        <AboutMe />
+        <AboutMeNew />
 
         <Projects />
 

@@ -65,26 +65,34 @@ const GlobalStyle = createGlobalStyle`
   }
 
 h1 {
-  font-size: 5rem; //48px om vi har basic font på 16px
-      text-transform: uppercase;
-      font-weight: 300;
+  font-size: 3rem; //48px om vi har basic font på 16px
+  text-transform: uppercase;
+  font-weight: 300;
+
+  @media (min-width: 768px) {
+    font-size: 5rem;
+  }
 
 }
 
 h2{
-  font-size: 4rem;
+  font-size: 2rem;
       text-transform: uppercase;
             font-weight: 300;
-
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
 
 }
 
 
 h3{
-  font-size: 2rem;
+  font-size: 1.5rem;
       text-transform: uppercase;
             font-weight: 300;
-
+ @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 
 }
 

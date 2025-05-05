@@ -2,11 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SvgWrapper = styled.div`
-  width: 15vw;
+  width: 30vw;
   max-width: 250px;
   position: absolute;
   top: ${({ $YPosition }) => $YPosition};
   transform: translate(-50%, -50%);
+
+  @media (min-width: 768px) {
+    width: 15vw;
+    max-width: 250px;
+  }
 `;
 
 // OBS USE LIKE THIS <CircleLeft color="#584793" /> or <CircleLeft color="hsl(168, 90%, 52%)" /> or <CircleLeft color="rebeccapurple" />

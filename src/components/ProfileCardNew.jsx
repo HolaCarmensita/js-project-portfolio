@@ -22,15 +22,14 @@ const ProfileCardContainer = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 50%;
+  height: 50vh;
   object-fit: cover;
-  border-radius: 50%;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     width: 300px;
-    height: 300px;
-  }
+    height: 400px;
+  } */
 `;
 
 const H3 = styled.h3`
@@ -47,20 +46,28 @@ const FullWidthSection = styled.section`
   position: relative;
 `;
 
+const Container = styled.div`
+  display: flex;
+`;
+
 function ProfileCard() {
   return (
     <FullWidthSection>
-      <LayoutWrapper>
-        <ProfileCardContainer>
-          <H3>Hi there I'm, </H3>
-          <H2>Casandra</H2>
-          <ProfileImage src={profile.image} alt='Picture of Casandra' />
+      <Container>
+        <ProfileImage src={profile.image} alt='Picture of Casandra' />
 
-          <H3>Frontend Developer</H3>
+        <LayoutWrapper>
+          <ProfileCardContainer>
+            <H3>Hi there I'm, </H3>
+            <H2>Casandra</H2>
+          </ProfileCardContainer>
+        </LayoutWrapper>
+      </Container>
+      {/* <div>
+        <H3>Frontend Developer</H3>
 
-          <P>{profile.descriptionShort}</P>
-        </ProfileCardContainer>
-      </LayoutWrapper>
+        <P>{profile.descriptionShort}</P>
+      </div> */}
       <SocialMedia variant='about' />
       <CircleLeft color='var(--color-magenta)' />
     </FullWidthSection>

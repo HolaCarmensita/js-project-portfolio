@@ -1,4 +1,4 @@
-import ProfileCard from './ProfileCard';
+import ProfileCardNew from './ProfileCardNew';
 import SocialMedia from './SocialMedia';
 import Button from './Button';
 import styled from 'styled-components';
@@ -25,7 +25,7 @@ const CornerButtonWrapper = styled.div`
   }
 `;
 
-function AboutMe() {
+function AboutMeNew() {
   return (
     <AboutSection id='about'>
       <CornerButtonWrapper>
@@ -36,10 +36,10 @@ function AboutMe() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
-      <ProfileCard />
+      <ProfileCardNew />
       <Skills />
     </AboutSection>
   );
 }
 
-export default AboutMe;
+export default AboutMeNew;
