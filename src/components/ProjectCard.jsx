@@ -1,9 +1,14 @@
 import Techniques from './Techniques';
 import Button from './Button';
 import styled from 'styled-components';
-import { appearAnimation } from '../styles/styled-utils';
+import {
+  appearAnimation,
+  tittutAnimation,
+  tittutAnimationSmall,
+} from '../styles/styled-utils';
 
 const CardContainer = styled.article`
+  ${appearAnimation}
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -41,11 +46,9 @@ const TitleAndBody = styled.div`
   gap: 0.5rem;
 
   h3 {
-    ${appearAnimation}
   }
 
   p {
-    ${appearAnimation}
   }
 `;
 
@@ -56,8 +59,6 @@ const ButtonContainer = styled.div`
 `;
 
 const ButtonWithIcon = styled.div`
-  ${appearAnimation}
-
   display: flex; /* inline-flex så det fortfarande beter sig som en knapprad */
   align-items: center; /* vertikal centrering */
   gap: 8px; /* avstånd mellan ikon och knapp */

@@ -1,14 +1,18 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
-import { appearAnimation } from '../styles/styled-utils';
-import { circleGrowIn } from '../styles/styled-utils';
+import {
+  tittutAnimationSmall,
+  tittutAnimation,
+  appearAnimation,
+} from '../styles/styled-utils';
+import { opacityAppear } from '../styles/styled-utils';
 import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
 
 const ProfileCardContainer = styled.div`
   position: relative;
-  gap: 2rem;
+  gap: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +21,6 @@ const ProfileCardContainer = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  ${circleGrowIn}
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -29,12 +32,13 @@ const ProfileImage = styled.img`
   }
 `;
 
-const H2 = styled.h2`
-  ${appearAnimation}
+const H3 = styled.h3`
+  text-transform: none;
 `;
 
+const H2 = styled.h2``;
+
 const P = styled.p`
-  ${appearAnimation}
   max-width: 650px;
 `;
 
@@ -47,8 +51,12 @@ function ProfileCard() {
     <FullWidthSection>
       <LayoutWrapper>
         <ProfileCardContainer>
-          <H2>Hi, I'm Casandra </H2>
+          <H3>Hi there I'm, </H3>
+          <H2>Casandra</H2>
           <ProfileImage src={profile.image} alt='Picture of Casandra' />
+
+          <H3>Frontend Developer</H3>
+
           <P>{profile.descriptionShort}</P>
         </ProfileCardContainer>
       </LayoutWrapper>

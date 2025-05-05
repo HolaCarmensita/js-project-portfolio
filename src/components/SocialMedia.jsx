@@ -1,5 +1,6 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
+import { opacityAppear } from '../styles/styled-utils';
 
 const StyledSocialWrapper = styled.ul`
   display: flex;
@@ -9,6 +10,7 @@ const StyledSocialWrapper = styled.ul`
   padding: 0;
 
   li a {
+    ${opacityAppear};
     display: inline-block;
     transition: transform 0.3s ease, filter 0.3s ease;
   }

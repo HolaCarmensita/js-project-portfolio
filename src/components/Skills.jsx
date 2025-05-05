@@ -14,7 +14,6 @@ const SkillCard = styled.div`
 
 const SkillsSection = styled.section`
   h2 {
-    font-size: 80px;
     ${tittutAnimation}
     text-transform: uppercase;
     text-align: center;

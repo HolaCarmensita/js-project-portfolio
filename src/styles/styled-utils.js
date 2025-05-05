@@ -2,39 +2,65 @@ import { css } from 'styled-components';
 
 export const appearAnimation = css`
   opacity: 0;
-  animation: appearAnimation linear forwards;
+  transform: scale(0.9);
+  transform-origin: center center;
+
+  animation: appearAnimation 1s linear forwards;
   animation-timeline: view();
   animation-range: entry 0% cover 30%;
 
   @keyframes appearAnimation {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`;
+
+export const opacityAppear = css`
+  opacity: 0;
+  animation: opacityAppear 1s linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 10%;
+
+  @keyframes opacityAppear {
     from {
       opacity: 0;
-      scale: 0.9;
       transform-origin: center center;
     }
     to {
       opacity: 1;
-      scale: 1;
     }
   }
 `;
 
 export const tittutAnimation = css`
-  opacity: 0;
   animation: tittutAnimation linear forwards;
   animation-timeline: view();
-  animation-range: entry 0% cover 80%;
+  animation-range: entry 0% cover 50%;
 
   @keyframes tittutAnimation {
     from {
-      opacity: 0;
-      scale: 0.9;
       clip-path: inset(0 0 100% 0); /* 👈 klipper BORT allt utom toppen */
       transform-origin: top;
     }
     to {
-      opacity: 1;
-      scale: 1;
+      clip-path: inset(0 0 0 0);
+    }
+  }
+`;
+
+export const tittutAnimationSmall = css`
+  clip-path: inset(0 0 100% 0);
+  transform-origin: top;
+
+  /* Scroll-timed animation, nu klar redan vid cover 30% */
+  animation: tittutAnimationSmall linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+
+  @keyframes tittutAnimationSmall {
+    to {
       clip-path: inset(0 0 0 0);
     }
   }
