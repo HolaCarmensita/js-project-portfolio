@@ -19,7 +19,7 @@ const CornerButtonWrapper = styled.div`
     display: block;
     position: sticky;
     top: 3rem;
-    right: 4rem;
+    right: 3rem;
     padding-right: 0;
   }
 `;

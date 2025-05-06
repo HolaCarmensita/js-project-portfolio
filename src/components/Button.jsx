@@ -69,7 +69,7 @@ export default function Button({
   const animate = () => {
     if (!animating.current) return;
     drawWave();
-    t.current += 0.3; // hastighet
+    t.current += 0.2; // hastighet
     rafId.current = requestAnimationFrame(animate);
   };
 
