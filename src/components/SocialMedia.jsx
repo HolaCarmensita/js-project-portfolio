@@ -9,7 +9,7 @@ const StyledSocialWrapper = styled.ul`
   list-style: none;
   padding: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     gap: 3rem;
   }
 
@@ -18,7 +18,7 @@ const StyledSocialWrapper = styled.ul`
     display: inline-block;
     transition: transform 0.3s ease, filter 0.3s ease;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       scale: 1.1;
     }
   }
@@ -36,7 +36,7 @@ const StyledSocialWrapper = styled.ul`
     position: absolute;
     float: right; 
     top: 50%;
-    right: 6rem;
+    right: 4rem;
     gap: 3rem;
     transform: translateY(-50%);
     flex-direction: column;

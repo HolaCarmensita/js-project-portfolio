@@ -11,15 +11,10 @@ const AboutSection = styled.section`
 `;
 
 const CornerButtonWrapper = styled.div`
-  /* position: static; 
-  float: right;
-  z-index: 1000;
-  padding-right: 2rem; */
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     z-index: 1000;
-
     float: right;
     display: block;
     position: sticky;

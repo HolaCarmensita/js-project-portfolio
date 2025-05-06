@@ -4,6 +4,7 @@ import { opacityAppear } from '../styles/styled-utils';
 import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
+import CircleRight from './CircleRight';
 import { slideUpAnimation, appearAnimation } from '../styles/styled-utils';
 import Button from './Button';
 
@@ -16,7 +17,7 @@ const ProfileCardContainer = styled.div`
   justify-content: center;
   text-align: center;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
     display: flex;
     flex-direction: row;
     gap: 3rem;
@@ -27,7 +28,7 @@ const TextContainerDesktop = styled.div`
   text-transform: none;
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
     text-align: left;
     display: block;
     display: flex;
@@ -52,10 +53,8 @@ const ButtonWrapper = styled.div`
 
 const ProfileImage = styled.img`
   object-fit: cover;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    width: 40%;
+  @media (min-width: 1024px) {
+    max-width: 40vw;
     height: 500px;
   }
 `;
@@ -65,13 +64,28 @@ const TextContainerMobile = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 
   h3 {
     text-transform: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
+    display: none;
+  }
+`;
+
+const TitleContainerMobile = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    text-transform: none;
+  }
+
+  @media (min-width: 1025px) {
     display: none;
   }
 `;
@@ -85,7 +99,7 @@ function ProfileCard() {
     <FullWidthSection>
       <LayoutWrapper>
         <ProfileCardContainer>
-          <TextContainerMobile>
+          <TitleContainerMobile>
             <h3>
               Welcome, I'm
               <a
@@ -99,7 +113,7 @@ function ProfileCard() {
               /
             </h3>
             <h2>Casandra</h2>
-          </TextContainerMobile>
+          </TitleContainerMobile>
           <ProfileImage src={profile.image} alt='Picture of Casandra' />
           <TextContainerDesktop>
             <div>
@@ -138,7 +152,7 @@ function ProfileCard() {
         </ProfileCardContainer>
       </LayoutWrapper>
       <SocialMedia variant='about' />
-      <CircleLeft color='var(--color-magenta)' />
+      <CircleLeft color='var(--color-magenta)' YPosition='90%' />
     </FullWidthSection>
   );
 }

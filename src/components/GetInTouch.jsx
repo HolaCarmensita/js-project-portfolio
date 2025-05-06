@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 
 const Background = styled.div`
-  background-color: ;
   display: flex;
   justify-content: center;
   align-items: center;
