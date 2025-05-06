@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
   /* CSS Variables */
   :root {
     font-size: 16px;
+
+ @media (min-width: 768px) {
+    font-size: 18px;
+  }
+
     --font-main: 'Belgrano', serif;
     ${'' /* --font-main: 'Aileron Regular', sans-serif; */}
     --font-display: 'TAN-Rosebud', serif;
@@ -64,6 +69,11 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
+
+
+
+
+
 h1 {
   font-size: 3rem; //48px om vi har basic font på 16px
   text-transform: uppercase;
@@ -76,11 +86,11 @@ h1 {
 }
 
 h2{
-  font-size: 2rem;
+  font-size: 2.5rem;
       text-transform: uppercase;
             font-weight: 300;
   @media (min-width: 768px) {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
 }
@@ -95,6 +105,8 @@ h3{
   }
 
 }
+
+
 
 
   p, h1, h2, h3, h4, h5, h6 {

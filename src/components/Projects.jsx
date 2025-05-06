@@ -2,31 +2,32 @@ import projectsData from '../data/projects.json';
 import ProjectCard from './ProjectCard';
 import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
-import { slideUpAnimation } from '../styles/styled-utils';
+import { slideUpAnimation, appearAnimation } from '../styles/styled-utils';
 
 const ProjectSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 
   h2 {
-    ${slideUpAnimation}
+    ${appearAnimation}
+    padding: 3rem 0 3rem 0;
 
     text-align: center;
   }
 
   @media (min-width: 768px) {
-    gap: 8rem;
+    gap: 4rem;
   }
 `;
 
 const ProjectSectionChild = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 4rem;
 
   @media (min-width: 768px) {
-    gap: 10rem;
+    gap: 8rem;
   }
 `;
 

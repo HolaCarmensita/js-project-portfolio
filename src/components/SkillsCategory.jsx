@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { appearAnimation } from '../styles/styled-utils';
+import { appearAnimation, slideUpAnimation } from '../styles/styled-utils';
 
 const SkillCard = styled.article`
-  ${appearAnimation}
+  ${slideUpAnimation}
 
   display: flex;
   flex-direction: column;

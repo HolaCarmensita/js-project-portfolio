@@ -4,23 +4,23 @@ import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 
 const Background = styled.div`
-  background-color: var(--color-purple);
-  color: white;
-  min-height: 100vh;
-
+  background-color: ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (min-width: 768px) {
-    min-height: 50%;
+    min-height: 100vh;
   }
 `;
 
 const GetInTouchSection = styled.section`
+  padding: 5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
   gap: 2rem;
 `;
 
@@ -29,7 +29,6 @@ const LinkContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   a {
-    color: white;
     text-decoration: none;
   }
 `;
@@ -39,7 +38,7 @@ function GetInTouch() {
     <Background id='contact'>
       <LayoutWrapper>
         <GetInTouchSection>
-          <h2>Get in touch!</h2>
+          <h2>Get in touch! / ¡Hablemos!</h2>
           <LinkContainer>
             <a
               href={`mailto:${profile.email}?subject=Contact from portfolio!`}

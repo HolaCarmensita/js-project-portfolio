@@ -11,15 +11,20 @@ const AboutSection = styled.section`
 `;
 
 const CornerButtonWrapper = styled.div`
-  position: static; /* default för mobil */
+  /* position: static; 
   float: right;
   z-index: 1000;
-  padding-right: 2rem;
+  padding-right: 2rem; */
+  display: none;
 
   @media (min-width: 768px) {
+    z-index: 1000;
+
+    float: right;
+    display: block;
     position: sticky;
     top: 3rem;
-    right: 3rem;
+    right: 4rem;
     padding-right: 0;
   }
 `;

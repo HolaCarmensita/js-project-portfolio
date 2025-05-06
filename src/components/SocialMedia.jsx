@@ -9,10 +9,18 @@ const StyledSocialWrapper = styled.ul`
   list-style: none;
   padding: 0;
 
+  @media (min-width: 768px) {
+    gap: 3rem;
+  }
+
   li a {
     ${opacityAppear};
     display: inline-block;
     transition: transform 0.3s ease, filter 0.3s ease;
+
+    @media (min-width: 768px) {
+      scale: 1.1;
+    }
   }
 
   li a:hover,
@@ -28,7 +36,7 @@ const StyledSocialWrapper = styled.ul`
     position: absolute;
     float: right; 
     top: 50%;
-    right: 5rem;
+    right: 6rem;
     gap: 3rem;
     transform: translateY(-50%);
     flex-direction: column;
