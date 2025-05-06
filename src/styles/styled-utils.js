@@ -1,5 +1,24 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
+//////////////
+export const slideUpAnimation = css`
+  /* start fully transparent and shifted down */
+  opacity: 0;
+  transform: translateY(200px);
 
+  /* hook up your keyframes on the view-timeline */
+  animation: slideUp 2.5s ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+////////////////////
 export const appearAnimation = css`
   opacity: 0;
   transform: scale(0.9);

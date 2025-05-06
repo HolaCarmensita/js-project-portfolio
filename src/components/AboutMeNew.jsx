@@ -8,7 +8,6 @@ const AboutSection = styled.section`
   position: relative;
   width: 100%;
   min-height: 100vh;
-  scroll-snap-align: start;
 `;
 
 const CornerButtonWrapper = styled.div`

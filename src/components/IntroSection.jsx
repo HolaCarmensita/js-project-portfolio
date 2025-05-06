@@ -17,7 +17,6 @@ const CornerButtonWrapper = styled.div`
 
 const Section = styled.section`
   scroll-snap-align: start;
-
   position: relative;
   height: 100vh;
   display: flex;
@@ -27,6 +26,11 @@ const Section = styled.section`
   text-align: center;
   background-color: var(--color-bg);
   color: var(--color-text);
+`;
+
+const Text = styled.h1`
+  font-size: 3rem;
+  text-align: left;
 `;
 
 function IntroSection() {

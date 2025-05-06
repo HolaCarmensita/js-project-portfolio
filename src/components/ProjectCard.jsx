@@ -1,14 +1,10 @@
 import Techniques from './Techniques';
 import Button from './Button';
 import styled from 'styled-components';
-import {
-  appearAnimation,
-  tittutAnimation,
-  tittutAnimationSmall,
-} from '../styles/styled-utils';
+import { slideUpAnimation } from '../styles/styled-utils';
 
 const CardContainer = styled.article`
-  ${appearAnimation}
+  ${slideUpAnimation}
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -112,13 +108,7 @@ function ProjectCard({ project }) {
               />
             </svg>
 
-            <Button
-              text='Github Repo'
-              href={project.github}
-              target='_blank'
-              rel='noopener noreferrer'
-              ariaLabel={`View the github-repo of ${project.name}`}
-            />
+            <Button text='Get In Touch' href='#contact' />
           </ButtonWithIcon>
         </ButtonContainer>
       </TextContainer>

@@ -2,6 +2,7 @@ import projectsData from '../data/projects.json';
 import ProjectCard from './ProjectCard';
 import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
+import { slideUpAnimation } from '../styles/styled-utils';
 
 const ProjectSection = styled.section`
   display: flex;
@@ -9,6 +10,8 @@ const ProjectSection = styled.section`
   gap: 4rem;
 
   h2 {
+    ${slideUpAnimation}
+
     text-align: center;
   }
 

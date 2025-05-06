@@ -1,68 +1,86 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
-import {
-  tittutAnimationSmall,
-  tittutAnimation,
-  appearAnimation,
-} from '../styles/styled-utils';
 import { opacityAppear } from '../styles/styled-utils';
 import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
+import { slideUpAnimation } from '../styles/styled-utils';
+import Button from './Button';
 
 const ProfileCardContainer = styled.div`
-  padding: 2rem;
-  position: relative;
   gap: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 3rem;
+    text-align: left;
+
+    p {
+      ${slideUpAnimation}
+
+      font-size: 18px;
+    }
+
+    h3 {
+      ${slideUpAnimation}
+    }
+  }
 `;
 
 const ProfileImage = styled.img`
-  width: 50%;
-  height: 50vh;
+  ${slideUpAnimation}
   object-fit: cover;
+  width: 100%;
 
-  /* @media (min-width: 768px) {
-    width: 300px;
-    height: 400px;
-  } */
+  @media (min-width: 768px) {
+    width: 40%;
+  }
 `;
 
-const H3 = styled.h3`
+const TextContainerMobile = styled.h3`
+  ${slideUpAnimation}
   text-transform: none;
+  display: block;
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
-const H2 = styled.h2``;
-
-const P = styled.p`
-  max-width: 650px;
+const TextContainerDesktop = styled.h3`
+  ${slideUpAnimation}
+  text-transform: none;
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;
 
 const FullWidthSection = styled.section`
   position: relative;
 `;
 
-const Container = styled.div`
-  display: flex;
-`;
-
 function ProfileCard() {
   return (
     <FullWidthSection>
-      <Container>
-        <ProfileImage src={profile.image} alt='Picture of Casandra' />
+      <LayoutWrapper>
+        <ProfileCardContainer>
+          <TextContainerMobile>
+            <h3>Hi there I'm Casandra A Frontend Developer</h3>
+          </TextContainerMobile>
+          <ProfileImage src={profile.image} alt='Picture of Casandra' />
+          <TextContainerDesktop>
+            <h3>Hi there I'm Casandra A Frontend Developer</h3>
+            <p>{profile.descriptionShort}</p>
+          </TextContainerDesktop>
+          <Button text='Get In Touch' href='#contact' />s
+        </ProfileCardContainer>
+      </LayoutWrapper>
 
-        <LayoutWrapper>
-          <ProfileCardContainer>
-            <H3>Hi there I'm, </H3>
-            <H2>Casandra</H2>
-          </ProfileCardContainer>
-        </LayoutWrapper>
-      </Container>
       {/* <div>
         <H3>Frontend Developer</H3>
 
