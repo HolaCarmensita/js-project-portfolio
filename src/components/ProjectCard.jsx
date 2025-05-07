@@ -10,11 +10,10 @@ const CardContainer = styled.article`
   gap: 2rem;
 
   & > img {
-    width: auto;
     object-fit: cover;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1180px) {
     flex-direction: row;
     gap: 3rem;
 
@@ -23,8 +22,8 @@ const CardContainer = styled.article`
     }
 
     & > img {
-      width: 450px;
-      height: 450px;
+      max-width: clamp(200px, 30vw, 400px);
+      max-height: clamp(200px, 30vw, 400px);
     }
   }
 `;
@@ -32,7 +31,7 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   max-width: 550px;
 `;
 

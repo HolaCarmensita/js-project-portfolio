@@ -40,7 +40,7 @@ const TitleDesktop = styled.div`
   display: none;
 
   @media (min-width: 1367px) {
-    min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,16 +59,10 @@ function AboutMeNew() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
+
       <SocialMediaWrapper>
         <SocialMedia variant='about' />
       </SocialMediaWrapper>
-      <LayoutWrapper>
-        <TitleDesktop>
-          <h3>Hola! I'm</h3>
-          <h1>Casandra</h1>
-          <p>@Github HolaCarmensita</p>
-        </TitleDesktop>
-      </LayoutWrapper>
 
       <ProfileCardNew />
       <Skills />

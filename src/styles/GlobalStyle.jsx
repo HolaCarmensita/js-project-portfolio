@@ -90,7 +90,7 @@ h2{
       text-transform: uppercase;
             font-weight: 300;
   @media (min-width: 768px) {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
 }

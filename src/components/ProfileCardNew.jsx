@@ -61,7 +61,6 @@ const ProfileCardContainerDesktop = styled.div`
     display: flex;
     gap: 3rem;
     align-items: stretch;
-    justify-content: space-between;
     > * {
       flex: 1 1 0%;
       min-width: 0;
@@ -133,14 +132,10 @@ const TitleDesktop = styled.div`
   display: none;
 
   @media (min-width: 1367px) {
-    min-height: 100vh;
     ${slideUpAnimation}
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 8rem;
+    text-align: left;
     h3 {
       text-transform: none;
     }
@@ -187,9 +182,11 @@ function ProfileCard() {
           <ProfileCardContainerDesktop>
             <ProfileImage aria-label='Picture of Casandra' />
             <TextContainerDesktop>
-              <div>
-                <h3> Frontend developer with an eye for design</h3>
-              </div>
+              <TitleDesktop>
+                <h3>Hola! I'm</h3>
+                <h1>Casandra</h1>
+                <p>@Github HolaCarmensita</p>
+              </TitleDesktop>
               <p>{profile.descriptionShort}</p>
               <p>Ready to build increíble things together?</p>
               <ButtonWrapper>
@@ -199,6 +196,7 @@ function ProfileCard() {
           </ProfileCardContainerDesktop>
         </LayoutWrapper>
       </HideOnMobile>
+      <SocialMedia variant='about' />
 
       <CircleLeft color='var(--color-magenta)' YPosition='90%' />
     </FullWidthSection>

@@ -16,7 +16,7 @@ const ProjectSection = styled.section`
   }
 
   @media (min-width: 768px) {
-    gap: 4rem;
+    gap: 2rem;
   }
 `;
 

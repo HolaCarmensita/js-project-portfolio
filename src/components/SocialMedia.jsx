@@ -31,23 +31,16 @@ const StyledSocialWrapper = styled.ul`
   ${({ $variant }) =>
     $variant === 'about' &&
     `
-    // @media (min-width: 1024px) {
-    // position: absolute;
-    // float: right; 
-    // top: 50%;
-    // right: 5rem;
-    // gap: 3rem;
-    // transform: translateY(-50%);
-    // flex-direction: column;
-    // align-items: center;
-    //  }
-
-          @media (min-width: 1024px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4rem;
-      }
+    @media (min-width: 1024px) {
+    position: absolute;
+    float: right; 
+    top: 50%;
+    right: 5rem;
+    gap: 3rem;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+     }
 
   
   `}
