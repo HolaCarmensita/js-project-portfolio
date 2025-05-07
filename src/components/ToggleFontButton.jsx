@@ -13,7 +13,8 @@ const Switch = styled.span`
   display: inline-block;
   width: 50px;
   height: 28px;
-  background-color: ${({ active }) => (active ? '#e91e63' : '#ccc')};
+  background-color: ${({ active }) =>
+    active ? 'var(--color-accent)' : '#ccc'};
   border-radius: 34px;
   transition: background-color 0.3s ease;
 `;

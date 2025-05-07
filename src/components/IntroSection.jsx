@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 import HeroAnimation from './HeroAnimation';
 import HolaAnimation from './HolaAnimation';
+import Accessibility from './Accessibility';
 import { useState } from 'react';
 
 const CornerButtonWrapper = styled.div`
@@ -18,7 +19,7 @@ const CornerButtonWrapper = styled.div`
 const Section = styled.section`
   scroll-snap-align: start;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,9 +29,20 @@ const Section = styled.section`
   color: var(--color-text);
 `;
 
-const Text = styled.h1`
-  font-size: 3rem;
-  text-align: left;
+const HeroAnimationConatiner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AccessibilityWrapper = styled.div`
+  display: none;
+  @media (min-width: 768px) {
+    display: inline;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+  }
 `;
 
 function IntroSection() {
@@ -38,13 +50,18 @@ function IntroSection() {
 
   return (
     <Section id='intro'>
+      <AccessibilityWrapper>
+        <Accessibility></Accessibility>
+      </AccessibilityWrapper>
+
       <CornerButtonWrapper>
         <Button text='Get In Touch' href='#contact' />
       </CornerButtonWrapper>
-
       <LayoutWrapper>
-        <HolaAnimation onFinished={() => setShowHero(true)} />
-        {showHero && <HeroAnimation />}
+        <HeroAnimationConatiner>
+          <HolaAnimation onFinished={() => setShowHero(true)} />
+          {showHero && <HeroAnimation />}
+        </HeroAnimationConatiner>
       </LayoutWrapper>
     </Section>
   );

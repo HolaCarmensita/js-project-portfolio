@@ -7,10 +7,9 @@ import { slideUpAnimation, appearAnimation } from '../styles/styled-utils';
 const ProjectSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 3rem;
 
   h2 {
-    ${appearAnimation}
+    ${slideUpAnimation}
     padding: 3rem 0 3rem 0;
 
     text-align: center;

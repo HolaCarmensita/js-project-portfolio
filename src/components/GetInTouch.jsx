@@ -7,13 +7,10 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (min-width: 768px) {
-    min-height: 100vh;
-  }
+  min-height: 100vh;
 `;
 
 const GetInTouchSection = styled.section`
-  padding: 5rem;
   position: relative;
   display: flex;
   flex-direction: column;

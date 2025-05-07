@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
 
  @media (min-width: 768px) {
-    font-size: 18px;
+    font-size: 17px;
   }
 
     --font-main: 'Belgrano', serif;
@@ -80,7 +80,7 @@ h1 {
   font-weight: 300;
 
   @media (min-width: 768px) {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
 }

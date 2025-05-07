@@ -1,8 +1,10 @@
 import ProfileCardNew from './ProfileCardNew';
-import SocialMedia from './SocialMedia';
 import Button from './Button';
 import styled from 'styled-components';
 import Skills from './Skills';
+import AboutMeTitle from './AboutMeTitle';
+import SocialMedia from './SocialMedia';
+import LayoutWrapper from './LayoutWrapper';
 
 const AboutSection = styled.section`
   position: relative;
@@ -24,6 +26,28 @@ const CornerButtonWrapper = styled.div`
   }
 `;
 
+const SocialMediaWrapper = styled.div`
+  z-index: 1000;
+  float: right;
+  display: block;
+  position: sticky;
+  top: 3rem; /* halfway down the screen */
+  right: 3rem; /* 3rem in from the right */
+  transform: translateY(50%); /* truly center vertically */
+`;
+
+const TitleDesktop = styled.div`
+  display: none;
+
+  @media (min-width: 1367px) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
 function AboutMeNew() {
   return (
     <AboutSection id='about'>
@@ -35,6 +59,17 @@ function AboutMeNew() {
           rel='noopener noreferrer'
         />
       </CornerButtonWrapper>
+      <SocialMediaWrapper>
+        <SocialMedia variant='about' />
+      </SocialMediaWrapper>
+      <LayoutWrapper>
+        <TitleDesktop>
+          <h3>Hola! I'm</h3>
+          <h1>Casandra</h1>
+          <p>@Github HolaCarmensita</p>
+        </TitleDesktop>
+      </LayoutWrapper>
+
       <ProfileCardNew />
       <Skills />
     </AboutSection>

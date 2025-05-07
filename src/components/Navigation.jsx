@@ -97,7 +97,7 @@ function Navigation() {
             aria-label='Go to about me section'
             className={activeId === 'about' ? 'active' : ''}
           >
-            About me
+            About
           </NavLink>
         </li>
         <li>
@@ -115,7 +115,7 @@ function Navigation() {
             aria-label='Go to get in touch section'
             className={activeId === 'contact' ? 'active' : ''}
           >
-            Get in touch
+            Contact
           </NavLink>
         </li>
       </NavList>

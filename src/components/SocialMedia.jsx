@@ -1,6 +1,6 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
-import { opacityAppear } from '../styles/styled-utils';
+import { slideUpAnimationFast } from '../styles/styled-utils';
 
 const StyledSocialWrapper = styled.ul`
   display: flex;
@@ -14,7 +14,6 @@ const StyledSocialWrapper = styled.ul`
   }
 
   li a {
-    ${opacityAppear};
     display: inline-block;
     transition: transform 0.3s ease, filter 0.3s ease;
 
@@ -32,16 +31,23 @@ const StyledSocialWrapper = styled.ul`
   ${({ $variant }) =>
     $variant === 'about' &&
     `
-    @media (min-width: 768px) {
-    position: absolute;
-    float: right; 
-    top: 50%;
-    right: 4rem;
-    gap: 3rem;
-    transform: translateY(-50%);
-    flex-direction: column;
-    align-items: center;
-     }
+    // @media (min-width: 1024px) {
+    // position: absolute;
+    // float: right; 
+    // top: 50%;
+    // right: 5rem;
+    // gap: 3rem;
+    // transform: translateY(-50%);
+    // flex-direction: column;
+    // align-items: center;
+    //  }
+
+          @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+      }
 
   
   `}

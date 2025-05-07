@@ -1,61 +1,35 @@
 import profile from '../data/profile.json';
 import styled from 'styled-components';
-import { opacityAppear } from '../styles/styled-utils';
 import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
-import { slideUpAnimation, appearAnimation } from '../styles/styled-utils';
+import {
+  slideUpAnimation,
+  opacityAppear,
+  slideUpAnimationFast,
+} from '../styles/styled-utils';
 import Button from './Button';
 
-const ProfileCardContainer = styled.div`
-  ${appearAnimation}
+const ProfileCardContainerMobile = styled.div`
   gap: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  @media (min-width: 1025px) {
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-  }
 `;
 
-const TextContainerDesktop = styled.div`
-  text-transform: none;
-  display: none;
+const TitleContainerMobile = styled.div`
+  ${slideUpAnimation}
 
-  @media (min-width: 1025px) {
-    text-align: left;
-    display: block;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    h3 {
-      text-transform: none;
-    }
-  }
-
-  div:nth-of-type(2) {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-`;
-
-const ButtonWrapper = styled.div`
-  max-width: fit-content;
-`;
-
-const ProfileImage = styled.img`
-  object-fit: cover;
-  @media (min-width: 1024px) {
-    max-width: 40vw;
-    height: 500px;
+  h3 {
+    text-transform: none;
   }
 `;
 
@@ -64,29 +38,76 @@ const TextContainerMobile = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  max-width: 40ch;
+  padding-bottom: 2rem;
 
   h3 {
+    ${slideUpAnimation}
     text-transform: none;
   }
 
-  @media (min-width: 1025px) {
-    display: none;
+  p {
+    ${slideUpAnimationFast}
   }
 `;
 
-const TitleContainerMobile = styled.div`
+const ProfileCardContainerDesktop = styled.div`
+  ${slideUpAnimation}
+
+  display: none;
+
+  @media (min-width: 1367px) {
+    display: flex;
+    gap: 3rem;
+    align-items: stretch;
+    justify-content: space-between;
+    > * {
+      flex: 1 1 0%;
+      min-width: 0;
+    }
+  }
+`;
+
+const TextContainerDesktop = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
+  padding-block: 1rem;
+  max-width: 50ch;
 
   h3 {
     text-transform: none;
   }
+`;
 
-  @media (min-width: 1025px) {
-    display: none;
+const ButtonWrapper = styled.div`
+  max-width: fit-content;
+`;
+
+const ProfileImage = styled.div`
+  ${opacityAppear}
+  width: 100%;
+  max-width: 400px;
+  background-image: url(${profile.image});
+  background: url(${profile.image}) center/cover no-repeat;
+  aspect-ratio: 1 / 1;
+
+  /* smooth transition */
+  transition: background-image 1s ease-in-out, transform 1s ease;
+
+  &:hover {
+    background-image: url(${profile.hoverImg});
+    /* optional extra effect */
+    transform: scale(1.05);
+  }
+
+  @media (min-width: 1367px) {
+    /* DESKTOP: let flex sizing take over */
+    flex: 1 1 0%;
+    min-width: 0; /* allow it to shrink if needed */
+    width: auto;
   }
 `;
 
@@ -94,64 +115,91 @@ const FullWidthSection = styled.section`
   position: relative;
 `;
 
+const HideOnDesktop = styled.div`
+  display: block;
+  @media (min-width: 1367px) {
+    display: none;
+  }
+`;
+
+const HideOnMobile = styled.div`
+  display: none;
+  @media (min-width: 1367px) {
+    display: block;
+  }
+`;
+
+const TitleDesktop = styled.div`
+  display: none;
+
+  @media (min-width: 1367px) {
+    min-height: 100vh;
+    ${slideUpAnimation}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 8rem;
+    h3 {
+      text-transform: none;
+    }
+  }
+`;
+
 function ProfileCard() {
   return (
     <FullWidthSection>
-      <LayoutWrapper>
-        <ProfileCardContainer>
-          <TitleContainerMobile>
-            <h3>
-              Welcome, I'm
-              <a
-                href='https://github.com/HolaCarmensita'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                {' '}
-                @Holacarmecita
-              </a>
-              /
-            </h3>
-            <h2>Casandra</h2>
-          </TitleContainerMobile>
-          <ProfileImage src={profile.image} alt='Picture of Casandra' />
-          <TextContainerDesktop>
-            <div>
-              <h3>
-                Welcome, I'm
-                <a
-                  href='https://github.com/HolaCarmensita'
+      <HideOnDesktop>
+        <LayoutWrapper>
+          <ProfileCardContainerMobile>
+            <TitleContainerMobile>
+              <h3>Hola! I'm</h3>
+              <h2>Casandra</h2>
+              <p>@Github HolaCarmensita</p>
+            </TitleContainerMobile>
+            <ProfileImage aria-label='Picture of Casandra' />
+            <TextContainerMobile>
+              <h3>Frontend developer with an eye for design</h3>
+              <p>{profile.descriptionShort}</p>
+              <ButtonWrapper>
+                <Button
+                  text='Resume here'
+                  href='/resume.pdf'
                   target='_blank'
                   rel='noopener noreferrer'
-                >
-                  @Holacarmecita
-                </a>
-                /
-              </h3>
-              <h2>Casandra</h2>
-            </div>
-            <div>
+                />{' '}
+              </ButtonWrapper>
+            </TextContainerMobile>
+          </ProfileCardContainerMobile>
+        </LayoutWrapper>
+      </HideOnDesktop>
+
+      <HideOnMobile>
+        <LayoutWrapper>
+          {/* <TitleDesktop>
+            <h3>Hola! I'm</h3>
+            <h1>Casandra</h1>
+            <p>@Github HolaCarmensita</p>
+          </TitleDesktop> */}
+        </LayoutWrapper>
+        <LayoutWrapper>
+          <ProfileCardContainerDesktop>
+            <ProfileImage aria-label='Picture of Casandra' />
+            <TextContainerDesktop>
+              <div>
+                <h3> Frontend developer with an eye for design</h3>
+              </div>
               <p>{profile.descriptionShort}</p>
               <p>Ready to build increíble things together?</p>
               <ButtonWrapper>
                 <Button text='¡Lets talk!' href='#contact' />
               </ButtonWrapper>
-            </div>
-          </TextContainerDesktop>
-          <TextContainerMobile>
-            <p>{profile.descriptionShort}</p>
-            <ButtonWrapper>
-              <Button
-                text='Resume here'
-                href='/resume.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
-              />
-            </ButtonWrapper>
-          </TextContainerMobile>
-        </ProfileCardContainer>
-      </LayoutWrapper>
-      <SocialMedia variant='about' />
+            </TextContainerDesktop>
+          </ProfileCardContainerDesktop>
+        </LayoutWrapper>
+      </HideOnMobile>
+
       <CircleLeft color='var(--color-magenta)' YPosition='90%' />
     </FullWidthSection>
   );
