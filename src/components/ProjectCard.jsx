@@ -22,8 +22,8 @@ const CardContainer = styled.article`
     }
 
     & > img {
-      max-width: clamp(200px, 30vw, 400px);
-      max-height: clamp(200px, 30vw, 400px);
+      max-width: clamp(200px, 30vw, 500px);
+      max-height: clamp(200px, 30vw, 500px);
     }
   }
 `;
