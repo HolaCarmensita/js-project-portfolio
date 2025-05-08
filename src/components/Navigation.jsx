@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
+//Done together with ChatGPT
+
 const NavWrapper = styled.nav`
   position: fixed;
   left: 3rem;
@@ -35,28 +37,28 @@ function Navigation() {
   const [isSticky, setIsSticky] = useState(false);
   const [activeId, setActiveId] = useState('');
 
+  // 1) On mount: grab any #hash, set active, strip it from URL
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash) {
-      setActiveId(hash);
-      // optional: scroll into view if you need to adjust for sticky headers
-      // document.getElementById(hash)?.scrollIntoView({ block: 'start' });
+    const rawHash = window.location.hash.replace('#', '');
+    if (rawHash) {
+      setActiveId(rawHash);
+      window.history.replaceState(null, '', rawHash);
+      // optional: scroll into view if you need it
+      // document.getElementById(rawHash)?.scrollIntoView({ block: 'start' });
     }
   }, []);
 
-  // stick nav in when scrolling past 100px
+  // 2) Show nav when scrolling past 100px
   useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 100);
-    };
+    const handleScroll = () => setIsSticky(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // observe only elements with IDs
+  // 3) Observe sections to update URL & active link
   useEffect(() => {
-    const targetIds = ['intro', 'about', 'projects', 'contact'];
-    const targetElements = targetIds
+    const ids = ['intro', 'about', 'projects', 'contact'];
+    const elements = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
@@ -66,58 +68,41 @@ function Navigation() {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             setActiveId(id);
-            window.history.replaceState(null, '', `#${id}`);
+            window.history.replaceState(null, '', id);
           }
         });
       },
-      {
-        rootMargin: '-50% 0px -50% 0px',
-      }
+      { rootMargin: '-50% 0px -50% 0px' }
     );
 
-    targetElements.forEach((sec) => observer.observe(sec));
-    return () => targetElements.forEach((sec) => observer.unobserve(sec));
+    elements.forEach((el) => observer.observe(el));
+    return () => elements.forEach((el) => observer.unobserve(el));
   }, []);
 
+  // Render
   return (
     <NavWrapper $sticky={isSticky}>
       <NavList>
-        <li>
-          <NavLink
-            href='#intro'
-            aria-label='Go to the intro section'
-            className={activeId === 'intro' ? 'active' : ''}
-          >
-            Hola!
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            href='#about'
-            aria-label='Go to about me section'
-            className={activeId === 'about' ? 'active' : ''}
-          >
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            href='#projects'
-            aria-label='Go to featured projects section'
-            className={activeId === 'projects' ? 'active' : ''}
-          >
-            Projects
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            href='#contact'
-            aria-label='Go to get in touch section'
-            className={activeId === 'contact' ? 'active' : ''}
-          >
-            Contact
-          </NavLink>
-        </li>
+        {['intro', 'about', 'projects', 'contact'].map((id) => (
+          <li key={id}>
+            <NavLink
+              href={`#${id}`}
+              onClick={(e) => {
+                e.preventDefault(); // stop the #hash jump
+                document
+                  .getElementById(id)
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.history.replaceState(null, '', id);
+                setActiveId(id);
+              }}
+              className={activeId === id ? 'active' : ''}
+            >
+              {id === 'intro'
+                ? 'Hola!'
+                : id.charAt(0).toUpperCase() + id.slice(1)}
+            </NavLink>
+          </li>
+        ))}
       </NavList>
     </NavWrapper>
   );

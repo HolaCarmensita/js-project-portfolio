@@ -1,4 +1,5 @@
-// Button.jsx
+//Done together with ChatGPT and the helo of "https://css-shape.com/wavy-line/" and @riklomas codepen https://codepen.io/riklomas/pen/erKJoN
+
 import React, { useRef, useLayoutEffect, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
