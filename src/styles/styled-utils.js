@@ -121,3 +121,14 @@ export const circleGrowIn = css`
     }
   }
 `;
+
+// Smooth scale-on-hover
+export const hoverScale = css`
+  /* apply a smooth scale transform on hover or focus */
+  transition: transform 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+`;

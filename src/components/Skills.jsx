@@ -4,11 +4,7 @@ import styled from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
-import {
-  tittutAnimation,
-  appearAnimation,
-  slideUpAnimation,
-} from '../styles/styled-utils';
+import { slideUpAnimation, hoverScale } from '../styles/styled-utils';
 
 const SkillCard = styled.div`
   display: flex;
@@ -19,7 +15,6 @@ const SkillCard = styled.div`
 const SkillsSection = styled.section`
   h2 {
     ${slideUpAnimation}
-
     text-transform: uppercase;
     text-align: center;
     padding: 3rem 0 3rem 0;
@@ -37,9 +32,11 @@ function Skills() {
         <SkillsSection>
           <h2>Skills</h2>
           <SkillCard>
-            {Object.entries(profile.skills).map(([title, skills]) => (
-              <SkillCategory key={title} title={title} skills={skills} />
-            ))}
+            <div>
+              {Object.entries(profile.skills).map(([title, skills]) => (
+                <SkillCategory key={title} title={title} skills={skills} />
+              ))}
+            </div>
           </SkillCard>
         </SkillsSection>
       </LayoutWrapper>

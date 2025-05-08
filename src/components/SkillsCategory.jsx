@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { appearAnimation, slideUpAnimation } from '../styles/styled-utils';
+import { hoverScale, slideUpAnimation } from '../styles/styled-utils';
 
 const SkillCard = styled.article`
   ${slideUpAnimation}
-
   display: flex;
   flex-direction: column;
   gap: 1rem;
