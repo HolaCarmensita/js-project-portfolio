@@ -1,44 +1,20 @@
 {
   "projects": [
     {
-      "name": "Recipe Library",
-      "image": "/recipeLibrary1.png",
+      "name": "Recipe Explorer",
+      "image": "/recipeLibrary.png",
       "tags": ["HTML5", "CSS3", "JavaScript"],
       "netlify": "https://recipe-library-technigo.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-recipe-library",
-      "description": "The chat bot app is a conversational AI-powered tool designed to enhance user experience by providing instant, personalized, and automated responses to user inquiries."
+      "description": "Recipe Explorer fetches real recipes from Spoonacular, displays dynamic cards, lets you combine filters and sorting, hit “Surprise Me!” for a random pick, and handles empty or quota-exceeded states."
     },
     {
-      "name": "Weather app",
-      "image": "/weatherApp1.png",
+      "name": "Weather Dashboard",
+      "image": "/weatherApp.png",
       "tags": ["HTML5", "CSS3", "JavaScript", "TypeScript", "API's", "PostMan"],
       "netlify": "https://earth2weather.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-weather-app?tab=readme-ov-file",
-      "description": "Collaboratively built a dynamic and responsive TypeScript weather app with OpenWeatherMap API. Showing current conditions and 4-day forecast."
-    },
-    {
-      "name": "Weather app",
-      "image": "/recipeLibrary.png",
-      "tags": ["HTML5", "CSS3", "JavaScript", "TypeScript", "API's", "PostMan"],
-      "netlify": "https://earth2weather.netlify.app/",
-      "github": "https://github.com/HolaCarmensita/js-project-weather-app?tab=readme-ov-file",
-      "description": "The chat bot app is a conversational AI-powered tool designed to enhance user experience by providing instant, personalized, and automated responses to user inquiries."
-    },
-    {
-      "name": "Weather app",
-      "image": "/recipeLibrary.png",
-      "tags": ["HTML5", "CSS3", "JavaScript", "TypeScript", "API's", "PostMan"],
-      "netlify": "https://earth2weather.netlify.app/",
-      "github": "https://github.com/HolaCarmensita/js-project-weather-app?tab=readme-ov-file",
-      "description": "The chat bot app is a conversational AI-powered tool designed to enhance user experience by providing instant, personalized, and automated responses to user inquiries."
-    },
-    {
-      "name": "Weather app",
-      "image": "/recipeLibrary.png",
-      "tags": ["HTML5", "CSS3", "JavaScript", "TypeScript", "API's", "PostMan"],
-      "netlify": "https://earth2weather.netlify.app/",
-      "github": "https://github.com/HolaCarmensita/js-project-weather-app?tab=readme-ov-file",
-      "description": "The chat bot app is a conversational AI-powered tool designed to enhance user experience by providing instant, personalized, and automated responses to user inquiries."
+      "description": "A collaboratively built, dynamic TypeScript app that uses the OpenWeatherMap API to deliver real-time conditions and a 4-day forecast in a fully responsive interface."
     }
   ]
 }
