@@ -13,11 +13,17 @@ const SkillCard = styled.div`
 `;
 
 const SkillsSection = styled.section`
+  padding-bottom: 3rem;
+
   h2 {
     ${slideUpAnimation}
     text-transform: uppercase;
     text-align: center;
     padding: 3rem 0 3rem 0;
+  }
+
+  @media (min-width: 1367px) {
+    padding-bottom: 8rem;
   }
 `;
 

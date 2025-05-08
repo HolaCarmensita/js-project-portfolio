@@ -59,6 +59,7 @@ const ProfileCardContainerDesktop = styled.div`
 
   @media (min-width: 1367px) {
     display: flex;
+    justify-content: center;
     gap: 3rem;
     align-items: stretch;
     > * {
@@ -125,6 +126,10 @@ const HideOnMobile = styled.div`
   display: none;
   @media (min-width: 1367px) {
     display: block;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -171,13 +176,6 @@ function ProfileCard() {
       </HideOnDesktop>
 
       <HideOnMobile>
-        <LayoutWrapper>
-          {/* <TitleDesktop>
-            <h3>Hola! I'm</h3>
-            <h1>Casandra</h1>
-            <p>@Github HolaCarmensita</p>
-          </TitleDesktop> */}
-        </LayoutWrapper>
         <LayoutWrapper>
           <ProfileCardContainerDesktop>
             <ProfileImage aria-label='Picture of Casandra' />
