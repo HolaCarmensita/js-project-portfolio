@@ -5,7 +5,8 @@ const TechContainer = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 0.5rem;
-  column-gap: 2rem;
+  column-gap: 1rem;
+  font-size: 14px;
 
   color: grey;
   list-style: none;
@@ -15,6 +16,7 @@ const TechContainer = styled.ul`
 
   @media (min-width: 768px) {
     justify-content: flex-start;
+    font-size: 16px;
   }
 `;
 

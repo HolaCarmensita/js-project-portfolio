@@ -7,7 +7,7 @@ const LayoutWrapper = styled.div`
 
   /* fluid between 320px and 1366px,
      scaling with 90vw as the “ideal” in-between */
-  max-width: clamp(320px, 70vw, 1366px);
+  max-width: clamp(375px, 80vw, 1366px);
 `;
 
 export default LayoutWrapper;

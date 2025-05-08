@@ -7,10 +7,14 @@ const CardContainer = styled.article`
   ${slideUpAnimation}
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 2rem;
 
   & > img {
-    object-fit: cover;
+    flex: 1;
+    width: 100%; /* fyll ut hela container-bredden */
+    height: auto; /* behåll proportionerna */
+    object-fit: contain; /* eller contain, beroende på om du vill beskära */
   }
 
   @media (min-width: 1180px) {
@@ -22,28 +26,26 @@ const CardContainer = styled.article`
     }
 
     & > img {
-      max-width: clamp(200px, 30vw, 500px);
-      max-height: clamp(200px, 30vw, 500px);
+      flex: 1;
+      width: 50%; /* fyll ut hela container-bredden */
+      object-fit: cover;
     }
   }
 `;
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 1rem;
-  max-width: 550px;
+  flex: 1;
 `;
 
 const TitleAndBody = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-
-  h3 {
-  }
-
-  p {
+  justify-content: stretch;
+  gap: 0rem;
+  @media (min-width: 1180px) {
+    gap: 0.5rem;
   }
 `;
 
@@ -51,6 +53,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-top: 0.5rem;
 `;
 
 const ButtonWithIcon = styled.div`
@@ -66,7 +69,6 @@ function ProjectCard({ project }) {
 
       <TextContainer>
         <Techniques list={project.tags} />
-
         <TitleAndBody>
           <h3>{project.name}</h3>
           <p>{project.description}</p>
