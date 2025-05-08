@@ -72,7 +72,7 @@ const TextContainerDesktop = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding-block: 1rem;
   max-width: 50ch;
 
