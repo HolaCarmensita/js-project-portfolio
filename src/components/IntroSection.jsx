@@ -49,7 +49,7 @@ function IntroSection() {
   const [showHero, setShowHero] = useState(false);
 
   return (
-    <Section id='intro'>
+    <Section id='hola'>
       <AccessibilityWrapper>
         <Accessibility></Accessibility>
       </AccessibilityWrapper>

@@ -57,7 +57,7 @@ function Navigation() {
 
   // 3) Observe sections to update URL & active link
   useEffect(() => {
-    const ids = ['intro', 'about', 'projects', 'contact'];
+    const ids = ['hola', 'about', 'projects', 'contact'];
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean);
@@ -83,7 +83,7 @@ function Navigation() {
   return (
     <NavWrapper $sticky={isSticky}>
       <NavList>
-        {['intro', 'about', 'projects', 'contact'].map((id) => (
+        {['hola', 'about', 'projects', 'contact'].map((id) => (
           <li key={id}>
             <NavLink
               href={`#${id}`}
@@ -97,7 +97,7 @@ function Navigation() {
               }}
               className={activeId === id ? 'active' : ''}
             >
-              {id === 'intro'
+              {id === 'hola'
                 ? 'Hola!'
                 : id.charAt(0).toUpperCase() + id.slice(1)}
             </NavLink>
