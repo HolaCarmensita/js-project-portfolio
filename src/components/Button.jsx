@@ -1,23 +1,19 @@
 // Button.jsx
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useLayoutEffect, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-// ========= KONSTANTER FÖR VÅGEN =========
-const STROKE_WIDTH = 3; // tjocklek på linjen
-const AMPLITUDE = 3; // halva våghöjden i px (justera för högre/lägre toppar)
+const STROKE_WIDTH = 3;
+const AMPLITUDE = 3;
 const BASELINE = AMPLITUDE + STROKE_WIDTH / 2;
-// mittlinjen, så vågen är centrerad i viewBox
-const WAVELENGTH = 30; // avstånd i px mellan två vågtoppar (justera för fler/färre vågor)
-const ANGULAR_FREQ = (2 * Math.PI) / WAVELENGTH;
+const WAVELENGTH = 30;
+const ANG_FREQ = (2 * Math.PI) / WAVELENGTH;
 
-// ========= STYLADE COMPONENTS =========
 const LinkWrapper = styled.a`
   position: relative;
   display: inline-block;
   text-decoration: none;
-  padding-bottom: ${STROKE_WIDTH * 2}px; /* utrymme för vågen */
+  padding-bottom: ${STROKE_WIDTH * 2}px;
 `;
-
 const ButtonWrapper = styled.button`
   position: relative;
   display: inline-block;
@@ -26,16 +22,14 @@ const ButtonWrapper = styled.button`
   cursor: pointer;
   font: inherit;
 `;
-
 const WaveSvg = styled.svg`
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
-  width: 100%;
   pointer-events: none;
+  width: 100%;
 `;
 
-// ========= KOMPLETT COMPONENT =========
 export default function Button({
   text,
   onClick,
@@ -45,77 +39,75 @@ export default function Button({
   rel,
   ariaLabel,
 }) {
-  const wrapperRef = useRef(null);
-  const pathRef = useRef(null);
-  const [widthPx, setWidthPx] = useState(0);
+  const wrapperRef = useRef();
+  const pathRef = useRef();
+  const [width, setWidth] = useState(0);
   const t = useRef(0);
-  const rafId = useRef(null);
+  const rafId = useRef();
   const animating = useRef(false);
 
-  // Ritar vågen inuti SVG:en
+  // draw one frame
   const drawWave = () => {
-    if (!widthPx || !pathRef.current) return;
-
-    // Sampla varje px längs bredden
-    const coords = Array.from({ length: Math.ceil(widthPx) }, (_, i) => {
-      const y = BASELINE + AMPLITUDE * Math.sin(ANGULAR_FREQ * i + t.current);
+    if (!width || !pathRef.current) return;
+    const pts = Array.from({ length: Math.ceil(width) }, (_, i) => {
+      const y = BASELINE + AMPLITUDE * Math.sin(ANG_FREQ * i + t.current);
       return `${i},${y}`;
     }).join(' L');
-
-    pathRef.current.setAttribute('d', `M${coords}`);
+    pathRef.current.setAttribute('d', `M${pts}`);
   };
 
-  // Animeringsloop
+  // animation loop
   const animate = () => {
     if (!animating.current) return;
     drawWave();
-    t.current += 0.2; // hastighet
+    t.current += 0.2;
     rafId.current = requestAnimationFrame(animate);
   };
 
-  const handleMouseEnter = () => {
+  const enter = () => {
     if (!animating.current) {
       animating.current = true;
       animate();
     }
   };
-  const handleMouseLeave = () => {
+  const leave = () => {
     animating.current = false;
   };
 
-  // Mät knappens bredd vid mount och rita första vågen
-  useEffect(() => {
-    const { width } = wrapperRef.current.getBoundingClientRect();
-    setWidthPx(width);
-    drawWave();
-    return () => cancelAnimationFrame(rafId.current);
+  // measure size after layout, and whenever it changes
+  useLayoutEffect(() => {
+    if (!wrapperRef.current) return;
+    const measure = (entry) => {
+      setWidth(entry.contentRect.width);
+    };
+    const ro = new ResizeObserver((entries) => entries.forEach(measure));
+    ro.observe(wrapperRef.current);
+    return () => {
+      ro.disconnect();
+      cancelAnimationFrame(rafId.current);
+    };
   }, []);
 
-  // Rita om om bredden ändras (sällan efter första mount)
-  useEffect(() => {
-    drawWave();
-  }, [widthPx]);
+  // redraw instantly if width updates
+  useEffect(drawWave, [width]);
 
-  // Räkna ut viewBox-höjden så att hela vågen + stroke får plats
-  const viewBoxHeight = AMPLITUDE * 2 + STROKE_WIDTH;
+  const viewBoxH = AMPLITUDE * 2 + STROKE_WIDTH;
 
-  // Välj rätt wrapper (länk vs knapp)
   const Wrapper = href ? LinkWrapper : ButtonWrapper;
-  const wrapperProps = href ? { href, target, rel } : { type, onClick };
+  const props = href ? { href, target, rel } : { onClick, type };
 
   return (
     <Wrapper
-      {...wrapperProps}
+      {...props}
       ref={wrapperRef}
       aria-label={ariaLabel}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={enter}
+      onMouseLeave={leave}
     >
       {text}
       <WaveSvg
-        viewBox={`0 0 ${widthPx} ${viewBoxHeight}`}
-        style={{ height: `${viewBoxHeight}px` }}
-        xmlns='http://www.w3.org/2000/svg'
+        viewBox={`0 0 ${width} ${viewBoxH}`}
+        style={{ height: viewBoxH }}
       >
         <path
           ref={pathRef}
@@ -123,7 +115,6 @@ export default function Button({
           strokeWidth={STROKE_WIDTH}
           fill='none'
           strokeLinecap='round'
-          strokeLinejoin='round'
         />
       </WaveSvg>
     </Wrapper>

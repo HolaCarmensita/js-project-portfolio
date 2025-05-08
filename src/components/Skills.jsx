@@ -32,11 +32,9 @@ function Skills() {
         <SkillsSection>
           <h2>Skills</h2>
           <SkillCard>
-            <div>
-              {Object.entries(profile.skills).map(([title, skills]) => (
-                <SkillCategory key={title} title={title} skills={skills} />
-              ))}
-            </div>
+            {Object.entries(profile.skills).map(([title, skills]) => (
+              <SkillCategory key={title} title={title} skills={skills} />
+            ))}
           </SkillCard>
         </SkillsSection>
       </LayoutWrapper>

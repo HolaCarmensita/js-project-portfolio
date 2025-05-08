@@ -15,7 +15,7 @@ const AboutSection = styled.section`
 const CornerButtonWrapper = styled.div`
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1367px) {
     z-index: 1000;
     float: right;
     display: block;
@@ -27,13 +27,17 @@ const CornerButtonWrapper = styled.div`
 `;
 
 const SocialMediaWrapper = styled.div`
-  z-index: 1000;
-  float: right;
-  display: block;
-  position: sticky;
-  top: 3rem; /* halfway down the screen */
-  right: 3rem; /* 3rem in from the right */
-  transform: translateY(50%); /* truly center vertically */
+  display: none;
+
+  @media (min-width: 1024px) {
+    z-index: 1000;
+    float: right;
+    display: block;
+    position: sticky;
+    top: 3rem; /* halfway down the screen */
+    right: 3rem; /* 3rem in from the right */
+    transform: translateY(50%); /* truly center vertically?? */
+  }
 `;
 
 const TitleDesktop = styled.div`
