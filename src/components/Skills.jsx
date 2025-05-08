@@ -23,7 +23,11 @@ const SkillsSection = styled.section`
   }
 
   @media (min-width: 1367px) {
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
+
+    h2 {
+      padding: 0rem 0 3rem 0;
+    }
   }
 `;
 

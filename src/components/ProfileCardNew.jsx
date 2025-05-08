@@ -40,7 +40,6 @@ const TextContainerMobile = styled.div`
   align-items: center;
   gap: 1.5rem;
   max-width: 40ch;
-  padding-bottom: 2rem;
 
   h3 {
     ${slideUpAnimation}
@@ -113,6 +112,10 @@ const ProfileImage = styled.div`
 
 const FullWidthSection = styled.section`
   position: relative;
+  padding-bottom: 3rem;
+  @media (min-width: 1367px) {
+    padding-bottom: 0rem;
+  }
 `;
 
 const HideOnDesktop = styled.div`
@@ -123,6 +126,7 @@ const HideOnDesktop = styled.div`
 `;
 
 const HideOnMobile = styled.div`
+  width: 100%;
   display: none;
   @media (min-width: 1367px) {
     display: block;
@@ -195,7 +199,6 @@ function ProfileCard() {
         </LayoutWrapper>
       </HideOnMobile>
       <SocialMedia variant='about' />
-
       <CircleLeft color='var(--color-magenta)' YPosition='90%' />
     </FullWidthSection>
   );
