@@ -61,7 +61,7 @@ export default function Button({
   const animate = () => {
     if (!animating.current) return;
     drawWave();
-    t.current += 0.2;
+    t.current += 0.1;
     rafId.current = requestAnimationFrame(animate);
   };
 
