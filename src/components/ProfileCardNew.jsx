@@ -11,55 +11,14 @@ import {
 } from '../styles/styled-utils';
 import Button from './Button';
 
-const ProfileCardContainerMobile = styled.div`
-  gap: 1.5rem;
+const ProfileCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
-
-const TitleContainerMobile = styled.div`
-  ${slideUpAnimation}
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h3 {
-    text-transform: none;
-  }
-`;
-
-const TextContainerMobile = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 40ch;
-
-  h3 {
-    ${slideUpAnimation}
-    text-transform: none;
-  }
-
-  p {
-    ${slideUpAnimationFast}
-  }
-`;
-
-const ProfileCardContainerDesktop = styled.div`
-  ${slideUpAnimation}
-
-  display: none;
+  gap: 2rem;
 
   @media (min-width: 1367px) {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+    flex-direction: row;
     align-items: stretch;
     > * {
       flex: 1 1 0%;
@@ -68,21 +27,22 @@ const ProfileCardContainerDesktop = styled.div`
   }
 `;
 
-const TextContainerDesktop = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-  padding-block: 1rem;
-  max-width: 50ch;
-
-  h3 {
-    text-transform: none;
-  }
-`;
-
 const ButtonWrapper = styled.div`
   max-width: fit-content;
+  /* Hide on mobile when $mobile is false */
+  display: ${({ $mobile }) => ($mobile === false ? 'none' : 'flex')};
+
+  /* Mobile adjustments (when $mobile is true, show it only on mobile) */
+  @media (max-width: 768px) {
+    display: ${({ $mobile }) =>
+      $mobile === true ? 'flex' : 'none'}; /* Show on mobile, hide on desktop */
+  }
+
+  /* Desktop adjustments */
+  @media (min-width: 768px) {
+    display: ${({ $mobile }) =>
+      $mobile === true ? 'none' : 'flex'}; /* Hide on mobile, show on desktop */
+  }
 `;
 
 const ProfileImage = styled.div`
@@ -112,28 +72,36 @@ const ProfileImage = styled.div`
 
 const FullWidthSection = styled.section`
   position: relative;
-  padding-bottom: 3rem;
+
   @media (min-width: 1367px) {
     padding-bottom: 0rem;
   }
 `;
 
-const HideOnDesktop = styled.div`
-  display: block;
+const ProfileCardWrapper = styled.div`
+  width: 100%;
+
   @media (min-width: 1367px) {
-    display: none;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
   }
 `;
 
-const HideOnMobile = styled.div`
-  width: 100%;
-  display: none;
+const TitleMobile = styled.div`
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h3 {
+    text-transform: none;
+  }
+
   @media (min-width: 1367px) {
-    display: block;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none;
   }
 `;
 
@@ -141,32 +109,66 @@ const TitleDesktop = styled.div`
   display: none;
 
   @media (min-width: 1367px) {
-    ${slideUpAnimation}
-    display: flex;
-    flex-direction: column;
+    display: block;
     text-align: left;
+
     h3 {
       text-transform: none;
     }
   }
 `;
 
+const ProfileText = styled.div`
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 70ch;
+  text-transform: none;
+  text-align: center;
+
+  @media (min-width: 1367px) {
+    text-align: left;
+    align-items: flex-start;
+  }
+`;
+
+const Test = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+`;
+
 function ProfileCard() {
   return (
     <FullWidthSection>
-      <HideOnDesktop>
+      <ProfileCardWrapper>
         <LayoutWrapper>
-          <ProfileCardContainerMobile>
-            <TitleContainerMobile>
+          <ProfileCardContainer>
+            <TitleMobile>
               <h3>Hola! I'm</h3>
-              <h2>Casandra</h2>
+              <h1>Casandra</h1>
               <p>@Github HolaCarmensita</p>
-            </TitleContainerMobile>
+            </TitleMobile>
             <ProfileImage aria-label='Picture of Casandra' />
-            <TextContainerMobile>
-              <h3>Frontend developer with an eye for design</h3>
+            <ProfileText>
+              <TitleDesktop>
+                <h3>Hola! I'm</h3>
+                <h1>Casandra,</h1>
+                <h3>a Frontend Developer</h3>
+              </TitleDesktop>
+              <SocialMedia visibility='mobile' />
+
               <p>{profile.descriptionShort}</p>
-              <ButtonWrapper>
+              <Test>
+                <p>Ready to build increíble things together?</p>
+                <ButtonWrapper $mobile={false}>
+                  <Button text='¡Lets talk!' href='#contact' />
+                </ButtonWrapper>
+              </Test>
+              <ButtonWrapper $mobile={true}>
                 <Button
                   text='Resume here'
                   href='/resume.pdf'
@@ -174,32 +176,17 @@ function ProfileCard() {
                   rel='noopener noreferrer'
                 />
               </ButtonWrapper>
-            </TextContainerMobile>
-          </ProfileCardContainerMobile>
+            </ProfileText>
+          </ProfileCardContainer>
         </LayoutWrapper>
-      </HideOnDesktop>
+      </ProfileCardWrapper>
 
-      <HideOnMobile>
-        <LayoutWrapper>
-          <ProfileCardContainerDesktop>
-            <ProfileImage aria-label='Picture of Casandra' />
-            <TextContainerDesktop>
-              <TitleDesktop>
-                <h3>Hola! I'm</h3>
-                <h1>Casandra</h1>
-                <p>@Github HolaCarmensita</p>
-              </TitleDesktop>
-              <p>{profile.descriptionShort}</p>
-              <p>Ready to build increíble things together?</p>
-              <ButtonWrapper>
-                <Button text='¡Lets talk!' href='#contact' />
-              </ButtonWrapper>
-            </TextContainerDesktop>
-          </ProfileCardContainerDesktop>
-        </LayoutWrapper>
-      </HideOnMobile>
-      <SocialMedia variant='about' />
-      <CircleLeft color='var(--color-magenta)' YPosition='90%' />
+      <SocialMedia variant='verticalAbsolute' visibility='desktop' />
+      <CircleLeft
+        color='var(--color-magenta)'
+        YPosition='90%'
+        $mobile={false}
+      />
     </FullWidthSection>
   );
 }

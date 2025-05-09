@@ -3,23 +3,61 @@ import styled from 'styled-components';
 import { slideUpAnimationFast } from '../styles/styled-utils';
 
 const StyledSocialWrapper = styled.ul`
+  /* Default style if variant is spelled wrong, the set default on component is variant horizontal */
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
   list-style: none;
   padding: 0;
+  gap: 1.5rem;
+
+  ${({ $variant }) =>
+    $variant === 'horizontal' &&
+    `
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      gap: 1.5rem;
+    `}
+
+  ${({ $variant }) =>
+    $variant === 'verticalAbsolute' &&
+    `
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      right: 5rem;
+      gap: 3rem;
+      transform: translateY(-50%);
+    `}
+
+  /* Handle visibility based on props */
+  display: ${({ visibility }) => {
+    if (visibility === 'all') return 'flex'; // Show on all screens
+    if (visibility === 'desktop') return 'none'; // Hide on mobile, show on desktop
+    if (visibility === 'mobile') return 'flex'; // Show on mobile, hide on desktop by default
+    return 'flex'; // Default: show on all screens
+  }};
 
   @media (min-width: 1024px) {
-    gap: 3rem;
+    /* Desktop specific: hide on mobile */
+    display: ${({ visibility }) => (visibility === 'mobile' ? 'none' : 'flex')};
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   li a {
-    display: inline-block;
     transition: transform 0.3s ease, filter 0.3s ease;
-
-    @media (min-width: 1024px) {
-      scale: 1.1;
-    }
+    display: inline-block;
   }
 
   li a:hover,
@@ -28,27 +66,15 @@ const StyledSocialWrapper = styled.ul`
     filter: brightness(1.2);
   }
 
-  ${({ $variant }) =>
-    $variant === 'about' &&
-    `
-    @media (min-width: 1024px) {
-    position: absolute;
-    float: right; 
-    top: 50%;
-    right: 5rem;
-    gap: 3rem;
-    transform: translateY(-50%);
-    flex-direction: column;
-    align-items: center;
-     }
-
-  
-  `}
+  /* Optional absolute positioning for vertical layout on desktop */
 `;
 
-function SocialMedia({ variant }) {
+function SocialMedia({
+  variant = 'horizontal', // Default layout is horizontal
+  visibility = 'all', // Default visibility is on all screens
+}) {
   return (
-    <StyledSocialWrapper $variant={variant}>
+    <StyledSocialWrapper $variant={variant} visibility={visibility}>
       {Object.entries(profile.socialMedia).map(([key, media]) => (
         <li key={key}>
           <a

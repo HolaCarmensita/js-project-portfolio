@@ -9,30 +9,34 @@ import { slideUpAnimation, hoverScale } from '../styles/styled-utils';
 const SkillCard = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 4rem;
+  @media (min-width: 768px) {
+    gap: 8rem;
+  }
 `;
 
 const SkillsSection = styled.section`
-  padding-bottom: 3rem;
-
   h2 {
     ${slideUpAnimation}
     text-transform: uppercase;
     text-align: center;
-    padding: 3rem 0 3rem 0;
   }
 
   @media (min-width: 1367px) {
-    padding-bottom: 6rem;
-
     h2 {
-      padding: 0rem 0 3rem 0;
     }
   }
 `;
 
 const FullWidthSection = styled.section`
   position: relative;
+`;
+
+const Divader = styled.div`
+  padding: 2rem;
+  @media (min-width: 768px) {
+    padding: 4rem;
+  }
 `;
 
 function Skills() {
@@ -50,6 +54,7 @@ function Skills() {
       </LayoutWrapper>
       <CircleLeft color='var(--color-mustard)' YPosition='90%' />
       <CircleRight color='var(--color-mustard)' YPosition='13%' />
+      <Divader></Divader>
     </FullWidthSection>
   );
 }

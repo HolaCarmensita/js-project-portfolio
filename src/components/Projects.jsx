@@ -5,18 +5,9 @@ import LayoutWrapper from './LayoutWrapper';
 import { slideUpAnimation, appearAnimation } from '../styles/styled-utils';
 
 const ProjectSection = styled.section`
-  display: flex;
-  flex-direction: column;
-
   h2 {
     ${slideUpAnimation}
-    padding: 3rem 0 3rem 0;
-
     text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    gap: 2rem;
   }
 `;
 

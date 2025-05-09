@@ -8,16 +8,39 @@ const SvgWrapper = styled.div`
   top: ${({ $YPosition }) => $YPosition};
   transform: translate(-50%, -50%);
 
+  /* Default visibility logic */
+  display: ${({ $mobile }) => ($mobile === false ? 'none' : 'inline-block')};
+
+  /* Mobile adjustments (show it only on mobile if $mobile is true) */
+  @media (max-width: 768px) {
+    display: ${({ $mobile }) =>
+      $mobile === true
+        ? 'inline-block'
+        : 'none'}; /* Show on mobile, hide on desktop */
+  }
+
+  /* Desktop adjustments */
   @media (min-width: 768px) {
-    width: 15vw;
-    max-width: 250px;
+    display: ${({ $mobile }) =>
+      $mobile === true
+        ? 'none'
+        : 'inline-block'}; /* Hide on mobile, show on desktop */
   }
 `;
 
-// OBS USE LIKE THIS <CircleLeft color="#584793" /> or <CircleLeft color="hsl(168, 90%, 52%)" /> or <CircleLeft color="rebeccapurple" />
-function CircleLeft({ color = '#34EDB3', YPosition = '50%' }) {
+// OBS USE LIKE THIS <CircleLeft color="#584793" /> or <CircleLeft color="hsl(168, 90%, 52%)" /> or <CircleLeft color="rebeccapurple" <CircleLeft visibility="mobile" <CircleLeft visibility="desktop" />
+function CircleLeft({
+  color = '#34EDB3',
+  YPosition = '50%',
+  visibility = 'all',
+  $mobile = true,
+}) {
   return (
-    <SvgWrapper $YPosition={YPosition}>
+    <SvgWrapper
+      $YPosition={YPosition}
+      $visibility={visibility}
+      $mobile={$mobile}
+    >
       <svg
         width='245'
         height='245'
