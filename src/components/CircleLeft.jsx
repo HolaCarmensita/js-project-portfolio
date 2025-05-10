@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const SvgWrapper = styled.div`
   width: 30vw;
@@ -8,39 +8,29 @@ const SvgWrapper = styled.div`
   top: ${({ $YPosition }) => $YPosition};
   transform: translate(-50%, -50%);
 
-  /* Default visibility logic */
-  display: ${({ $mobile }) => ($mobile === false ? 'none' : 'inline-block')};
+  /* Default mobil */
+  display: ${({ $visibility }) =>
+    $visibility === 'desktop' ? 'none' : 'inline-block'};
 
-  /* Mobile adjustments (show it only on mobile if $mobile is true) */
-  @media (max-width: 768px) {
-    display: ${({ $mobile }) =>
-      $mobile === true
-        ? 'inline-block'
-        : 'none'}; /* Show on mobile, hide on desktop */
-  }
-
-  /* Desktop adjustments */
+  /* Desktop skriver över */
   @media (min-width: 768px) {
-    display: ${({ $mobile }) =>
-      $mobile === true
-        ? 'none'
-        : 'inline-block'}; /* Hide on mobile, show on desktop */
+    display: ${({ $visibility }) =>
+      $visibility === 'mobile' ? 'none' : 'inline-block'};
+    width: 15vw;
+    max-width: 250px;
   }
 `;
 
-// OBS USE LIKE THIS <CircleLeft color="#584793" /> or <CircleLeft color="hsl(168, 90%, 52%)" /> or <CircleLeft color="rebeccapurple" <CircleLeft visibility="mobile" <CircleLeft visibility="desktop" />
+// color(default: '#34EDB3')
+// YPosition: CSS value for top (default: '50%')
+// visibility: 'all' | 'mobile' | 'desktop' (default: 'all')
 function CircleLeft({
   color = '#34EDB3',
   YPosition = '50%',
   visibility = 'all',
-  $mobile = true,
 }) {
   return (
-    <SvgWrapper
-      $YPosition={YPosition}
-      $visibility={visibility}
-      $mobile={$mobile}
-    >
+    <SvgWrapper $YPosition={YPosition} $visibility={visibility}>
       <svg
         width='245'
         height='245'

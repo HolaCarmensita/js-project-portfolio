@@ -52,7 +52,7 @@ function Skills() {
           </SkillCard>
         </SkillsSection>
       </LayoutWrapper>
-      <CircleLeft color='var(--color-mustard)' YPosition='90%' />
+      <CircleLeft color='var(--color-mustard)' YPosition='90%' $mobile={true} />
       <CircleRight color='var(--color-mustard)' YPosition='13%' />
       <Divader></Divader>
     </FullWidthSection>

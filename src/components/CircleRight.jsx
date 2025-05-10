@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const SvgWrapper = styled.div`
   width: 30vw;
@@ -9,16 +9,29 @@ const SvgWrapper = styled.div`
   right: 0;
   transform: translate(50%, -50%);
 
+  /* Default mobil */
+  display: ${({ $visibility }) =>
+    $visibility === 'desktop' ? 'none' : 'inline-block'};
+
+  /* Desktop skriver över */
   @media (min-width: 768px) {
+    display: ${({ $visibility }) =>
+      $visibility === 'mobile' ? 'none' : 'inline-block'};
     width: 15vw;
     max-width: 250px;
   }
 `;
 
-// OBS USE LIKE THIS <CircleLeft color="#584793" /> or <CircleLeft color="hsl(168, 90%, 52%)" /> or <CircleLeft color="rebeccapurple" />
-function CircleRight({ color = '#34EDB3', YPosition = '50%' }) {
+// color(default: '#34EDB3')
+// YPosition: CSS value for top (default: '50%')
+// visibility: 'all' | 'mobile' | 'desktop' (default: 'all')
+function CircleRight({
+  color = '#34EDB3',
+  YPosition = '50%',
+  visibility = 'all',
+}) {
   return (
-    <SvgWrapper $YPosition={YPosition}>
+    <SvgWrapper $YPosition={YPosition} $visibility={visibility}>
       <svg
         width='245'
         height='245'

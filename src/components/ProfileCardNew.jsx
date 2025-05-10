@@ -185,7 +185,7 @@ function ProfileCard() {
       <CircleLeft
         color='var(--color-magenta)'
         YPosition='90%'
-        $mobile={false}
+        visibility='desktop'
       />
     </FullWidthSection>
   );

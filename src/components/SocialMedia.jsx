@@ -1,33 +1,20 @@
 import profile from '../data/profile.json';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { slideUpAnimationFast } from '../styles/styled-utils';
 
 const StyledSocialWrapper = styled.ul`
-  /* Default style if variant is spelled wrong, the set default on component is variant horizontal */
-  display: flex;
+  // (mobile)
+  display: ${({ visibility }) => (visibility === 'desktop' ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
   list-style: none;
   padding: 0;
   gap: 1.5rem;
 
-  ${({ $variant }) =>
-    $variant === 'horizontal' &&
-    `
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      padding: 0;
-      gap: 1.5rem;
-    `}
-
+  //Vertikal, absolut-variant
   ${({ $variant }) =>
     $variant === 'verticalAbsolute' &&
-    `
-      list-style: none;
-      padding: 0;
-      display: flex;
+    css`
       flex-direction: column;
       position: absolute;
       top: 50%;
@@ -36,16 +23,8 @@ const StyledSocialWrapper = styled.ul`
       transform: translateY(-50%);
     `}
 
-  /* Handle visibility based on props */
-  display: ${({ visibility }) => {
-    if (visibility === 'all') return 'flex'; // Show on all screens
-    if (visibility === 'desktop') return 'none'; // Hide on mobile, show on desktop
-    if (visibility === 'mobile') return 'flex'; // Show on mobile, hide on desktop by default
-    return 'flex'; // Default: show on all screens
-  }};
-
+  //Desktop-skriver över
   @media (min-width: 1024px) {
-    /* Desktop specific: hide on mobile */
     display: ${({ visibility }) => (visibility === 'mobile' ? 'none' : 'flex')};
   }
 
@@ -65,14 +44,9 @@ const StyledSocialWrapper = styled.ul`
     transform: scale(1.2);
     filter: brightness(1.2);
   }
-
-  /* Optional absolute positioning for vertical layout on desktop */
 `;
 
-function SocialMedia({
-  variant = 'horizontal', // Default layout is horizontal
-  visibility = 'all', // Default visibility is on all screens
-}) {
+function SocialMedia({ variant = 'horizontal', visibility = 'all' }) {
   return (
     <StyledSocialWrapper $variant={variant} visibility={visibility}>
       {Object.entries(profile.socialMedia).map(([key, media]) => (
