@@ -17,7 +17,6 @@ const CornerButtonWrapper = styled.div`
 `;
 
 const Section = styled.section`
-  scroll-snap-align: start;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -45,8 +44,45 @@ const AccessibilityWrapper = styled.div`
   }
 `;
 
+const ArrowButton = styled.button`
+  all: unset; /* Nollställ standard-knapp-stilar */
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #584793; /* Ändra färg via CSS */
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  bottom: 10vh;
+
+  svg {
+    width: 4rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover,
+  &:focus {
+    color: #7a5bbf;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    transform: translateY(0.25rem);
+  }
+`;
+
 function IntroSection() {
   const [showHero, setShowHero] = useState(false);
+
+  const scrollToAbout = () => {
+    const el = document.getElementById('about');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <Section id='hola'>
@@ -63,6 +99,23 @@ function IntroSection() {
           {showHero && <HeroAnimation />}
         </HeroAnimationConatiner>
       </LayoutWrapper>
+      <ArrowButton
+        type='button'
+        onClick={scrollToAbout}
+        aria-label='Scroll to about section'
+      >
+        <p>Explore my work</p>
+        <svg
+          class='chevron-icon'
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 -960 960 960'
+        >
+          <path
+            d='M480-200 240-440l46.67-46.67 193.33 193 193.33-193L720-440 480-200Zm0-248.67-240-240 46.67-46.66 193.33 193 193.33-193L720-688.67l-240 240Z'
+            fill='currentColor'
+          />
+        </svg>
+      </ArrowButton>
     </Section>
   );
 }
