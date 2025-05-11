@@ -54,8 +54,8 @@ function ToggleFontSwitch() {
         onChange={() => setIsDyslexic((prev) => !prev)}
         aria-pressed={isDyslexic}
       />
-      <Switch active={isDyslexic}>
-        <Slider active={isDyslexic} />
+      <Switch $active={isDyslexic}>
+        <Slider $active={isDyslexic} />
       </Switch>
       <span>{isDyslexic ? 'Standard font' : 'Read-friendly font'}</span>
     </SwitchContainer>

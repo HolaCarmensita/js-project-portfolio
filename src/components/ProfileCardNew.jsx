@@ -4,14 +4,11 @@ import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
-import {
-  slideUpAnimation,
-  opacityAppear,
-  slideUpAnimationFast,
-} from '../styles/styled-utils';
+import { slideUpAnimation } from '../styles/styled-utils';
 import Button from './Button';
 
 const ProfileCardContainer = styled.div`
+  ${slideUpAnimation}
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +43,6 @@ const ButtonWrapper = styled.div`
 `;
 
 const ProfileImage = styled.div`
-  ${opacityAppear}
   width: 100%;
   max-width: 400px;
   background-image: url(${profile.image});
