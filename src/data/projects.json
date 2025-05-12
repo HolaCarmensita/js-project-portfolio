@@ -15,6 +15,14 @@
       "netlify": "https://earth2weather.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-weather-app?tab=readme-ov-file",
       "description": "A collaboratively built, dynamic TypeScript app that uses the OpenWeatherMap API to deliver real-time conditions and a 4-day forecast in a fully responsive interface."
+    }, 
+       {
+      "name": "Happy Thoughts App",
+      "image": "/HappyThoughtsApp.png",
+      "tags": ["HTML5", "CSS3", "JavaScript", "API", "Styled Components"],
+      "netlify": "https://holahappythoughts.netlify.app/",
+      "github": "https://github.com/HolaCarmensita/js-project-happy-thoughts",
+      "description": "A cheerful React app using a public API to fetch, post, and like positive messages in real time. Fully responsive with smooth animations and a clean component structure using hooks."
     }
   ]
 }
