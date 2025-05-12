@@ -22,7 +22,7 @@
       "tags": ["HTML5", "CSS3", "React", "API", "Styled Components"],
       "netlify": "https://holahappythoughts.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-happy-thoughts",
-      "description": "A cheerful React app using a public API to fetch, post, and like positive messages in real time. Fully responsive with smooth animations and a clean component structure using hooks."
+      "description": "A cheerful React app using a public API from Technigo to fetch, post, and like positive messages in real time. Fully responsive with smooth animations and a clean component structure using hooks."
     }
   ]
 }
