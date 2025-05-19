@@ -13,8 +13,6 @@ const GlobalStyle = createGlobalStyle`
   /* CSS Variables */
   :root {
     font-size: 16px;
-
-
     --font-main: 'Belgrano', serif;
     ${'' /* --font-main: 'Aileron Regular', sans-serif; */}
     --font-display: 'TAN-Rosebud', serif;
@@ -65,10 +63,6 @@ const GlobalStyle = createGlobalStyle`
   input, button, textarea, select {
     font: inherit;
   }
-
-
-
-
 
 
 h1 {
