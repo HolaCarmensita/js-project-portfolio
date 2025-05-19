@@ -13,7 +13,7 @@ const LayoutWrapper = styled.div`
   /* max-width: clamp(375px, 90vw, 1180px); */
 
   /* Största desktop */
-  max-width: 1180px;
+  max-width: 1100px;
 
   /* LANDSCAPE – max-width 1024px, bara i landskapsläge */
   @media screen and (max-width: 1024px) and (orientation: landscape) {
