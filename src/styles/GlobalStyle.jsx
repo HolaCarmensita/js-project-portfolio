@@ -80,11 +80,11 @@ h2{
   font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 300;
-  padding: 2rem 0 3rem 0;
+  padding: 1rem 0 1rem 0;
 
   @media (min-width: 768px) {
     font-size: 3.5rem;
-    padding: 4rem 0 5rem 0;
+    padding: 2rem 0 2rem 0;
   }
 
 }
