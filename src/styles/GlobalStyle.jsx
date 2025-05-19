@@ -14,14 +14,6 @@ const GlobalStyle = createGlobalStyle`
   :root {
     font-size: 16px;
 
-    @media (min-width: 768px) {
-    font-size: 13px;
-  }
-
-    @media (min-width: 1366px) {
-    font-size: 14px;
-  }
-
 
     --font-main: 'Belgrano', serif;
     ${'' /* --font-main: 'Aileron Regular', sans-serif; */}
