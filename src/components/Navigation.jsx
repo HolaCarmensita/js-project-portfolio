@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 const NavWrapper = styled.nav`
   position: fixed;
   left: 3rem;
-  top: 3rem;
+  top: 2.1rem;
   transform: ${({ $sticky }) =>
-    $sticky ? 'translateY(0)' : 'translateY(calc(100vh - 13rem))'};
+    $sticky ? 'translateY(0)' : 'translateY(calc(100vh - 11rem))'};
   transition: transform 1.5s ease-in-out;
   z-index: 1000;
 

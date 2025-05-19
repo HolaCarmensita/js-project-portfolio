@@ -6,14 +6,13 @@ const PageFooter = styled.footer`
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-bottom: 2rem;
 `;
 
 function Footer() {
   return (
     <PageFooter className='footer' id='contact'>
-      <LayoutWrapper>
-        <p>&copy; 2025 Casandra Gustafsson. Crafted with love.</p>
-      </LayoutWrapper>
+      <p>&copy; 2025 Casandra Gustafsson. Crafted with love.</p>
     </PageFooter>
   );
 }

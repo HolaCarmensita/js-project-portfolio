@@ -7,21 +7,21 @@ import CircleRight from './CircleRight';
 import { slideUpAnimation } from '../styles/styled-utils';
 import Button from './Button';
 
+const FullWidthSection = styled.section`
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  //Viktig för sociala media komponenten och cirklarna
+`;
+
 const ProfileCardContainer = styled.div`
   ${slideUpAnimation}
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-
-  @media (min-width: 1367px) {
-    flex-direction: row;
-    align-items: stretch;
-    > * {
-      flex: 1 1 0%;
-      min-width: 0;
-    }
-  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -44,10 +44,11 @@ const ButtonWrapper = styled.div`
 
 const ProfileImage = styled.div`
   width: 100%;
-  max-width: 400px;
+  max-width: 280px;
   background-image: url(${profile.image});
   background: url(${profile.image}) center/cover no-repeat;
   aspect-ratio: 1 / 1;
+  border-radius: 50%;
 
   /* smooth transition */
   transition: background-image 1s ease-in-out, transform 1s ease;
@@ -58,76 +59,41 @@ const ProfileImage = styled.div`
     transform: scale(1.05);
   }
 
-  @media (min-width: 1367px) {
-    /* DESKTOP: let flex sizing take over */
-    flex: 1 1 0%;
-    min-width: 0; /* allow it to shrink if needed */
-    width: auto;
+  @media (min-width: 1366px) {
+    max-width: 320px;
   }
 `;
 
-const FullWidthSection = styled.section`
-  position: relative;
-
-  @media (min-width: 1367px) {
-    padding-bottom: 0rem;
-  }
-`;
-
-const ProfileCardWrapper = styled.div`
-  width: 100%;
-
-  @media (min-width: 1367px) {
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-  }
-`;
-
-const TitleMobile = styled.div`
-  padding-block: 2rem;
-  display: flex;
-  flex-direction: column;
+const ProfileTitle = styled.div`
   text-align: center;
 
-  h3 {
-    text-transform: none;
+  h4 {
+    font-size: 1.5rem;
+    font-weight: normal;
   }
 
-  @media (min-width: 1367px) {
-    display: none;
-  }
-`;
-
-const TitleDesktop = styled.div`
-  display: none;
-
-  @media (min-width: 1367px) {
-    display: block;
-    text-align: left;
-
-    h3 {
-      text-transform: none;
-    }
+  p {
+    padding-top: 0.5rem;
   }
 `;
 
 const ProfileText = styled.div`
-  padding-block: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  max-width: 70ch;
   text-transform: none;
   text-align: center;
+  max-width: 500px;
 
-  @media (min-width: 1367px) {
-    text-align: left;
-    align-items: flex-start;
+  h4 {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  @media (min-width: 1366px) {
+    max-width: 650px;
   }
 `;
 
@@ -140,49 +106,36 @@ const Test = styled.div`
 function ProfileCard() {
   return (
     <FullWidthSection>
-      <ProfileCardWrapper>
-        <LayoutWrapper>
-          <ProfileCardContainer>
-            <TitleMobile>
-              <h3>Hola! I'm</h3>
-              <h1>Casandra</h1>
-              <p>@Github HolaCarmensita</p>
-            </TitleMobile>
-            <ProfileImage aria-label='Picture of Casandra' />
-            <ProfileText>
-              <TitleDesktop>
-                <h3>Hola! I'm</h3>
-                <h1>Casandra,</h1>
-                <h3>a Frontend Developer</h3>
-              </TitleDesktop>
-              <SocialMedia visibility='mobile' />
-
-              <p>{profile.descriptionShort}</p>
-              <Test>
-                <p>Ready to build increíble things together?</p>
-                <ButtonWrapper $mobile={false}>
-                  <Button text='¡Lets talk!' href='#contact' />
-                </ButtonWrapper>
-              </Test>
-              <ButtonWrapper $mobile={true}>
-                <Button
-                  text='Resume here'
-                  href='/resume.pdf'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                />
+      <LayoutWrapper>
+        <ProfileCardContainer>
+          <ProfileTitle>
+            <h4>Hola! I'm</h4>
+            <h1>Casandra</h1>
+            <p>@Github HolaCarmensita</p>
+          </ProfileTitle>
+          <ProfileImage aria-label='Picture of Casandra' />
+          <ProfileText>
+            <h4>Frontend Developer with a background in digital design</h4>
+            <p>{profile.descriptionShort}</p>
+            <Test>
+              {/* <p>Ready to build increíble things together?</p> */}
+              <ButtonWrapper $mobile={false}>
+                <Button text='¡Lets talk!' href='#contact' />
               </ButtonWrapper>
-            </ProfileText>
-          </ProfileCardContainer>
-        </LayoutWrapper>
-      </ProfileCardWrapper>
+            </Test>
 
-      <SocialMedia variant='verticalAbsolute' visibility='desktop' />
-      <CircleLeft
-        color='var(--color-magenta)'
-        YPosition='90%'
-        visibility='desktop'
-      />
+            <ButtonWrapper $mobile={true}>
+              <Button
+                text='Resume here'
+                href='/resume.pdf'
+                target='_blank'
+                rel='noopener noreferrer'
+              />
+            </ButtonWrapper>
+            <SocialMedia visibility='mobile' />
+          </ProfileText>
+        </ProfileCardContainer>
+      </LayoutWrapper>
     </FullWidthSection>
   );
 }

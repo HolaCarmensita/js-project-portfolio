@@ -20,7 +20,12 @@ const StyledSocialWrapper = styled.ul`
       top: 50%;
       right: 5rem;
       gap: 3rem;
+      padding-bottom: 1rem;
       transform: translateY(-50%);
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
     `}
 
   //Desktop-skriver över

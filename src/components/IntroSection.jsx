@@ -8,10 +8,11 @@ import { useState } from 'react';
 
 const CornerButtonWrapper = styled.div`
   display: none;
+
   @media (min-width: 768px) {
     display: inline;
     position: absolute;
-    top: 3rem;
+    top: 2rem;
     right: 3rem;
   }
 `;
@@ -32,10 +33,16 @@ const HeroAnimationConatiner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 550px;
+
+  @media (min-width: 1366px) {
+    max-width: 850px;
+  }
 `;
 
 const AccessibilityWrapper = styled.div`
   display: none;
+
   @media (min-width: 768px) {
     display: inline;
     position: absolute;
@@ -51,15 +58,15 @@ const ArrowButton = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+
   color: #584793; /* Ändra färg via CSS */
-  font-size: 1rem;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  bottom: 10vh;
+  bottom: 2rem;
 
   svg {
-    width: 4rem;
+    width: 3rem;
     transition: transform 0.3s ease;
   }
 
@@ -86,9 +93,9 @@ function IntroSection() {
 
   return (
     <Section id='hola'>
-      <AccessibilityWrapper>
+      {/* <AccessibilityWrapper>
         <Accessibility></Accessibility>
-      </AccessibilityWrapper>
+      </AccessibilityWrapper> */}
 
       <CornerButtonWrapper>
         <Button text='Get In Touch' href='#contact' />

@@ -25,7 +25,7 @@
     },
     {
       "name": "Happy Thoughts App",
-      "image": "/HappyThoughtsApp.png",
+      "image": "/happyThoughts.png",
       "tags": ["HTML5", "CSS3", "JavaScript", "API", "Styled Components"],
       "netlify": "https://holahappythoughts.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-happy-thoughts",

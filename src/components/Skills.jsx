@@ -6,6 +6,13 @@ import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
 import { slideUpAnimation, hoverScale } from '../styles/styled-utils';
 
+const FullWidthSection = styled.section`
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
 const SkillCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,20 +23,12 @@ const SkillCard = styled.div`
 `;
 
 const SkillsSection = styled.section`
+  width: 100%;
   h2 {
     ${slideUpAnimation}
     text-transform: uppercase;
     text-align: center;
   }
-
-  @media (min-width: 1367px) {
-    h2 {
-    }
-  }
-`;
-
-const FullWidthSection = styled.section`
-  position: relative;
 `;
 
 const Divader = styled.div`
@@ -52,9 +51,8 @@ function Skills() {
           </SkillCard>
         </SkillsSection>
       </LayoutWrapper>
-      <CircleLeft color='var(--color-mustard)' YPosition='90%' $mobile={true} />
-      <CircleRight color='var(--color-mustard)' YPosition='13%' />
-      <Divader></Divader>
+      {/* <CircleLeft color='var(--color-mustard)' YPosition='90%' $mobile={true} />
+      <CircleRight color='var(--color-mustard)' YPosition='13%' /> */}
     </FullWidthSection>
   );
 }

@@ -9,6 +9,7 @@ const CardContainer = styled.article`
   flex-direction: column;
   align-items: stretch;
   gap: 2rem;
+  text-align: left;
 
   & > img {
     flex: 1;
@@ -17,11 +18,11 @@ const CardContainer = styled.article`
     object-fit: contain; /* eller contain, beroende på om du vill beskära */
   }
 
-  @media (min-width: 1180px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
     gap: 3rem;
 
-    &:nth-child(even) {
+    &:nth-child(odd) {
       flex-direction: row-reverse; /* Omvänd ordning för jämna kort */
     }
 
@@ -35,6 +36,7 @@ const CardContainer = styled.article`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   flex: 1;
 `;
