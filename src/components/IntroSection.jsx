@@ -31,14 +31,17 @@ const Section = styled.section`
 
 const HeroAnimationConatiner = styled.div`
   width: 100%;
+  padding-bottom: 2rem;
 
   @media only screen and (max-width: 1000px) and (orientation: landscape) {
     max-width: 60%;
     padding-top: 2rem;
+    padding-bottom: 0rem;
   }
 
   @media (min-width: 1366px) {
     max-width: 850px;
+    padding-bottom: 2rem;
   }
 `;
 
