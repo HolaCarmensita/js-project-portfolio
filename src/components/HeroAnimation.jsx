@@ -61,8 +61,9 @@ const revealBottomToTop = keyframes`
 `;
 
 const StyledSVG = styled.svg`
-  width: 853px;
-  height: 381px;
+  width: 100%; /* tar 100% av behållarens bredd */
+  height: auto; /* behåller aspect ratio automatiskt */
+  max-width: 853px;
   overflow: visible;
 
   /* Klassberoende animationer */

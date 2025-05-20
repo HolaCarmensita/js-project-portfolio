@@ -15,6 +15,10 @@ const NavWrapper = styled.nav`
   @media (max-width: 767px) {
     display: none;
   }
+
+  @media only screen and (max-width: 1000px) and (orientation: landscape) {
+    display: none;
+  }
 `;
 
 const NavList = styled.ul`

@@ -30,10 +30,12 @@ const Section = styled.section`
 `;
 
 const HeroAnimationConatiner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 550px;
+  width: 100%;
+
+  @media only screen and (max-width: 1000px) and (orientation: landscape) {
+    max-width: 60%;
+    padding-top: 2rem;
+  }
 
   @media (min-width: 1366px) {
     max-width: 850px;
@@ -71,6 +73,10 @@ const ArrowButton = styled.button`
 
   @media (min-width: 1366px) {
     bottom: 6rem;
+  }
+
+  @media only screen and (max-width: 1000px) and (orientation: landscape) {
+    display: none;
   }
 
   svg {
@@ -113,20 +119,20 @@ function IntroSection() {
           <HolaAnimation onFinished={() => setShowHero(true)} />
           {showHero && <HeroAnimation />}
         </HeroAnimationConatiner>
+        <ArrowButton
+          type='button'
+          onClick={scrollToAbout}
+          aria-label='Scroll to about section'
+        >
+          <p>Get to know me</p>
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'>
+            <path
+              d='M480-200 240-440l46.67-46.67 193.33 193 193.33-193L720-440 480-200Zm0-248.67-240-240 46.67-46.66 193.33 193 193.33-193L720-688.67l-240 240Z'
+              fill='currentColor'
+            />
+          </svg>
+        </ArrowButton>
       </LayoutWrapper>
-      <ArrowButton
-        type='button'
-        onClick={scrollToAbout}
-        aria-label='Scroll to about section'
-      >
-        <p>Get to know me</p>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'>
-          <path
-            d='M480-200 240-440l46.67-46.67 193.33 193 193.33-193L720-440 480-200Zm0-248.67-240-240 46.67-46.66 193.33 193 193.33-193L720-688.67l-240 240Z'
-            fill='currentColor'
-          />
-        </svg>
-      </ArrowButton>
     </Section>
   );
 }

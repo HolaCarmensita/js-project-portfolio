@@ -5,6 +5,7 @@ const LayoutWrapper = styled.div`
   /* border: 1px solid black; */
   width: 100%;
   display: inline-flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-block: clamp(1rem, 10vw, 3rem);
