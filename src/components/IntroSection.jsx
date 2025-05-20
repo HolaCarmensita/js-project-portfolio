@@ -63,7 +63,7 @@ const ArrowButton = styled.button`
   color: #584793;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  bottom: 4rem;
+  bottom: 6rem;
 
   @media (min-width: 768px) {
     bottom: 6rem;
