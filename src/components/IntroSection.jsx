@@ -63,7 +63,15 @@ const ArrowButton = styled.button`
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  bottom: 2rem;
+  bottom: 4rem;
+
+  @media (min-width: 768px) {
+    bottom: 5rem;
+  }
+
+  @media (min-width: 1366px) {
+    bottom: 6rem;
+  }
 
   svg {
     width: 3rem;

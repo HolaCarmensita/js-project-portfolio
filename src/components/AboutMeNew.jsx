@@ -14,11 +14,16 @@ const AboutSection = styled.section`
 const SocialWrapper = styled.div`
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 1000;
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
-  pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   transition: opacity 0.5s ease-in-out;
+  /* Wrappern släpper igenom alla events */
+  pointer-events: none;
+
+  /* Endast barn-komponenten (SocialMedia) kan få events när synlig */
+  & > * {
+    pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
+  }
 `;
 
 const CornerButtonWrapper = styled.div`
