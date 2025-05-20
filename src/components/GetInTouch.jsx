@@ -43,12 +43,12 @@ function GetInTouch() {
               {profile.email}
             </a>
 
-            <a
+            {/* <a
               href={`tel:${profile.phone}`}
               aria-label={`Call ${profile.phone}`}
             >
               {profile.phone}
-            </a>
+            </a> */}
           </LinkContainer>
           <SocialMedia />
         </GetInTouchSection>
