@@ -54,18 +54,16 @@ const AccessibilityWrapper = styled.div`
 `;
 
 const ArrowButton = styled.button`
-  all: unset; /* Nollställ standard-knapp-stilar */
+  all: unset;
   position: absolute;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  color: #584793; /* Ändra färg via CSS */
-  font-size: 14px;
+  color: #584793;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  bottom: 4rem;
+  bottom: 6rem;
 
   @media (min-width: 768px) {
     bottom: 5rem;
@@ -124,7 +122,7 @@ function IntroSection() {
           onClick={scrollToAbout}
           aria-label='Scroll to about section'
         >
-          <p>Get to know me</p>
+          <p>Welcome to my place</p>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'>
             <path
               d='M480-200 240-440l46.67-46.67 193.33 193 193.33-193L720-440 480-200Zm0-248.67-240-240 46.67-46.66 193.33 193 193.33-193L720-688.67l-240 240Z'
