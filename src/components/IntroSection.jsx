@@ -31,7 +31,7 @@ const Section = styled.section`
 
 const HeroAnimationConatiner = styled.div`
   width: 100%;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 
   @media only screen and (max-width: 1000px) and (orientation: landscape) {
     max-width: 60%;
@@ -66,7 +66,7 @@ const ArrowButton = styled.button`
   color: #584793;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  bottom: 6rem;
+  bottom: 8rem;
 
   @media (min-width: 768px) {
     bottom: 6rem;
