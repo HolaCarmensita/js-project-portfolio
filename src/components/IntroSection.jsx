@@ -41,7 +41,7 @@ const HeroAnimationConatiner = styled.div`
 
   @media (min-width: 1366px) {
     max-width: 850px;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 `;
 
