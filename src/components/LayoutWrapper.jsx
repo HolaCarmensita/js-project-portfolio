@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const LayoutWrapper = styled.div`
-  min-height: 100vh;
+  min-height: 100dvh;
   /* border: 1px solid black; */
   width: 100%;
   display: inline-flex;
@@ -23,7 +23,7 @@ const LayoutWrapper = styled.div`
 
   /* PORTRAIT – max-width 1024px, bara i stående portrait-läge */
   @media screen and (max-width: 1024px) and (orientation: portrait) {
-    max-width: 600px; /* eller vad du vill för portrait */
+    max-width: 700px; /* eller vad du vill för portrait */
   }
 
   /* PORTRAIT – max-width 1024px, bara i stående portrait-läge */

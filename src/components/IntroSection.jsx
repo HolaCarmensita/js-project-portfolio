@@ -63,14 +63,14 @@ const ArrowButton = styled.button`
   color: #584793;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  bottom: 6rem;
+  bottom: 4rem;
 
   @media (min-width: 768px) {
-    bottom: 5rem;
+    bottom: 6rem;
   }
 
   @media (min-width: 1366px) {
-    bottom: 6rem;
+    bottom: 4rem;
   }
 
   @media only screen and (max-width: 1000px) and (orientation: landscape) {

@@ -63,7 +63,7 @@ const revealBottomToTop = keyframes`
 const StyledSVG = styled.svg`
   width: 100%; /* tar 100% av behållarens bredd */
   height: auto; /* behåller aspect ratio automatiskt */
-  max-width: 853px;
+  max-width: 800px;
   overflow: visible;
 
   /* Klassberoende animationer */

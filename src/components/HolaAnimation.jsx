@@ -55,7 +55,7 @@ const Letter = styled.span`
 `;
 
 const HolaAnimation = ({ onFinished }) => {
-  const text = '!Hola!';
+  const text = '¡Hola!';
   const letters = Array.from(text);
 
   const letterDelay = 0.2;
