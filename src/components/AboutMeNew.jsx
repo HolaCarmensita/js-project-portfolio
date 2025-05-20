@@ -17,6 +17,7 @@ const SocialWrapper = styled.div`
   pointer-events: none;
   z-index: 1000;
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   transition: opacity 0.5s ease-in-out;
 `;
 
@@ -71,20 +72,7 @@ function AboutMeNew() {
       </CornerButtonWrapper>
 
       <SocialWrapper $visible={isVisible}>
-        <SocialMedia
-          variant='verticalAbsolute'
-          visibility='desktop'
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '1rem',
-            transform: 'translateY(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.5rem',
-            pointerEvents: 'auto',
-          }}
-        />
+        <SocialMedia variant='verticalAbsolute' visibility='desktop' />
       </SocialWrapper>
 
       <ProfileCardNew />
