@@ -11,32 +11,35 @@
   "phone": "+46 701 234 567",
   "skills": {
     "code": [
-      "HTML",
-      "CSS",
-      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "TypeScript",
       "React",
       "Vue.js",
-      "TypeScript",
-      "React Hooks",
       "Node.js"
     ],
     "toolbox": [
-      "Postman",
-      "Adobe Illustrator",
-      "Photodhop",
       "Figma",
-      "Slack",
-      "Git",
-      "MongoDB"
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "Postman",
+      "MongoDB",
+      "Git & GitHub",
+      "Vite"
     ],
-    "upcoming": ["Vibe-coding", "React Native", "Backend Development"],
+    "upcoming": [
+      "React Native",
+      "Backend Development",
+      "Fullstack with Express & MongoDB"
+    ],
     "more": [
-      "Agile methodology",
+      "Agile Methodology (Scrum)",
+      "UX Design",
+      "Web Accessibility (WCAG)",
       "Process Design",
-      "UX-design",
-      "Web Accessibility",
-      "IT-Consulting",
-      "Workshop Facilitation"
+      "Workshop Facilitation",
+      "IT Consulting"
     ]
   },
   "socialMedia": {
