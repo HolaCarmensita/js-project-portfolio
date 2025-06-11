@@ -87,7 +87,7 @@ const ProfileText = styled.div`
   text-align: center;
   max-width: 500px;
 
-  h4 {
+  h3 {
     font-size: 1.5rem;
     font-weight: normal;
   }
@@ -115,7 +115,7 @@ function ProfileCard() {
           </ProfileTitle>
           <ProfileImage role='img' aria-label='Picture of Casandra' />
           <ProfileText>
-            <h4>Frontend Developer with a background in digital design</h4>
+            <h3>Frontend Developer with a background in digital design</h3>
             <p>{profile.descriptionShort}</p>
             <Test>
               {/* <p>Ready to build increíble things together?</p> */}
