@@ -113,7 +113,7 @@ function ProfileCard() {
             <h1>Casandra</h1>
             <p>@Github HolaCarmensita</p>
           </ProfileTitle>
-          <ProfileImage aria-label='Picture of Casandra' />
+          <ProfileImage role='img' aria-label='Picture of Casandra' />
           <ProfileText>
             <h4>Frontend Developer with a background in digital design</h4>
             <p>{profile.descriptionShort}</p>
