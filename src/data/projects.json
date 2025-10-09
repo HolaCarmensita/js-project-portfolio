@@ -1,12 +1,81 @@
 {
   "projects": [
     {
+      "name": "The Pensieve",
+      "image": "/flatProfile.png",
+      "tags": [
+        "React",
+        "Three.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Styled Components",
+        "Zustand"
+      ],
+      "netlify": "https://aesthetic-dolphin-63dc60.netlify.app/profile",
+      "github": "https://github.com/HolaCarmensita/project-final",
+      "description": "A collaborative platform where users can share and discover creative ideas in an immersive 3D environment. Connect with ideas and find collaborators for your projects through idea connections.",
+      "gallery": [
+        {
+          "image": "/3dspace.gif",
+          "caption": "Ideas floating in 3D space"
+        },
+        {
+          "image": "/Ideas.png",
+          "caption": "Ideas in 3D space"
+        },
+        {
+          "image": "/browsingIdea.gif",
+          "caption": "Exploring an idea"
+        },
+
+        {
+          "image": "/ProfilePage.png",
+          "caption": "User profile page"
+        }
+      ]
+    },
+    {
+      "name": "Coparenting App",
+      "image": "/CoParentingApp.png",
+      "tags": ["Figma", "Illustrator", "Photoshop"],
+      "netlify": "https://www.co-parenting.app/about-us/",
+      "github": "",
+      "description": "The Co-parenting app makes shared parenting simpler — It's built to bring clarity, calm, and collaboration where it matters most. I had the privilege of redesigning the app with a focus on improving usability and aesthetics while keeping major code changes to a minimum. So, what can you do with almost only CSS changes? A lot! I also designed their new homepage, carefully tailored to meet their goals and requirements.",
+      "gallery": [
+        {
+          "image": "/beforeAfter.png",
+          "caption": "Before and after pictures of the apps design"
+        },
+        {
+          "image": "/BeforeAfterLists.png",
+          "caption": "Before and after pictures of the apps design"
+        },
+        {
+          "image": "/HomePageDesignFAQ.png",
+          "caption": "FAQ page Coparenting app homepage"
+        },
+        {
+          "image": "/HomedesignArticals.png",
+          "caption": "Knowledge page Coparenting app homepage"
+        }
+      ]
+    },
+    {
+      "name": "Happy Thoughts App",
+      "image": "/happyThoughts.png",
+      "tags": ["HTML5", "CSS3", "JavaScript", "API", "Styled Components"],
+      "netlify": "https://holahappythoughts.netlify.app/",
+      "github": "https://github.com/HolaCarmensita/js-project-happy-thoughts",
+      "description": "A cheerful React app using a public API to fetch, post, and like positive messages in real time. Fully responsive with smooth animations and a clean component structure using hooks."
+    },
+    {
       "name": "Recipe Explorer",
       "image": "/recipeLibrary.png",
       "tags": ["HTML5", "CSS3", "JavaScript", "API"],
       "netlify": "https://recipe-library-technigo.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-recipe-library",
-      "description": "Recipe Explorer fetches real recipes from Spoonacular, displays dynamic cards, lets you combine filters and sorting, hit “Surprise Me!” for a random pick, and handles empty or quota-exceeded states."
+      "description": "Recipe Explorer fetches real recipes from Spoonacular, displays dynamic cards, lets you combine filters and sorting, hit a \"Surprise Me!\" button for a random pick, and handles empty or quota-exceeded states."
     },
     {
       "name": "Weather Dashboard",
@@ -22,14 +91,6 @@
       "netlify": "https://earth2weather.netlify.app/",
       "github": "https://github.com/HolaCarmensita/js-project-weather-app?tab=readme-ov-file",
       "description": "A collaboratively built, dynamic TypeScript app that uses the OpenWeatherMap API to deliver real-time conditions and a 4-day forecast in a fully responsive interface."
-    },
-    {
-      "name": "Happy Thoughts App",
-      "image": "/happyThoughts.png",
-      "tags": ["HTML5", "CSS3", "JavaScript", "API", "Styled Components"],
-      "netlify": "https://holahappythoughts.netlify.app/",
-      "github": "https://github.com/HolaCarmensita/js-project-happy-thoughts",
-      "description": "A cheerful React app using a public API to fetch, post, and like positive messages in real time. Fully responsive with smooth animations and a clean component structure using hooks."
     }
   ]
 }

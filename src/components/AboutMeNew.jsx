@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import ProfileCardNew from './ProfileCardNew';
 import Button from './Button';
 import styled from 'styled-components';
-import Skills from './Skills';
 import CircleLeft from './CircleLeft';
 import SocialMedia from './SocialMedia';
 
@@ -81,8 +80,6 @@ function AboutMeNew() {
       </SocialWrapper>
 
       <ProfileCardNew />
-      <Skills />
-      {/* ... */}
     </AboutSection>
   );
 }

@@ -1,6 +1,7 @@
 import Navigation from './components/Navigation';
 import IntroSection from './components/IntroSection';
 import AboutMeNew from './components/AboutMeNew';
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
@@ -18,6 +19,7 @@ export const App = () => {
       <main>
         <IntroSection />
         <AboutMeNew />
+        <Skills />
         <Projects />
         <GetInTouch />
       </main>

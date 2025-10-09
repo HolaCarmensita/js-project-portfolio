@@ -40,7 +40,7 @@ const Divader = styled.div`
 
 function Skills() {
   return (
-    <FullWidthSection id='about'>
+    <FullWidthSection id='skills'>
       <LayoutWrapper>
         <SkillsSection>
           <h2>Skills</h2>

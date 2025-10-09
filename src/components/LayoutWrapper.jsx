@@ -13,8 +13,8 @@ const LayoutWrapper = styled.div`
 
   /* max-width: clamp(375px, 90vw, 1180px); */
 
-  /* Största desktop */
-  max-width: 1100px;
+  /* Största desktop - bredare på stora skärmar */
+  max-width: 1280px;
 
   /* LANDSCAPE – max-width 1024px, bara i landskapsläge */
   @media screen and (max-width: 1024px) and (orientation: landscape) {
@@ -28,7 +28,7 @@ const LayoutWrapper = styled.div`
 
   /* PORTRAIT – max-width 1024px, bara i stående portrait-läge */
   @media screen and (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
-    max-width: 820px; /* eller vad du vill för portrait */
+    max-width: 900px; /* lite bredare här också */
   }
 
   /* Tablet/tablet-stor mobil (oavsett orientation, men under 768px bredd) */

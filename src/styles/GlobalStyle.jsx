@@ -123,10 +123,6 @@ h3{
   color: var(--link-color);
 }
 
-  a:hover {
-  font-weight: 600;
-}
-
   a:visited {
   color: var(--link-color);
 }

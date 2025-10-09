@@ -6,6 +6,7 @@ import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
 import { slideUpAnimation } from '../styles/styled-utils';
 import Button from './Button';
+import { useState } from 'react';
 
 const FullWidthSection = styled.section`
   position: relative;
@@ -42,26 +43,47 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const ProfileImage = styled.div`
+const ProfileImageContainer = styled.div`
+  position: relative;
   width: 100%;
   max-width: 280px;
-  background-image: url(${profile.image});
-  background: url(${profile.image}) center/cover no-repeat;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-
-  /* smooth transition */
-  transition: background-image 1s ease-in-out, transform 1s ease;
-
-  &:hover {
-    background-image: url(${profile.hoverImg});
-    /* optional extra effect */
-    transform: scale(1.05);
-  }
+  overflow: hidden;
 
   @media (min-width: 1366px) {
     max-width: 320px;
   }
+`;
+
+const ProfileImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${profile.image}) center/cover no-repeat;
+  border-radius: 50%;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease;
+  opacity: ${({ $isHovered }) => ($isHovered ? 0 : 1)};
+
+  /* Lägg till en subtle zoom på hover */
+  transform: ${({ $isHovered }) => ($isHovered ? 'scale(1.05)' : 'scale(1)')};
+`;
+
+const ProfileImageHover = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${profile.hoverImg}) center/cover no-repeat;
+  border-radius: 50%;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease;
+  opacity: ${({ $isHovered }) => ($isHovered ? 1 : 0)};
+
+  /* Lägg till en subtle zoom på hover */
+  transform: ${({ $isHovered }) => ($isHovered ? 'scale(1.05)' : 'scale(1)')};
 `;
 
 const ProfileTitle = styled.div`
@@ -104,6 +126,8 @@ const Test = styled.div`
 `;
 
 function ProfileCard() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <FullWidthSection>
       <LayoutWrapper>
@@ -113,7 +137,15 @@ function ProfileCard() {
             <h1>Casandra</h1>
             <p>@Github HolaCarmensita</p>
           </ProfileTitle>
-          <ProfileImage role='img' aria-label='Picture of Casandra' />
+          <ProfileImageContainer
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            role='img'
+            aria-label='Picture of Casandra'
+          >
+            <ProfileImage $isHovered={isHovered} />
+            <ProfileImageHover $isHovered={isHovered} />
+          </ProfileImageContainer>
           <ProfileText>
             <h3>Frontend Developer with a background in digital design</h3>
             <p>{profile.descriptionShort}</p>

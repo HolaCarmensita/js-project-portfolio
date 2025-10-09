@@ -24,9 +24,9 @@ const ProjectSection = styled.section`
 `;
 
 const ProjectCardContainer = styled.div`
-  ${slideUpAnimationFast}
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8rem;
 `;
 

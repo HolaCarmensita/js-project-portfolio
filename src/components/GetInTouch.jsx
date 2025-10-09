@@ -24,8 +24,24 @@ const LinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  a {
-    text-decoration: none;
+`;
+
+const EmailLink = styled.a`
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+
+  &:hover {
+    color: var(--color-text);
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 1.5px;
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 `;
 
@@ -36,12 +52,14 @@ function GetInTouch() {
         <GetInTouchSection>
           <h2>Get in touch! / ¡Hablemos!</h2>
           <LinkContainer>
-            <a
+            <EmailLink
               href={`mailto:${profile.email}?subject=Contact from portfolio!`}
+              target='_blank'
+              rel='noopener noreferrer'
               aria-label={`Send an email to ${profile.email}`}
             >
               {profile.email}
-            </a>
+            </EmailLink>
 
             {/* <a
               href={`tel:${profile.phone}`}

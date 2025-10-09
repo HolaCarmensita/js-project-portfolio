@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 const NavWrapper = styled.nav`
   position: fixed;
   left: 3rem;
-  top: 2.1rem;
+  top: 2.5rem;
   transform: ${({ $sticky }) =>
-    $sticky ? 'translateY(0)' : 'translateY(calc(100vh - 11rem))'};
+    $sticky ? 'translateY(0)' : 'translateY(calc(100vh - 13rem))'};
   transition: transform 1.5s ease-in-out;
   z-index: 1000;
 
@@ -34,6 +34,13 @@ const NavLink = styled.a`
   &.active {
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
   }
 `;
 
@@ -61,7 +68,7 @@ function Navigation() {
 
   // 3) Observe sections to update URL & active link
   useEffect(() => {
-    const ids = ['hola', 'about', 'projects', 'contact'];
+    const ids = ['hola', 'about', 'skills', 'projects', 'contact'];
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean);
@@ -87,7 +94,7 @@ function Navigation() {
   return (
     <NavWrapper $sticky={isSticky}>
       <NavList>
-        {['hola', 'about', 'projects', 'contact'].map((id) => (
+        {['hola', 'about', 'skills', 'projects', 'contact'].map((id) => (
           <li key={id}>
             <NavLink
               href={`#${id}`}

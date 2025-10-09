@@ -1,14 +1,31 @@
 import { css, keyframes } from 'styled-components';
+
 //////////////
+// COMPATIBLE ANIMATIONS - Works in all browsers
+// These animations use a combination of modern CSS and fallback support
+//////////////
+
 export const slideUpAnimation = css`
-  /* start fully transparent and shifted down */
+  /* Start fully transparent and shifted down */
   opacity: 0;
   transform: translateY(200px);
 
-  /* hook up your keyframes on the view-timeline */
-  animation: slideUp 2.5s ease forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+  /* Modern browsers with view-timeline support */
+  @supports (animation-timeline: view()) {
+    animation: slideUp 2.5s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+  /* Fallback for browsers without view-timeline support */
+  @supports not (animation-timeline: view()) {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @keyframes slideUp {
     to {
@@ -19,14 +36,26 @@ export const slideUpAnimation = css`
 `;
 
 export const slideUpAnimationFast = css`
-  /* start fully transparent and shifted down */
+  /* Start fully transparent and shifted down */
   opacity: 0;
   transform: translateY(200px);
 
-  /* hook up your keyframes on the view-timeline */
-  animation: slideUpFast 2.5s ease forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 20%;
+  /* Modern browsers with view-timeline support */
+  @supports (animation-timeline: view()) {
+    animation: slideUpFast 2.5s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+
+  /* Fallback for browsers without view-timeline support */
+  @supports not (animation-timeline: view()) {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @keyframes slideUpFast {
     to {
@@ -42,9 +71,22 @@ export const appearAnimation = css`
   transform: scale(0.9);
   transform-origin: center center;
 
-  animation: appearAnimation 1s linear forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 30%;
+  /* Modern browsers with view-timeline support */
+  @supports (animation-timeline: view()) {
+    animation: appearAnimation 1s linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  /* Fallback for browsers without view-timeline support */
+  @supports not (animation-timeline: view()) {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.in-view {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
   @keyframes appearAnimation {
     to {
@@ -56,9 +98,22 @@ export const appearAnimation = css`
 
 export const opacityAppear = css`
   opacity: 0;
-  animation: opacityAppear 1s linear forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 10%;
+
+  /* Modern browsers with view-timeline support */
+  @supports (animation-timeline: view()) {
+    animation: opacityAppear 1s linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 10%;
+  }
+
+  /* Fallback for browsers without view-timeline support */
+  @supports not (animation-timeline: view()) {
+    transition: opacity 0.6s ease;
+
+    &.in-view {
+      opacity: 1;
+    }
+  }
 
   @keyframes opacityAppear {
     from {
@@ -72,9 +127,24 @@ export const opacityAppear = css`
 `;
 
 export const tittutAnimation = css`
-  animation: tittutAnimation linear forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 50%;
+  clip-path: inset(0 0 100% 0);
+  transform-origin: top;
+
+  /* Modern browsers with view-timeline support */
+  @supports (animation-timeline: view()) {
+    animation: tittutAnimation linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+  }
+
+  /* Fallback for browsers without view-timeline support */
+  @supports not (animation-timeline: view()) {
+    transition: clip-path 0.8s ease;
+
+    &.in-view {
+      clip-path: inset(0 0 0 0);
+    }
+  }
 
   @keyframes tittutAnimation {
     from {
@@ -83,41 +153,6 @@ export const tittutAnimation = css`
     }
     to {
       clip-path: inset(0 0 0 0);
-    }
-  }
-`;
-
-export const tittutAnimationSmall = css`
-  clip-path: inset(0 0 100% 0);
-  transform-origin: top;
-
-  /* Scroll-timed animation, nu klar redan vid cover 30% */
-  animation: tittutAnimationSmall linear forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 20%;
-
-  @keyframes tittutAnimationSmall {
-    to {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-`;
-
-export const circleGrowIn = css`
-  opacity: 0;
-  transform: scale(0.2);
-  animation: circleGrowIn ease-out forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 50%;
-
-  @keyframes circleGrowIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.2);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
     }
   }
 `;

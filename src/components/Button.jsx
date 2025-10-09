@@ -14,6 +14,11 @@ const LinkWrapper = styled.a`
   display: inline-block;
   text-decoration: none;
   padding-bottom: ${STROKE_WIDTH * 2}px;
+
+  /* Override global hover style - keep font-weight normal */
+  &:hover {
+    font-weight: inherit;
+  }
 `;
 const ButtonWrapper = styled.button`
   position: relative;
@@ -22,6 +27,11 @@ const ButtonWrapper = styled.button`
   border: none;
   cursor: pointer;
   font: inherit;
+
+  /* Ensure no font-weight change on hover */
+  &:hover {
+    font-weight: inherit;
+  }
 `;
 const WaveSvg = styled.svg`
   position: absolute;
