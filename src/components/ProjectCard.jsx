@@ -99,7 +99,7 @@ const GalleryToggleButton = styled.button`
 const GalleryGrid = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8 rem;
+  gap: 6rem;
   align-items: center;
 `;
 
