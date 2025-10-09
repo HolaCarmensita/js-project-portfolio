@@ -17,22 +17,24 @@
       "TypeScript",
       "React",
       "Vue.js",
-      "Node.js"
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Styled Components",
+      "Zustand"
     ],
     "toolbox": [
       "Figma",
       "Adobe Illustrator",
       "Adobe Photoshop",
       "Postman",
-      "MongoDB",
       "Git & GitHub",
-      "Vite"
+      "Vite",
+      "Three.js",
+      "Cloudinary",
+      "Multer"
     ],
-    "upcoming": [
-      "React Native",
-      "Backend Development",
-      "Fullstack with Express & MongoDB"
-    ],
+    "upcoming": ["React Native", "Backend Development"],
     "more": [
       "Agile Methodology (Scrum)",
       "UX Design",
