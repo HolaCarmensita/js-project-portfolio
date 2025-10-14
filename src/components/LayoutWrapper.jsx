@@ -10,11 +10,16 @@ const LayoutWrapper = styled.div`
   align-items: center;
   padding-block: clamp(1rem, 10vw, 3rem);
   padding-inline: clamp(1rem, 5vw, 3rem);
+  max-width: 1180px;
 
-  /* max-width: clamp(375px, 90vw, 1180px); */
+  /* Extra stora skärmar */
+  @media (min-width: 1440px) {
+    max-width: 1150px;
+  }
 
-  /* Största desktop - bredare på stora skärmar */
-  max-width: 1280px;
+  @media (min-width: 1920px) {
+    max-width: 1500px;
+  }
 
   /* LANDSCAPE – max-width 1024px, bara i landskapsläge */
   @media screen and (max-width: 1024px) and (orientation: landscape) {

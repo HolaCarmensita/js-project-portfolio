@@ -34,15 +34,13 @@
       "Cloudinary",
       "Multer"
     ],
-    "upcoming": ["React Native", "Backend Development"],
-    "more": [
-      "Agile Methodology (Scrum)",
-      "UX Design",
-      "Web Accessibility (WCAG)",
-      "Process Design",
-      "Workshop Facilitation",
-      "IT Consulting"
-    ]
+    "upcoming": [
+      "React Native",
+      "Backend Development",
+      "testdriven development",
+      "Further "
+    ],
+    "more": []
   },
   "socialMedia": {
     "github": {
