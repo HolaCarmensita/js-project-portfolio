@@ -4,7 +4,11 @@ import SocialMedia from './SocialMedia';
 import LayoutWrapper from './LayoutWrapper';
 import CircleLeft from './CircleLeft';
 import CircleRight from './CircleRight';
-import { slideUpAnimation } from '../styles/styled-utils';
+import {
+  slideUpAnimation,
+  appearAnimation,
+  opacityAppear,
+} from '../styles/styled-utils';
 import Button from './Button';
 import { useState } from 'react';
 
@@ -18,11 +22,14 @@ const FullWidthSection = styled.section`
 `;
 
 const ProfileCardContainer = styled.div`
-  ${slideUpAnimation}
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
+  @media (min-width: 768px) {
+    gap: 3rem;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -44,6 +51,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const ProfileImageContainer = styled.div`
+  ${slideUpAnimation}
   position: relative;
   width: 100%;
   max-width: 280px;
@@ -87,6 +95,7 @@ const ProfileImageHover = styled.div`
 `;
 
 const ProfileTitle = styled.div`
+  ${slideUpAnimation}
   text-align: center;
 
   h4 {
@@ -100,6 +109,7 @@ const ProfileTitle = styled.div`
 `;
 
 const ProfileText = styled.div`
+  ${slideUpAnimation}
   display: flex;
   flex-direction: column;
   justify-content: center;
