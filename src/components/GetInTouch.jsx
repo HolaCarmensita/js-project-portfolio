@@ -27,15 +27,16 @@ const LinkContainer = styled.div`
 `;
 
 const EmailLink = styled.a`
-  color: var(--color-accent);
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-color: var(--link-color);
+  text-decoration-thickness: 2px;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+  transition: text-decoration-color 0.3s ease;
 
   &:hover {
-    color: var(--color-text);
     text-decoration-color: var(--color-accent);
-    text-decoration-thickness: 1.5px;
   }
 
   &:focus {
