@@ -28,7 +28,8 @@
       "Styled Components",
       "Zustand",
       "REST API & API Integrations",
-      "Authentication JWT",
+      "Authentication JWT", 
+      "Pytest"
     ],
     "toolbox": [
       "Git & GitHub",
@@ -39,16 +40,15 @@
       "Cloudinary",
       "Multer",
       "Composer",
-      "pytest",
       "Figma",
-      "Adobe Illustrator",
+      "Adobe Illustrator"
     ],
     "upcoming": [
       "AI Experience Design",
       "AI Product Development",
       "AI-Assisted Development",
       "Backend Architecture",
-      "Test-Driven Development (TDD)",
+      "Test-Driven Development"
     ],
     "more": [
       "Agile Methodology (Scrum)",
@@ -58,7 +58,7 @@
       "State Management", 
       "IT Consulting",
       "Workshop Facilitation",
-      "Change Management",
+      "Change Management"
     ]
   },
   "socialMedia": {
